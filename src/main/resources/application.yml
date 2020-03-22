@@ -4,10 +4,25 @@ github:
     ids: Iv1.e1445cb4e1c12491
     secret: 8effd45fa967f304d4cabc222c11cbfc4fcb9cea
   redirect.uri: http://localhost:8887/callback
+
+# 配置数据源
 spring:
   datasource:
     url: jdbc:mysql://39.97.226.211:3306/community?serverTimezone=UTC
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#配置数据源
+
+# 配置Mybatis驼峰命名
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.ccsu.community.model
+  mapper-locations: classpath:mapper/*.xml
+
+
+# 设置cookie存在时间
+servlet:
+  session:
+    cookie:
+      max-age: 60*60*24*365
