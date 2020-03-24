@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hobo社区</title>
+    <!--引入bootstrap-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/community.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+
+</head>
+<body>
+<div th:replace="commons/navigation::navbar"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron my-error">
+            <h1>出错啦！！！</h1>
+<!--            <p>服务器太热啦，小哥哥过一会再来噢~</p>-->
+            <p>[[${message}]]</p>
+            <p></p>
+            <span th:if="${code}!=null">代号：[[${code}]]</span>
+            <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

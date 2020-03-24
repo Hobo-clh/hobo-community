@@ -1,6 +1,5 @@
 package com.ccsu.community.controller;
 
-import com.ccsu.community.mapper.QuestionMapper;
 import com.ccsu.community.model.Question;
 import com.ccsu.community.model.User;
 import com.ccsu.community.service.QuestionService;
@@ -22,7 +21,7 @@ public class PublishController {
     private QuestionService questionService;
 
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(name = "id") Integer id,
+    public String edit(@PathVariable(name = "id") Long id,
                        Model model){
         Question question = questionService.getQuestionById(id);
         model.addAttribute("title", question.getTitle());
@@ -42,7 +41,7 @@ public class PublishController {
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("tag") String tag,
-            @RequestParam("id") Integer id,
+            @RequestParam("id") Long id,
             HttpServletRequest request,
             Model model) {
 
@@ -61,20 +60,17 @@ public class PublishController {
             model.addAttribute("error", "文章至少要有一个标签");
             return "publish";
         }
-
         User user = (User)request.getSession().getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "用户未登录");
             return "publish";
         }
-
         Question question = new Question();
         question.setId(id);
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);
         question.setCreator(user.getId());
-
         questionService.createOrUpdate(question);
         model.addAttribute("success", "发布成功！");
         return "publish";

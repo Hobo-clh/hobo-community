@@ -2,6 +2,9 @@ package com.ccsu.community.service;
 
 import com.ccsu.community.dto.PaginationDTO;
 import com.ccsu.community.dto.QuestionDTO;
+import com.ccsu.community.exception.CustomizeErrorCode;
+import com.ccsu.community.exception.CustomizeException;
+import com.ccsu.community.mapper.QuestionExtMapper;
 import com.ccsu.community.mapper.QuestionMapper;
 import com.ccsu.community.mapper.UserMapper;
 import com.ccsu.community.model.Question;
@@ -11,6 +14,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +26,15 @@ public class QuestionService {
     QuestionMapper questionMapper;
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
-        /**
-         *  page size -->limit page-1,size-->(page-1)*size个数
-         *  count(1)-->总数-->if 总数%size!=0 则页数为总数/size
-         */
+
+//         page size -->limit page-1,size-->(page-1)*size个数
+//         count(1)-->总数-->if 总数%size!=0 则页数为总数/size
+
         PaginationDTO paginationDTO = new PaginationDTO();
-        QuestionExample example1 = new QuestionExample();
 
         Integer totalCount = (int)questionMapper.countByExample(new QuestionExample());
         //查看页数是否合法
@@ -41,12 +46,11 @@ public class QuestionService {
             page=paginationDTO.getTotalPage();
         }
         Integer offset = size * (page - 1);
-        QuestionExample example = new QuestionExample();
         List<Question> questionList = questionMapper.selectByExampleWithRowbounds(new QuestionExample(), new RowBounds(offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<>();
-
-
         for (Question question : questionList) {
+           // System.out.println(question);
+
             User user = userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             //将question的属性copy到questionDTO中
@@ -60,7 +64,7 @@ public class QuestionService {
 
     }
 
-    public PaginationDTO list(Integer userId,Integer page, Integer size) {
+    public PaginationDTO list(Long userId,Integer page, Integer size) {
 
         PaginationDTO paginationDTO = new PaginationDTO();
         QuestionExample example = new QuestionExample();
@@ -97,10 +101,13 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
 
         QuestionDTO questionDTO = new QuestionDTO();
         Question questionById = questionMapper.selectByPrimaryKey(id);
+        if(questionById==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         User user = userMapper.selectByPrimaryKey(questionById.getCreator());
         BeanUtils.copyProperties(questionById,questionDTO);
         questionDTO.setUser(user);
@@ -113,6 +120,9 @@ public class QuestionService {
             //创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setViewCount(0);
+            question.setCommentCount(0);
+            question.setLikeCount(0);
             questionMapper.insert(question);
         }else{
             //更新
@@ -120,11 +130,21 @@ public class QuestionService {
             QuestionExample example = new QuestionExample();
             example.createCriteria()
                     .andCreatorEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(question, example);
+            int i = questionMapper.updateByExampleSelective(question, example);
+            if(i !=1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 
-    public Question getQuestionById(Integer id) {
+    public Question getQuestionById(Long id) {
         return questionMapper.selectByPrimaryKey(id);
+    }
+
+    public void incView(Long id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }

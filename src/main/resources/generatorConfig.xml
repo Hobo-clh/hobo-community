@@ -5,6 +5,7 @@
 
 <generatorConfiguration>
     <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 分页插件-->
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://39.97.226.211:3306/community?serverTimezone=UTC"
@@ -34,5 +35,6 @@
 
         <table tableName="user" domainObjectName="User" ></table>
         <table tableName="question" domainObjectName="Question" ></table>
+        <table tableName="comment" domainObjectName="Comment" ></table>
     </context>
 </generatorConfiguration>
