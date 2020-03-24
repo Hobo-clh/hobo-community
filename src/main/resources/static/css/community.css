@@ -4,7 +4,7 @@ body {
 
 .main {
     background-color: white;
-    margin: 30px;
+    margin: 30px 100px;
 }
 
 .btn-publish {
@@ -39,11 +39,55 @@ body {
     color: #999;
 }
 
-.community-menu{
+.community-menu {
     color: #999;
     font-size: 13px;
 }
 
 .my-error {
     text-align: center;
+}
+
+.media-body {
+    padding-top: 5px;
+}
+
+.comment {
+    margin: 12px 0;
+}
+
+.question-sp {
+    margin-top: 0;
+}
+
+.my-media-heading {
+    margin-bottom: 0;
+}
+
+.my-menu {
+    font-size: 15px;
+}
+
+.my-menu .icon {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.my-menu .icon:hover {
+    color: #27859a;
+}
+
+.my-media-body {
+    border-bottom: 1px solid rgb(245, 245, 245);
+    padding-bottom: 5px;
+}
+
+.comment-desc {
+    margin-bottom: 3px;
+}
+.whole{
+    margin: 1px
+}
+.my-title{
+    margin-top: 20px;
 }

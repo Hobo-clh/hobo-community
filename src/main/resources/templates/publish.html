@@ -19,7 +19,6 @@
             <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 发起</h2>
             <hr>
             <form action="/publish" method="post">
-<!--                目前还不知道为什么要这个id-->
                 <input type="hidden" name="id" th:value="${id}">
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）:</label>
@@ -27,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">问题补充（必填，请参照右侧提示）:</label>
-                    <textarea name="description" id="description" th:text="${description}" class="form-control"></textarea>
+                    <textarea name="description" id="description" th:text="${description}" class="form-control" rows="7"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tag">添加标签:</label>

@@ -12,9 +12,23 @@
 
 </head>
 <body>
+
+<script type="application/javascript">
+    window.onload = function () {
+
+        let closable = window.localStorage.getItem("closable");
+        let questionId = window.localStorage.getItem("questionId");
+        if (closable == "true"){
+            window.open("/question/"+questionId,"_self");
+            window.localStorage.removeItem("closable")
+        }
+    }
+</script>
+
 <div th:replace="commons/navigation::navbar"></div>
 <div class="container-fluid main">
-    <div class="row">
+    <div class="row whole">
+        <!--左边主要内容-->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
             <hr>
@@ -24,9 +38,9 @@
                         <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}">
                     </a>
                 </div>
-                <div class="media-body">
+                <div class="media-body my-media-body">
                     <a th:href="@{/question/__${quesion.id}__}">
-                        <h4 class="media-heading" th:text="${quesion.title}">
+                        <h4 class="media-heading my-media-heading" th:text="${quesion.title}">
                         </h4>
                     </a>
 <!--                    <span th:text="${quesion.description}"></span><br>-->
@@ -69,6 +83,7 @@
             </nav>
 
         </div>
+        <!--右边信息块-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h3>最新话题</h3>
         </div>

@@ -129,9 +129,9 @@ public class QuestionService {
             question.setGmtModified(System.currentTimeMillis());
             QuestionExample example = new QuestionExample();
             example.createCriteria()
-                    .andCreatorEqualTo(question.getId());
-            int i = questionMapper.updateByExampleSelective(question, example);
-            if(i !=1){
+                    .andIdEqualTo(question.getId());
+            int update = questionMapper.updateByExampleSelective(question, example);
+            if(update !=1){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }

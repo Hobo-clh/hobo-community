@@ -14,7 +14,7 @@
 <body>
 <div th:replace="commons/navigation::navbar"></div>
 <div class="container-fluid main profile">
-    <div class="row">
+    <div class="row whole">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2 th:text="${sectionName}"></h2>
 
@@ -25,7 +25,7 @@
 
                     </a>
                 </div>
-                <div class="media-body">
+                <div class="media-body my-media-body">
                     <a th:href="@{/question/__${quesion.id}__}">
                         <h4 class="media-heading" th:text="${quesion.title}"></h4>
                     </a>
