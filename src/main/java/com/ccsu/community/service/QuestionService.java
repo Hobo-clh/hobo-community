@@ -68,7 +68,8 @@ public class QuestionService {
 
         PaginationDTO paginationDTO = new PaginationDTO();
         QuestionExample example = new QuestionExample();
-        example.createCriteria().andCreatorEqualTo(userId);
+        example.createCriteria()
+                .andCreatorEqualTo(userId);
         Integer totalCount = (int)questionMapper.countByExample(example);
         //查看页数是否合法
         paginationDTO.setPagination(totalCount,page,size);

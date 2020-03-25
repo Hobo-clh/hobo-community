@@ -18,46 +18,48 @@
     <div class="row whole">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <!--正文-->
-            <h3 class="my-title"><span th:text="${questionDTO.title}"></span></h3>
-            <span class="text-desc">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 class="my-title"><span th:text="${questionDTO.title}"></span></h3>
+                <span class="text-desc">
                 作者：<span th:text="${questionDTO.user.loginName}"></span>
                 | 阅读数：<span th:text="${questionDTO.viewCount}"></span>
                 | 发布于<span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
             </span>
-            <hr>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${questionDTO.description}"></div>
-            <br><hr>
-            <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
-                <span class="glyphicon glyphicon-pencil " aria-hidden="true"></span>
-                编辑
-            </a>
+                <hr>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${questionDTO.description}"></div>
+                <br><hr>
+                <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
+                    <span class="glyphicon glyphicon-pencil " aria-hidden="true"></span>
+                    编辑
+                </a>
+            </div>
             <hr>
             <!--回复功能-->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="comment-section">
-               <div class="media">
-                   <div class="media-left">
-                       <a href="#">
-                           <img class="media-object img-rounded" th:if="${session.user!=null}"
-                                th:src="${session.user.avatarUrl}">
-                       </a>
-                       <a href="#">
-                           <img class="media-object img-rounded" th:if="${session.user==null}"
-                                 src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1511126680,2261184413&fm=26&gp=0.jpg">
-                       </a>
-                   </div>
-                   <div class="media-body">
-                       <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>
-                       <span th:if="${session.user==null}">游客</span>
-                   </div>
-               </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-rounded" th:if="${session.user!=null}"
+                                 th:src="${session.user.avatarUrl}">
+                        </a>
+                        <a href="#">
+                            <img class="media-object img-rounded" th:if="${session.user==null}"
+                                 src="/images/default.jfif">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>
+                        <span th:if="${session.user==null}">游客</span>
+                    </div>
+                </div>
                 <input type="hidden" id="question_id" th:value="${questionDTO.id}">
-                <textarea class="form-control comment" id="comment_content" rows="6"></textarea>
+                <textarea class="form-control comment" id="comment_content" placeholder="评论一下~" rows="6"></textarea>
                 <button type="submit" class="btn btn-success btn-publish" onclick="post()">评论</button>
             </div>
-            <h3 th:text="${questionDTO.commentCount}+'个回复'"></h3>
-            <!--评论列表-->
-            <hr class="question-sp">
 
+            <h3 th:text="${questionDTO.commentCount}+'个回复'"></h3>
+            <hr class="question-sp">
+            <!--评论列表-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${questionDTO.commentCount!=0}">
                 <!--头像 名称-->
                 <div class="media" th:each="comment : ${comments}">
@@ -73,8 +75,35 @@
                         <!--依次是点赞、评论、时间-->
                         <div class="text-desc my-menu">
                             <span class="glyphicon glyphicon-thumbs-up icon"></span>
-                            <span class="glyphicon glyphicon-comment icon"></span>
+                            <span th:text="${comment.commentCount}"></span>
+                            <span class="glyphicon glyphicon-comment icon" th:data-id="${comment.id}" th:id="${comment.id}" onclick="collapseComments(this)"></span>
+<!--                            <span th:text="${comm}"></span>-->
                             <span class="pull-right" th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
+                        </div>
+                        <!--二级评论展示-->
+                        <div class="collapse two-comment-main" th:id="${'comment-'+comment.id}">
+                            <!--二级评论发表-->
+                            <!--此处的评论有js生成-->
+                            <div >
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object img-rounded" th:if="${session.user!=null}"
+                                                 th:src="${session.user.avatarUrl}">
+                                        </a>
+                                        <a href="#">
+                                            <img class="media-object img-rounded" th:if="${session.user==null}"
+                                                 src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1511126680,2261184413&fm=26&gp=0.jpg">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>
+                                        <span th:if="${session.user==null}">游客</span>
+                                    </div>
+                                </div>
+                                <textarea class="form-control comment" th:id="${'reply-'+comment.id}" rows="2" placeholder="评论一下吧~~~"></textarea>
+                                <button type="submit" class="btn btn-success btn-publish" th:data-id="${comment.id}" onclick="two_comment(this)" >评论</button>
+                            </div>
                         </div>
                     </div>
                 </div>

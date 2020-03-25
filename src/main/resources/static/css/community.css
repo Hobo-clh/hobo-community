@@ -91,3 +91,18 @@ body {
 .my-title{
     margin-top: 20px;
 }
+.add-comment-icon {
+    color: #27859a;
+}
+.two-comment-avatar{
+    width: 32px;
+    height: 32px;
+}
+.two-comment-main{
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+
+}

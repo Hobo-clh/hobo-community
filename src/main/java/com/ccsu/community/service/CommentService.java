@@ -4,11 +4,7 @@ import com.ccsu.community.dto.CommentDTO;
 import com.ccsu.community.enums.CommentTypeEnum;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
-import com.ccsu.community.exception.ICustomizeErrorCode;
-import com.ccsu.community.mapper.CommentMapper;
-import com.ccsu.community.mapper.QuestionExtMapper;
-import com.ccsu.community.mapper.QuestionMapper;
-import com.ccsu.community.mapper.UserMapper;
+import com.ccsu.community.mapper.*;
 import com.ccsu.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +28,8 @@ public class CommentService {
     private QuestionExtMapper questionExtMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CommentExtMapper commentExtMapper;
 
     @Transactional
     public void insert(Comment comment){
@@ -48,6 +46,8 @@ public class CommentService {
             if(dbComment == null){
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
+            dbComment.setCommentCount(1);
+            commentExtMapper.incCommentCount(dbComment);
         }else {
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -57,15 +57,16 @@ public class CommentService {
             question.setCommentCount(1);
             questionExtMapper.incComment(question);
         }
+
         commentMapper.insert(comment);
         
     }
 
-    public List<CommentDTO> listByQuestionId(Long id) {
+    public List<CommentDTO> listByIdAndType(Long id, CommentTypeEnum typeEnum) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria()
                 .andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+                .andTypeEqualTo(typeEnum.getType());
         //拿到所有的问题的评论,并且按创建时间倒序
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
