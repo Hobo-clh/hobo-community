@@ -2,6 +2,8 @@ package com.ccsu.community.service;
 
 import com.ccsu.community.dto.CommentDTO;
 import com.ccsu.community.enums.CommentTypeEnum;
+import com.ccsu.community.enums.NotificationStatusEnum;
+import com.ccsu.community.enums.NotificationTypeEnum;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
 import com.ccsu.community.mapper.*;
@@ -30,6 +32,8 @@ public class CommentService {
     private UserMapper userMapper;
     @Autowired
     private CommentExtMapper commentExtMapper;
+    @Autowired
+    private NotificationMapper notificationMapper;
 
     @Transactional
     public void insert(Comment comment){
@@ -40,26 +44,47 @@ public class CommentService {
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
         if (comment.getType() == CommentTypeEnum.COMMENT.getType()){
-            //回复评论
+            //--回复评论--
             //父评论
             Comment dbComment = commentMapper.selectByPrimaryKey(comment.getParentId());
             if(dbComment == null){
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
+            //新增评论数
             dbComment.setCommentCount(1);
             commentExtMapper.incCommentCount(dbComment);
+            //创建通知
+            createNotify(comment, dbComment.getCommentator(), NotificationTypeEnum.REPLY_COMMENT);
         }else {
-            //回复问题
+            //--回复问题--
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
             if(question == null){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
+            //增加评论数
             question.setCommentCount(1);
             questionExtMapper.incComment(question);
+            //创建通知
+            createNotify(comment, question.getCreator(), NotificationTypeEnum.REPLY_QUESTION);
+
         }
 
         commentMapper.insert(comment);
         
+    }
+    //创建通知的方法
+    private void createNotify(Comment comment, Long receiver, NotificationTypeEnum notificationType) {
+        Notification notification = new Notification();
+        notification.setGmtCreate(System.currentTimeMillis());
+        notification.setType(notificationType.getType());
+        notification.setStatus(NotificationStatusEnum.UNREAD.getStatus());
+        notification.setOuterid(comment.getParentId());
+        notification.setNotifier(comment.getCommentator());
+        //0代表未读
+        notification.setStatus(0);
+        //通知的人
+        notification.setReceiver(receiver);
+        notificationMapper.insert(notification);
     }
 
     public List<CommentDTO> listByIdAndType(Long id, CommentTypeEnum typeEnum) {

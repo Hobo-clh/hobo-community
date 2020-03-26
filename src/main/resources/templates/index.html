@@ -32,7 +32,7 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
             <hr>
-            <div class="media" th:each="quesion:${pagination.questionList}">
+            <div class="media" th:each="quesion:${pagination.objectList}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}">

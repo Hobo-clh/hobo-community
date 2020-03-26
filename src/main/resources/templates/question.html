@@ -26,14 +26,23 @@
                 | 发布于<span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
             </span>
                 <hr>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${questionDTO.description}"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${questionDTO.description}">
+                </div>
                 <br><hr>
-                <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
-                    <span class="glyphicon glyphicon-pencil " aria-hidden="true"></span>
-                    编辑
-                </a>
+                <div class="my-label">
+                    <span th:each="tag:${questionDTO.tag.split(',')}">
+                        <span class="label label-info glyphicon glyphicon-tags"> [[${tag}]]</span>
+                    </span>
+                </div>
+                <hr>
+                <div th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
+                    <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" >
+                        <span class="glyphicon glyphicon-pencil " aria-hidden="true">编辑</span>
+                    </a>
+                    <hr>
+                </div>
             </div>
-            <hr>
+
             <!--回复功能-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="media">
@@ -53,7 +62,7 @@
                     </div>
                 </div>
                 <input type="hidden" id="question_id" th:value="${questionDTO.id}">
-                <textarea class="form-control comment" id="comment_content" placeholder="评论一下~" rows="6"></textarea>
+                <textarea class="form-control comment" id="comment_content" placeholder="评论一下~" rows="4"></textarea>
                 <button type="submit" class="btn btn-success btn-publish" onclick="post()">评论</button>
             </div>
 
@@ -75,10 +84,9 @@
                         <!--依次是点赞、评论、时间-->
                         <div class="text-desc my-menu">
                             <span class="glyphicon glyphicon-thumbs-up icon"></span>
+                            <span class="glyphicon glyphicon-comment icon icon-message" th:data-id="${comment.id}" th:id="${comment.id}" onclick="collapseComments(this)"></span>
                             <span th:text="${comment.commentCount}"></span>
-                            <span class="glyphicon glyphicon-comment icon" th:data-id="${comment.id}" th:id="${comment.id}" onclick="collapseComments(this)"></span>
-<!--                            <span th:text="${comm}"></span>-->
-                            <span class="pull-right" th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
+                            <span class="pull-left my-time" th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
                         </div>
                         <!--二级评论展示-->
                         <div class="collapse two-comment-main" th:id="${'comment-'+comment.id}">
@@ -88,21 +96,24 @@
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="#">
-                                            <img class="media-object img-rounded" th:if="${session.user!=null}"
+                                            <img class="media-object img-circle comment-img" th:if="${session.user!=null}"
                                                  th:src="${session.user.avatarUrl}">
                                         </a>
                                         <a href="#">
-                                            <img class="media-object img-rounded" th:if="${session.user==null}"
+                                            <img class="media-object img-circle comment-img" th:if="${session.user==null}"
                                                  src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1511126680,2261184413&fm=26&gp=0.jpg">
                                         </a>
+<!--                                        <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>-->
+<!--                                        <span th:if="${session.user==null}">游客</span>-->
                                     </div>
                                     <div class="media-body">
-                                        <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>
-                                        <span th:if="${session.user==null}">游客</span>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 my-comment">
+<!--                                            <textarea class="form-control " th:id="${'reply-'+comment.id}" rows="2" placeholder="评论一下吧~~~"></textarea>-->
+                                            <input type="text" class="form-control comment" th:id="${'reply-'+comment.id}" placeholder="评论一下吧~~~">
+                                            <button type="submit" class="btn btn-success btn-publish" th:data-id="${comment.id}" onclick="two_comment(this)" >评论</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <textarea class="form-control comment" th:id="${'reply-'+comment.id}" rows="2" placeholder="评论一下吧~~~"></textarea>
-                                <button type="submit" class="btn btn-success btn-publish" th:data-id="${comment.id}" onclick="two_comment(this)" >评论</button>
                             </div>
                         </div>
                     </div>
@@ -129,6 +140,11 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>相关问题</h3>
+                <ul class="related-ul">
+                    <li th:each="relatedQuestion : ${relatedQuestions}">
+                        <a class="a-tag" th:href="@{/question/__${relatedQuestion.id}__}">[[${relatedQuestion.title}]]</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

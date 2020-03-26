@@ -25,10 +25,13 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user!=null}">
-                        <a href="/publish">提问</a>
+                        <a class="glyphicon glyphicon-plus" href="/publish">提问</a>
+                    </li>
+                    <li th:if="${session.user!=null}">
+                        <a class="glyphicon glyphicon-bell" href="/">通知 <span class="badge">0</span></a>
                     </li>
                     <li class="dropdown" th:if="${session.user!=null}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false" >[[${session.user.loginName}]]
                             <span class="caret"></span>
                         </a>

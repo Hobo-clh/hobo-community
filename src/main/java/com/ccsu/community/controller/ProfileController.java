@@ -1,8 +1,10 @@
 package com.ccsu.community.controller;
 
 import com.ccsu.community.dto.PaginationDTO;
+import com.ccsu.community.mapper.NotificationMapper;
 import com.ccsu.community.mapper.UserMapper;
 import com.ccsu.community.model.User;
+import com.ccsu.community.service.NotificationService;
 import com.ccsu.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +21,10 @@ public class ProfileController {
 
     @Autowired
     UserMapper userMapper;
-
     @Autowired
     QuestionService questionService;
+    @Autowired
+    NotificationService notificationService;
 
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable(name = "action") String action,
@@ -39,13 +42,16 @@ public class ProfileController {
         if("questions".equals(action)){
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我的提问");
+            PaginationDTO pagination = questionService.list(user.getId(), page, size);
+            model.addAttribute("pagination",pagination);
         }else if("replies".equals(action)){
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");
+            PaginationDTO pagination = notificationService.list(user.getId(), page, size);
+            model.addAttribute("pagination",pagination);
         }
 
-        PaginationDTO pagination = questionService.list(user.getId(), page, size);
-        model.addAttribute("pagination",pagination);
+
         return "profile";
     }
 }

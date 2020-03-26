@@ -9,7 +9,7 @@ body {
 
 .btn-publish {
     float: right;
-    margin-bottom: 15px
+    margin-bottom: 6px
 }
 
 .tips-inform {
@@ -53,7 +53,7 @@ body {
 }
 
 .comment {
-    margin: 12px 0;
+    margin: 20px 0 10px 0;
 }
 
 .question-sp {
@@ -69,12 +69,16 @@ body {
 }
 
 .my-menu .icon {
-    margin-right: 6px;
+    margin-left: 15px;
     cursor: pointer;
 }
 
 .my-menu .icon:hover {
     color: #27859a;
+}
+
+.icon-message {
+    margin-left: 15px;
 }
 
 .my-media-body {
@@ -85,24 +89,56 @@ body {
 .comment-desc {
     margin-bottom: 3px;
 }
-.whole{
+
+.whole {
     margin: 1px
 }
-.my-title{
+
+.my-title {
     margin-top: 20px;
 }
+
 .add-comment-icon {
     color: #27859a;
 }
-.two-comment-avatar{
+
+.two-comment-avatar {
     width: 32px;
     height: 32px;
 }
-.two-comment-main{
+
+.two-comment-main {
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid #eee;
     padding: 10px;
 
+}
+
+.my-time {
+    font-size: 12px;
+}
+
+.comment-img{
+    margin-top: 20px;
+}
+
+.my-comment{
+    padding: 0 40px 0 0;
+}
+.my-label {
+    margin-left: 15px;
+}
+.related-ul {
+    list-style-type: none;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.a-tag {
+    text-decoration-line: none;
+}
+
+ul li a:hover {
+    color: #6f9a3b;
 }

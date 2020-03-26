@@ -17,12 +17,11 @@
     <div class="row whole">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2 th:text="${sectionName}"></h2>
-
-            <div class="media" th:each="quesion:${pagination.questionList}">
+            <!--展示我的问题-->
+            <div class="media" th:each="quesion:${pagination.objectList}" th:if="${section=='questions'}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}">
-
                     </a>
                 </div>
                 <div class="media-body my-media-body">
@@ -35,7 +34,20 @@
                     <span th:text="${#dates.format(quesion.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
                 </div>
             </div>
-            <!--            页码-->
+            <!--展示我的回复-->
+            <div class="media"  th:if="${section=='replies'}">
+                <ul >
+                    <li th:each="notification:${pagination.objectList}">
+                        <span th:text="${notification.notifier.loginName}"></span>
+                        <span th:if="${notification.type==1}"> 回复了问题</span>
+                        <span th:if="${notification.type==2}"> 回复了评论</span>
+                        <a th:href="@{/question/__${notification.outerId}__}">
+                            <span th:text="${notification.outerTitle}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--页码-->
             <nav aria-label="Page navigation">
                 <ul class="pagination">
                     <li th:if="${pagination.showFirstPage}">
@@ -71,9 +83,11 @@
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="list-group section">
                 <a href="/profile/questions" class="list-group-item" th:class="${section=='questions'?'list-group-item active':'list-group-item'}">我的问题</a>
-                <a href="/profile/replies" class="list-group-item" th:class="${section=='replies'?'list-group-item active':'list-group-item'}">最新回复<span class="badge">14</span></a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                <a href="/profile/replies" class="list-group-item" th:class="${section=='replies'?'list-group-item active':'list-group-item'}">
+                    最新回复
+                    <span class="badge"></span>
+                </a>
+
             </div>
         </div>
     </div>

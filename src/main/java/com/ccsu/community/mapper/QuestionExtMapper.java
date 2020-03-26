@@ -9,12 +9,7 @@ import java.util.List;
 
 public interface QuestionExtMapper {
 
-    /**
-     * 浏览数
-     * @param record
-     * @return
-     */
     int incView(Question record);
-
     int incComment(Question record);
+    List<Question> selectRelated(Question question);
 }
