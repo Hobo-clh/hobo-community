@@ -7,7 +7,6 @@ function post() {
 function two_comment(e) {
     let commentId = e.getAttribute("data-id");
     let content = $("#reply-"+commentId).val();
-    debugger;
     comment2target(commentId,2,content)
 }
 

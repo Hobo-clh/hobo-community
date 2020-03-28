@@ -2,6 +2,7 @@ package com.ccsu.community.service;
 
 import com.ccsu.community.dto.NotificationDTO;
 import com.ccsu.community.dto.PaginationDTO;
+import com.ccsu.community.enums.NotificationStatusEnum;
 import com.ccsu.community.enums.NotificationTypeEnum;
 import com.ccsu.community.mapper.CommentMapper;
 import com.ccsu.community.mapper.NotificationMapper;
@@ -47,20 +48,18 @@ public class NotificationService {
         }
         //把当前用户的发出的问题拿到并加入DTO中
         NotificationExample example = new NotificationExample();
+        example.setOrderByClause("gmt_create desc");
         example.createCriteria().
                 andReceiverEqualTo(id);
         List<Notification> notifications = notificationMapper.selectByExampleWithRowbounds(example, new RowBounds(offset, size));
+        //获取通知人依旧是当前用户
+        User notifier  = userMapper.selectByPrimaryKey(id);
         if (notifications.size()==0){
             return paginationDTO;
         }
-
         List<NotificationDTO> notificationDTOList = new ArrayList<>();
         for (Notification notification : notifications) {
             NotificationDTO notificationDTO = new NotificationDTO();
-
-            Long notifierId = notification.getNotifier();
-            //获取通知人
-            User notifier = userMapper.selectByPrimaryKey(notifierId);
             //获取关联对象的id
             Long outerid = notification.getOuterid();
             Question question = null;
@@ -74,6 +73,7 @@ public class NotificationService {
                 //得到被回复的评论的问题
                 question = questionMapper.selectByPrimaryKey(comment.getParentId());
             }
+            notificationDTO.setStatus(notification.getStatus());
             notificationDTO.setOuterTitle(question.getTitle());
             notificationDTO.setOuterId(question.getId());
             notificationDTO.setType(notification.getType());
@@ -81,8 +81,34 @@ public class NotificationService {
             notificationDTO.setNotifier(notifier);
             notificationDTOList.add(notificationDTO);
         }
+
+
         paginationDTO.setObjectList(notificationDTOList);
+
         return paginationDTO;
+    }
+
+    public void read(User notifier){
+        //将未读变为以读
+        NotificationExample unReadNotificationExample = new NotificationExample();
+        unReadNotificationExample.createCriteria()
+                .andStatusEqualTo(0);
+        List<Notification> unReadNotificationList = notificationMapper.selectByExample(unReadNotificationExample);
+        if(unReadNotificationList.size()!=0){
+            for (Notification notification : unReadNotificationList) {
+                notification.setStatus(1);
+                NotificationExample example1 = new NotificationExample();
+                example1.createCriteria()
+                        .andIdEqualTo(notification.getId());
+                notificationMapper.updateByExampleSelective(notification, example1);
+            }
+        }
+        //通知清0
+        notifier.setNotificationCount(0);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andIdEqualTo(notifier.getId());
+        userMapper.updateByExampleSelective(notifier, userExample);
     }
 
 }

@@ -34,6 +34,8 @@ public class CommentService {
     private CommentExtMapper commentExtMapper;
     @Autowired
     private NotificationMapper notificationMapper;
+    @Autowired
+    private UserExtMapper userExtMapper;
 
     @Transactional
     public void insert(Comment comment){
@@ -53,8 +55,21 @@ public class CommentService {
             //新增评论数
             dbComment.setCommentCount(1);
             commentExtMapper.incCommentCount(dbComment);
+
             //创建通知
             createNotify(comment, dbComment.getCommentator(), NotificationTypeEnum.REPLY_COMMENT);
+            //二次评论的创建者（接收人）的通知+1
+            User commentReceiver = userMapper.selectByPrimaryKey(dbComment.getCommentator());
+            commentReceiver.setNotificationCount(1);
+            userExtMapper.incNotificationCount(commentReceiver);
+            //当前提问的创建者的通知+1
+            Long questionCreator = questionMapper.
+                    selectByPrimaryKey(dbComment.getParentId()).
+                    getCreator();
+            User questionReceiver = userMapper.selectByPrimaryKey(questionCreator);
+            questionReceiver.setNotificationCount(1);
+            userExtMapper.incNotificationCount(questionReceiver);
+
         }else {
             //--回复问题--
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -66,6 +81,10 @@ public class CommentService {
             questionExtMapper.incComment(question);
             //创建通知
             createNotify(comment, question.getCreator(), NotificationTypeEnum.REPLY_QUESTION);
+            //接收人的通知+1
+            User receiver = userMapper.selectByPrimaryKey(question.getCreator());
+            receiver.setNotificationCount(1);
+            userExtMapper.incNotificationCount(receiver);
 
         }
 
@@ -73,7 +92,7 @@ public class CommentService {
         
     }
     //创建通知的方法
-    private void createNotify(Comment comment, Long receiver, NotificationTypeEnum notificationType) {
+    private void createNotify(Comment comment, Long receiverId, NotificationTypeEnum notificationType) {
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());
         notification.setType(notificationType.getType());
@@ -83,7 +102,7 @@ public class CommentService {
         //0代表未读
         notification.setStatus(0);
         //通知的人
-        notification.setReceiver(receiver);
+        notification.setReceiver(receiverId);
         notificationMapper.insert(notification);
     }
 

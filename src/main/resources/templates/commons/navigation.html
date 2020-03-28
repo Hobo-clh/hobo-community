@@ -28,7 +28,7 @@
                         <a class="glyphicon glyphicon-plus" href="/publish">提问</a>
                     </li>
                     <li th:if="${session.user!=null}">
-                        <a class="glyphicon glyphicon-bell" href="/">通知 <span class="badge">0</span></a>
+                        <a class="glyphicon glyphicon-bell" href="/profile/replies">通知 <span class="badge" th:text="${session.user.notificationCount}"></span></a>
                     </li>
                     <li class="dropdown" th:if="${session.user!=null}">
                         <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true"

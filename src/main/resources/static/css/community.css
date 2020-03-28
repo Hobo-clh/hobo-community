@@ -139,6 +139,7 @@ body {
     text-decoration-line: none;
 }
 
-ul li a:hover {
-    color: #6f9a3b;
+.replies-li{
+    font-size: 15px;
+    margin: 14px 0;
 }

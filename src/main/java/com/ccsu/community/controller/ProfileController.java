@@ -40,14 +40,17 @@ public class ProfileController {
         }
         
         if("questions".equals(action)){
+            //展示所有我的问题、提问
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我的提问");
             PaginationDTO pagination = questionService.list(user.getId(), page, size);
             model.addAttribute("pagination",pagination);
         }else if("replies".equals(action)){
+            //展示所有我的回复
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");
             PaginationDTO pagination = notificationService.list(user.getId(), page, size);
+            notificationService.read(user);
             model.addAttribute("pagination",pagination);
         }
 

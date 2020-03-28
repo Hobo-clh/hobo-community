@@ -31,3 +31,11 @@ servlet:
   session:
     cookie:
       max-age: 60*60*24*365
+
+# 设置阿里云主KeyId、KeySecret
+aliyun:
+  accessKeyId: LTAI4FvLHxafgZSyqXUwEHeF
+  accessKeySecret: 7eLMMin3XKzG9AKceYwglz11PKZHAI
+  bucketName: hobo-community
+  endpoint: http://oss-cn-beijing.aliyuncs.com
+  existTime: 315360000000L

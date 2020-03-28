@@ -1,8 +1,11 @@
 package com.ccsu.community;
 
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +24,24 @@ class CommunityApplicationTests {
 
     @Test
     void contextLoads() {
+        // Endpoint以杭州为例，其它Region请按实际情况填写。
+        String endpoint = "http://oss-cn-beijing.aliyuncs.com";
+        // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建RAM账号。
+        String accessKeyId = "LTAI4FvLHxafgZSyqXUwEHeF";
+        String accessKeySecret = "7eLMMin3XKzG9AKceYwglz11PKZHAI";
+        String bucketName = "hobo-community";
 
+        // 创建OSSClient实例。
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        // 创建OSSClient实例。
+        // 上传内容到指定的存储空间（bucketName）并保存为指定的文件名称（objectName）。
+        String content = "Hello OSS";
+        ossClient.putObject(bucketName, "hello world", new ByteArrayInputStream(content.getBytes()));
+
+        // 创建存储空间。
+        ossClient.createBucket(bucketName);
+        // 关闭OSSClient。
+        ossClient.shutdown();
 
     }
 
