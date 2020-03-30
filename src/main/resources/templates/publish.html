@@ -11,6 +11,7 @@
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
     <script src="/editor.md-master/editormd.min.js"></script>
     <link rel="stylesheet" href="/editor.md-master/css/editormd.css">
+    <script src="/js/community.js"></script>
 
 
 </head>
@@ -52,12 +53,37 @@
                         });
                     });
                 </script>
-
                 <div class="form-group">
                     <label for="tag">添加标签:</label>
                     <input type="text" class="form-control" id="tag" name="tag" th:value="${tag}"
-                           placeholder="输入标签，以逗号分隔">
+                           placeholder="输入标签，以逗号分隔"
+                           onclick="showSelectTag()">
+
+                    <div id="select-tag" class="publish-tag-tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <!--tags是TagDTOs selectCategory是TagDTO -->
+                            <li role="presentation" th:each="selectCategory:${tags}">
+                                <a th:href="${'#'+selectCategory.categoryName}" aria-controls="home" role="tab"
+                                   data-toggle="tab" th:text="${selectCategory.categoryName}"></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <!--tags是TagDTOs selectCategory是TagDTO -->
+                            <div role="tabpanel" class="tab-pane active" th:each="selectCategory:${tags}"
+                                 th:id="${selectCategory.categoryName}">
+                                <span class="label label-info "th:each="selectTag:${selectCategory.tags}"
+                                      onclick="selectTag(this)" th:data-tag="${selectTag}">
+                                    <span th:text="${selectTag}"></span>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
 
                 <div class="alert alert-success tips-inform" th:if="${success!=null}" th:text="${success}"></div>
                 <div class="alert alert-danger tips-inform" th:if="${error!=null}" th:text="${error}"></div>
@@ -69,10 +95,11 @@
             <h3>问题发起指南</h3>
             • 问题标题: 请用精简的语言描述您发布的问题，不超过25字<br>
             • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料<br>
-            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过10个字<br>
+            • 选择标签: 选择一个或者多个合适的标签，用逗号隔开<br>
         </div>
+
     </div>
 </div>
-
+<div th:replace="commons/footer::footer"></div>
 </body>
 </html>

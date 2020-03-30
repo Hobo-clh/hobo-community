@@ -33,9 +33,9 @@ function comment2target(targetId,type,content) {
                     let isAccepted = window.confirm(response.message);
                     if (isAccepted) {
                         //跳转登录
-                        window.open("/login","_self");
+                        window.open("https://github.com/login/oauth/authorize?client_id=Iv1.e1445cb4e1c12491&redirect_uri=http://39.97.226.211/callback&scope=user&state=1","_self");
                         window.localStorage.setItem("closable", "true");
-                        window.localStorage.setItem("questionId",questionId);
+                        window.localStorage.setItem("questionId",targetId);
                     }
                 }
             }
@@ -113,11 +113,35 @@ function collapseComments(e) {
                 icon.addClass("add-comment-icon");
                 e.setAttribute("data-collapse","in")
             });
-
-
         }
-
-
     }
+}
 
+function selectTag(e) {
+    let value = e.getAttribute("data-tag");
+    let previous = $("#tag").val();
+    if (previous!=null&&previous!=""){
+        let tags = previous.split(",")
+        var flag = judge(tags,value)
+        if(flag){
+            $("#tag").val(previous+','+value);
+        }
+        return;
+
+    }else{
+        $("#tag").val(value);
+    }
+}
+
+function judge(tags,value){
+    let index;
+    for(let i=0;i<tags.length;i++){
+        if (tags[i]===value){
+            return false;
+        }
+    }return true;
+}
+
+function showSelectTag() {
+    $("#select-tag").show();
 }

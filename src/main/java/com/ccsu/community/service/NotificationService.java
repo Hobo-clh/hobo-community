@@ -52,14 +52,14 @@ public class NotificationService {
         example.createCriteria().
                 andReceiverEqualTo(id);
         List<Notification> notifications = notificationMapper.selectByExampleWithRowbounds(example, new RowBounds(offset, size));
-        //获取通知人依旧是当前用户
-        User notifier  = userMapper.selectByPrimaryKey(id);
+
         if (notifications.size()==0){
             return paginationDTO;
         }
         List<NotificationDTO> notificationDTOList = new ArrayList<>();
         for (Notification notification : notifications) {
             NotificationDTO notificationDTO = new NotificationDTO();
+            User notifier = userMapper.selectByPrimaryKey(notification.getNotifier());
             //获取关联对象的id
             Long outerid = notification.getOuterid();
             Question question = null;
@@ -73,9 +73,11 @@ public class NotificationService {
                 //得到被回复的评论的问题
                 question = questionMapper.selectByPrimaryKey(comment.getParentId());
             }
+
             notificationDTO.setStatus(notification.getStatus());
             notificationDTO.setOuterTitle(question.getTitle());
             notificationDTO.setOuterId(question.getId());
+
             notificationDTO.setType(notification.getType());
             notificationDTO.setGmtCreate(notification.getGmtCreate());
             notificationDTO.setNotifier(notifier);

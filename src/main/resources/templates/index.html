@@ -35,7 +35,8 @@
             <div class="media" th:each="quesion:${pagination.objectList}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}">
+                        <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}" th:if="${quesion.user.avatarUrl!=null}">
+                        <img class="media-object img-rounded" src="/images/default.jfif" th:if="${quesion.user.avatarUrl==null}">
                     </a>
                 </div>
                 <div class="media-body my-media-body">
@@ -60,21 +61,21 @@
                         </a>
                     </li>
                     <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page}-1)}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.page}-1,search=${search})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''">
-                        <a th:href="@{/(page=${page})}" th:text="${page}"></a>
+                        <a th:href="@{/(page=${page},search=${search})}" th:text="${page}"></a>
                     </li>
 
                     <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page}+1)}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.page}+1,search=${search})}" aria-label="Next">
                             <span aria-hidden="true">&gt;</span>
                         </a>
                     </li>
                     <li th:if="${pagination.showEndPage}">
-                        <a th:href="'/?page='+${pagination.totalPage}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.totalPage},search=${search})}" aria-label="Next">
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
@@ -89,5 +90,6 @@
         </div>
     </div>
 </div>
+<div th:replace="commons/footer::footer"></div>
 </body>
 </html>

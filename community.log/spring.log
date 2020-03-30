@@ -1,0 +1,927 @@
+2020-03-31 01:24:28.175  INFO 8180 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 8180 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-03-31 01:24:28.175  INFO 8180 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-03-31 01:24:28.944  WARN 8180 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-03-31 01:24:29.055  INFO 8180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-31 01:24:29.055  INFO 8180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-31 01:24:32.153  INFO 8180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-03-31 01:24:32.163  INFO 8180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-31 01:24:32.163  INFO 8180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-31 01:24:32.323  INFO 8180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-31 01:24:32.323  INFO 8180 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3268 ms
+2020-03-31 01:24:33.697  INFO 8180 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-31 01:24:33.784  INFO 8180 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-31 01:24:35.007  INFO 8180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-31 01:24:35.077  INFO 8180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-03-31 01:24:35.077  INFO 8180 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 8.036 seconds (JVM running for 12.557)
+2020-03-31 01:24:41.843  INFO 8180 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-31 01:24:41.843  INFO 8180 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-31 01:24:41.843  INFO 8180 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2020-03-31 01:24:41.963  WARN 8180 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-31 01:24:41.973  INFO 8180 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-31 01:24:46.201  INFO 8180 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-31 01:24:46.213 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:46.229 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:46.441 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:46.449 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:46.449 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:46.657 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:46.657 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:24:46.657 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:24:46.864 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:24:46.864 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:24:46.864 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:24:47.080 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:24:47.080 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:24:47.080 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:24:47.301 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:24:47.301 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:47.301 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:24:48.555 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:48.555 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:24:48.555 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:24:48.747 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:24:48.747 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:48.747 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:24:48.939 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:48.942 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:48.942 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:24:49.095 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.095 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:24:49.122 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.122 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.122 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:24:49.282 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.286 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.286 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:24:49.466 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.466 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.470 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:49.657 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.657 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.657 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:49.732 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.732 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.732 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:24:49.864 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.864 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.864 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:49.944 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:49.944 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:49.944 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:24:50.083 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:50.167 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:50.167 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:50.167 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:50.391 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:50.391 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:50.391 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:50.595 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:50.599 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:24:50.599 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:24:50.809 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:24:50.885 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:50.885 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.100 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.100 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.100 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.100 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.100 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.121 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.121 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.312 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.312 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.316 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.316 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.316 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.316 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.324 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.499 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.499 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:51.559 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.559 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.663 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:51.663 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:51.687 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:52.554 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:52.578 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:52.578 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:52.639 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:52.639 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:52.639 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:52.710 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:59.804 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:24:59.804 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:24:59.904 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:24:59.916 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.CommentMapper.selectByExample    : ==>  Preparing: select id, parent_id, type, Commentator, gmt_create, gem_modified, like_count, content, comment_count from comment WHERE ( parent_id = ? and type = ? ) order by gmt_create desc 
+2020-03-31 01:24:59.916 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.CommentMapper.selectByExample    : ==> Parameters: 49(Long), 1(Integer)
+2020-03-31 01:25:00.012 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.CommentMapper.selectByExample    : <==      Total: 0
+2020-03-31 01:25:00.012 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag , description from question where id = ? 
+2020-03-31 01:25:00.012 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByPrimaryKey             : ==> Parameters: 49(Long)
+2020-03-31 01:25:00.076 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2020-03-31 01:25:00.076 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:25:00.076 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:25:00.160 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:25:00.160 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionExtMapper.selectRelated  : ==>  Preparing: select * from question where id != ? and tag regexp ? 
+2020-03-31 01:25:00.160 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionExtMapper.selectRelated  : ==> Parameters: 49(Long), t(String)
+2020-03-31 01:25:00.207 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.m.QuestionExtMapper.selectRelated  : <==      Total: 3
+2020-03-31 01:25:00.211 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update question set view_count = view_count + ? where id = ? 
+2020-03-31 01:25:00.211 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 49(Long)
+2020-03-31 01:25:00.303 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1
+2020-03-31 01:25:00.390 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.390 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.438 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.442 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.482 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.482 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.482 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.486 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.486 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.486 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.490 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.490 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.494 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.494 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.494 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.494 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.522 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.522 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.522 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.538 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.538 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.538 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.538 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.542 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.558 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.642 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:25:00.642 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:25:00.682 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:25:00.941 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:04.742 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:04.742 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:04.862 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:04.862 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:28:04.862 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:28:04.966 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:28:04.966 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:28:04.966 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:28:05.010 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:28:05.010 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.010 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:28:05.055 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.055 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.055 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:28:05.214 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.214 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.214 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:28:05.338 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.338 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.338 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:28:05.765 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.765 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.765 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:28:05.913 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.913 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.913 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:28:05.969 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:05.969 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:28:05.969 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:28:06.013 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:28:06.061 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.061 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.213 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.213 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.224 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.224 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.228 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.236 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.236 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.384 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.384 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.384 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.388 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.388 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.388 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.388 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.428 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.428 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.452 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.452 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.492 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:28:06.492 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:28:06.624 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:28:06.660 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.215 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.215 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.259 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.303 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.303 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.347 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.347 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.347 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.359 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.359 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.359 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.359 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.391 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.391 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.391 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.407 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.407 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.407 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.411 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.411 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.411 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.435 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.439 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.439 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.454 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.454 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.486 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.550 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.550 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.578 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.578 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.578 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.578 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.594 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.594 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.594 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.618 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.618 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.622 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.622 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.622 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.622 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.638 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.662 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.662 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.718 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.718 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.762 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.798 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.798 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.842 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.926 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.926 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.962 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.962 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:39.970 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:39.982 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:29:39.986 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:29:40.010 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:29:40.026 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.834 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.834 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.834 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.834 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.838 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.838 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.874 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.874 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.878 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.878 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.878 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.878 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.882 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.882 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.882 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.922 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.922 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.922 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:30.922 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:30.930 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:30.970 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:31.010 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:31.010 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:31.014 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:31:31.014 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:31:31.058 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:31:31.058 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.684 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.684 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.740 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.787 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.787 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.847 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.851 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.851 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.859 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.859 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.859 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.859 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.903 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.903 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.907 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.911 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.911 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.919 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.919 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.919 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.923 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.955 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.955 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:34.955 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:34.967 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:34.967 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.002 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.058 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.058 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.062 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.066 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.118 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.118 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.267 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.267 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.271 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.271 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.307 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.311 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.311 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.355 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.355 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.355 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.383 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.383 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.383 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.419 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.419 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.419 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.503 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.503 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.543 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.543 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.587 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.615 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.615 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.667 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.715 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.715 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.723 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.723 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.759 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.771 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:32:35.783 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:32:35.783 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:32:35.843 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.297 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.297 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.339 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.387 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.387 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.442 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.442 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.446 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.446 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.446 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.450 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.450 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.478 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.478 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.478 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.494 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.494 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.494 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.510 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.510 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.510 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.518 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.522 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.522 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.534 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.550 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.562 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:00.666 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.666 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:00.666 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:00.666 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.760 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.760 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.764 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.764 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.764 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.764 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.812 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.812 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.812 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.824 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.824 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.824 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.872 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.872 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.872 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.880 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.880 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.884 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.912 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.928 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:02.952 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:02.952 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:02.992 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.028 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.028 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.068 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.116 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.116 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.124 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.124 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.160 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.160 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.208 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.208 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.256 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.296 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.296 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.340 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:33:03.352 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:33:03.352 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:33:03.624 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.237 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.275 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.287 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.291 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.291 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.315 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.315 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.319 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.319 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.329 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.357 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.393 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.393 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.393 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:34:07.393 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:34:07.426 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:34:07.436 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.649 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.649 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.709 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.753 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.753 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.797 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.797 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.809 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.809 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.809 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.809 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.809 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.833 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.833 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.833 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.853 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.861 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.861 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.861 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.865 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.865 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.893 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.893 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.893 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.901 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.925 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.933 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:16.977 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.981 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:16.981 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:16.981 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.025 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.025 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.025 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.025 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.081 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.081 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.081 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.081 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.089 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.089 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.089 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.136 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.136 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.136 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.140 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.140 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.140 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.144 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.168 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.168 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.180 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.188 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.204 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.232 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.232 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.268 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.324 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.324 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.332 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.332 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.380 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.380 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:17.432 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:17.432 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:17.476 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.511 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.511 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.555 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.587 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.587 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.631 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.635 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.667 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.671 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.671 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.671 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.671 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.671 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.683 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.683 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.683 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.707 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.707 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:39.707 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:39.766 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.966 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:39.982 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.022 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.022 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.038 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.038 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.038 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.038 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.134 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.134 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.176 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.176 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.176 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.176 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.180 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.180 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.188 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.252 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.252 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.272 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.276 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.312 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.332 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.332 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.372 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.416 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.416 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.420 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.444 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.448 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.452 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.460 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:40.460 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:40.492 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:40.500 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.333 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.333 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.341 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.341 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.381 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.385 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.385 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.429 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.433 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.433 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.473 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.473 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.473 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.517 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.517 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.517 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.565 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.565 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.565 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.615 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.625 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.779 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.779 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.795 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:36:49.795 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:36:49.811 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:36:49.841 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:55.319 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:55.319 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:55.363 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:55.363 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:37:55.363 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:37:55.407 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:37:55.407 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:37:55.407 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:37:55.451 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:37:55.451 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.451 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:37:55.495 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.495 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.495 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:37:55.538 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.538 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.538 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:37:55.583 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.586 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.586 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:37:55.630 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.630 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.630 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:37:55.677 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.677 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.677 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:37:55.721 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.721 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:37:55.721 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:37:55.766 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:37:55.805 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:55.805 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:55.909 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:55.909 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:55.945 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:55.949 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:55.949 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:55.985 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:55.989 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:55.993 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.029 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.033 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:56.033 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.069 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.069 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:56.069 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.105 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.109 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.121 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:56.121 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.157 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:56.157 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.165 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.189 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:37:56.189 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:37:56.201 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:37:56.474 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:52.604 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:52.604 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:52.640 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:52.640 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:46:52.640 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:46:52.680 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:46:52.680 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:46:52.680 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:46:52.720 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:46:52.720 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:52.720 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:46:52.760 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:52.760 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:52.760 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:46:52.800 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:52.800 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:52.800 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:46:53.077 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:53.077 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:53.077 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:46:53.156 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:53.156 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:53.156 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:46:53.196 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:53.196 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:53.196 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:46:53.240 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:53.240 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:46:53.240 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:46:53.276 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:46:53.356 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.356 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.400 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.404 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.404 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.412 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.412 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.416 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.416 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.488 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.532 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.532 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.532 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.532 DEBUG 8180 --- [http-nio-8887-exec-6] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.536 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.536 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.572 DEBUG 8180 --- [http-nio-8887-exec-2] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.576 DEBUG 8180 --- [http-nio-8887-exec-4] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.600 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.600 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.648 DEBUG 8180 --- [http-nio-8887-exec-1] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.764 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.816 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.816 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.824 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.824 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.852 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:46:53.852 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:46:53.879 DEBUG 8180 --- [http-nio-8887-exec-7] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.883 DEBUG 8180 --- [http-nio-8887-exec-3] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:46:53.911 DEBUG 8180 --- [http-nio-8887-exec-9] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:47:27.884 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user WHERE ( token = ? ) 
+2020-03-31 01:47:27.884 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : ==> Parameters: b52496d0-bedf-416e-a7ff-7a7307dbd2db(String)
+2020-03-31 01:47:27.928 DEBUG 8180 --- [http-nio-8887-exec-8] c.c.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-03-31 01:47:27.936 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:47:27.936 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:47:27.992 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:47:27.992 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:47:27.992 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:47:28.032 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:47:28.032 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.036 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:47:28.100 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.100 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.100 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:47:28.144 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.144 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.144 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:47:28.192 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.192 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.192 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:47:28.235 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.235 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.235 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:47:28.275 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.275 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.275 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:47:28.319 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:47:28.319 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:47:28.319 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:47:28.359 DEBUG 8180 --- [http-nio-8887-exec-10] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.723 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:50:09.723 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:50:09.759 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:50:09.759 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:50:09.759 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:50:09.795 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:50:09.795 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.795 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:50:09.831 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.831 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.831 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:50:09.866 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.870 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.870 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:50:09.906 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.906 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.906 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:50:09.943 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.943 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.943 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:09.979 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:09.983 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:09.983 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:10.259 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:10.259 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:10.259 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:10.299 DEBUG 8180 --- [http-nio-8887-exec-5] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:27.817  INFO 8400 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 8400 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-03-31 01:50:27.817  INFO 8400 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-03-31 01:50:27.837  WARN 8400 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-03-31 01:50:27.867  INFO 8400 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-31 01:50:27.867  INFO 8400 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-31 01:50:29.416  INFO 8400 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-03-31 01:50:29.426  INFO 8400 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-31 01:50:29.426  INFO 8400 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-31 01:50:29.506  INFO 8400 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-31 01:50:29.506  INFO 8400 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1639 ms
+2020-03-31 01:50:30.196  INFO 8400 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-31 01:50:30.261  INFO 8400 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-31 01:50:30.437  INFO 8400 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-31 01:50:30.487  INFO 8400 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-03-31 01:50:30.487  INFO 8400 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 3.095 seconds (JVM running for 4.979)
+2020-03-31 01:50:36.084  INFO 8400 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-31 01:50:36.084  INFO 8400 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-31 01:50:36.088  INFO 8400 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-03-31 01:50:54.611  WARN 8400 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-31 01:50:54.615  INFO 8400 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-31 01:50:56.519  INFO 8400 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-31 01:50:56.527 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:50:56.543 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:50:56.619 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:50:56.627 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:50:56.627 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:50:56.671 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:50:56.671 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.671 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:50:56.723 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.731 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.731 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:50:56.775 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.775 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.775 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:50:56.823 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.823 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.823 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:50:56.868 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.868 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.871 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:56.914 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.914 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.918 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:56.962 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:50:56.962 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:50:56.962 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:50:57.006 DEBUG 8400 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.633 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:51:52.634 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:51:52.664 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:51:52.664 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:51:52.664 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:51:52.704 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:51:52.704 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.704 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:51:52.744 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.744 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.744 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:51:52.784 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.784 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.784 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:51:52.824 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.824 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.824 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:51:52.865 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.865 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.865 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:51:52.907 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.911 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.911 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:51:52.948 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:51:52.951 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:51:52.951 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:51:52.995 DEBUG 8400 --- [http-nio-8887-exec-2] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:44.442  INFO 6484 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 6484 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-03-31 01:52:44.446  INFO 6484 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-03-31 01:52:44.494  INFO 6484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-31 01:52:44.494  INFO 6484 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-31 01:52:44.522  WARN 6484 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2020-03-31 01:52:46.083  INFO 6484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-03-31 01:52:46.093  INFO 6484 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-31 01:52:46.093  INFO 6484 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-31 01:52:46.193  INFO 6484 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-31 01:52:46.197  INFO 6484 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1703 ms
+2020-03-31 01:52:46.812  INFO 6484 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-31 01:52:46.862  INFO 6484 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-31 01:52:47.021  INFO 6484 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-31 01:52:47.073  INFO 6484 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-03-31 01:52:47.073  INFO 6484 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 3.16 seconds (JVM running for 5.038)
+2020-03-31 01:52:47.131  INFO 6484 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-31 01:52:47.131  INFO 6484 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-31 01:52:47.141  INFO 6484 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-03-31 01:52:47.181  WARN 6484 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-03-31 01:52:47.191  INFO 6484 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-31 01:52:49.981  INFO 6484 --- [http-nio-8887-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-31 01:52:49.989 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==>  Preparing: select count(*) from question 
+2020-03-31 01:52:50.005 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : ==> Parameters: 
+2020-03-31 01:52:50.053 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.QuestionMapper.countByExample    : <==      Total: 1
+2020-03-31 01:52:50.057 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: select id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag from question order by gmt_create desc 
+2020-03-31 01:52:50.057 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2020-03-31 01:52:50.097 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 7
+2020-03-31 01:52:50.097 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.097 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:52:50.380 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.388 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.388 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 17(Long)
+2020-03-31 01:52:50.424 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.428 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.428 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 18(Long)
+2020-03-31 01:52:50.464 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.468 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.468 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 16(Long)
+2020-03-31 01:52:50.505 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.505 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.508 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:52:50.549 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.549 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.549 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:52:50.586 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-03-31 01:52:50.586 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select id, account_id, login_name, token, gmt_create, gmt_modified, avatar_url, bio, notification_count, pwd from user where id = ? 
+2020-03-31 01:52:50.586 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 15(Long)
+2020-03-31 01:52:50.621 DEBUG 6484 --- [http-nio-8887-exec-1] c.c.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1

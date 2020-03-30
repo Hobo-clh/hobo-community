@@ -58,18 +58,21 @@ public class CommentService {
 
             //创建通知
             createNotify(comment, dbComment.getCommentator(), NotificationTypeEnum.REPLY_COMMENT);
-            //二次评论的创建者（接收人）的通知+1
+            //一级评论的创建者（接收人）的通知+1
             User commentReceiver = userMapper.selectByPrimaryKey(dbComment.getCommentator());
             commentReceiver.setNotificationCount(1);
             userExtMapper.incNotificationCount(commentReceiver);
-            //当前提问的创建者的通知+1
+
+            //
             Long questionCreator = questionMapper.
                     selectByPrimaryKey(dbComment.getParentId()).
                     getCreator();
-            User questionReceiver = userMapper.selectByPrimaryKey(questionCreator);
-            questionReceiver.setNotificationCount(1);
-            userExtMapper.incNotificationCount(questionReceiver);
-
+            //if当前提问的创建者！=一级评论者 通知+1
+            if(questionCreator!=dbComment.getCommentator()){
+                User questionReceiver = userMapper.selectByPrimaryKey(questionCreator);
+                questionReceiver.setNotificationCount(1);
+                userExtMapper.incNotificationCount(questionReceiver);
+            }
         }else {
             //--回复问题--
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());

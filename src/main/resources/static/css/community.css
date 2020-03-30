@@ -143,3 +143,22 @@ body {
     font-size: 15px;
     margin: 14px 0;
 }
+.footer{
+    text-align: center;
+    color: #3338;
+    margin: 60px 0 30px 0;
+}
+
+.publish-tag-tab {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.publish-tag-tab .label-info {
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+}

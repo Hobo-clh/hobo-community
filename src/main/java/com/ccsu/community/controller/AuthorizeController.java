@@ -7,6 +7,7 @@ import com.ccsu.community.model.User;
 import com.ccsu.community.model.UserExample;
 import com.ccsu.community.provider.GithubProvider;
 import com.ccsu.community.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Controller
 public class AuthorizeController {
     @Autowired
@@ -57,12 +59,13 @@ public class AuthorizeController {
                 System.out.println(user.getLoginName());
                 user.setAccountId(String.valueOf(githubUser.getId()));
                 user.setAvatarUrl(githubUser.getAvatar_url());
+                user.setBio(githubUser.getBio());
                 userService.createOrUpdate(user);
                 response.addCookie(new Cookie("token", token));
                 //request.getSession().setAttribute("user",githubUser);
 
-
             } else {
+                log.error("callback get github error{}",githubUser);
                 //登录失败，重新登录
                 return "redirect:/";
             }
@@ -85,16 +88,16 @@ public class AuthorizeController {
     /**
      * 测试
      */
-    @GetMapping("/login")
-    public String login(HttpServletResponse response) {
-        UserExample userExample = new UserExample();
-        userExample.createCriteria()
-                .andAccountIdEqualTo("59512452");
-        List<User> users = userMapper.selectByExample(userExample);
-        if (users.size() != 0) {
-            response.addCookie(new Cookie("token", users.get(0).getToken()));
-        }
-
-        return "redirect:/";
-    }
+//    @GetMapping("/login")
+//    public String login(HttpServletResponse response) {
+//        UserExample userExample = new UserExample();
+//        userExample.createCriteria()
+//                .andAccountIdEqualTo("59512452");
+//        List<User> users = userMapper.selectByExample(userExample);
+//        if (users.size() != 0) {
+//            response.addCookie(new Cookie("token", users.get(0).getToken()));
+//        }
+//
+//        return "redirect:/";
+//    }
 }

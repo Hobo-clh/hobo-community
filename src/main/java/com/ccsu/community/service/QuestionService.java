@@ -2,6 +2,7 @@ package com.ccsu.community.service;
 
 import com.ccsu.community.dto.PaginationDTO;
 import com.ccsu.community.dto.QuestionDTO;
+import com.ccsu.community.dto.QuestionQueryDTO;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
 import com.ccsu.community.mapper.QuestionExtMapper;
@@ -12,6 +13,7 @@ import com.ccsu.community.model.QuestionExample;
 import com.ccsu.community.model.User;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,60 +34,66 @@ public class QuestionService {
     @Autowired
     QuestionExtMapper questionExtMapper;
 
-    public PaginationDTO list(Integer page, Integer size) {
+    public PaginationDTO list(String search,Integer page, Integer size) {
 
 //         page size -->limit page-1,size-->(page-1)*size个数
 //         count(1)-->总数-->if 总数%size!=0 则页数为总数/size
-
+        Integer totalCount = null;
         PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO();
-        Integer totalCount = (int) questionMapper.countByExample(new QuestionExample());
-        //查看页数是否合法
-        paginationDTO.setPagination(totalCount, page, size);
-        if (page < 1) {
-            page = 1;
+        List<QuestionDTO> questionDTOs = null;
+        //带有搜索条件
+        if (StringUtils.isNotBlank(search)){
+            String[] searches = StringUtils.split(search," ");
+            search = Arrays.stream(searches).collect(Collectors.joining("|"));
+            QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+            questionQueryDTO.setSearch(search);
+            totalCount =  questionExtMapper.countBySearch(questionQueryDTO);
+
+            paginationDTO.setPagination(totalCount, page, size);
+            Integer offset = getOffset(paginationDTO.getTotalPage(), page, size);
+
+            questionQueryDTO.setSize(size);
+            questionQueryDTO.setPage(offset);
+            questionDTOs = getSearchQuestionDTOs(questionQueryDTO);
+        }else{
+            //search未空
+            totalCount = (int) questionMapper.countByExample(new QuestionExample());
+
+            //查看页数是否合法
+            paginationDTO.setPagination(totalCount, page, size);
+            if (page < 1) {
+                page = 1;
+            }
+            if (page > paginationDTO.getTotalPage()) {
+                page = paginationDTO.getTotalPage();
+            }
+            Integer offset = size * (page - 1);
+            QuestionExample questionExample = new QuestionExample();
+            questionExample.setOrderByClause("gmt_create desc");
+            questionDTOs = getQuestionDTOs(questionExample, offset, size);
         }
-        if (page > paginationDTO.getTotalPage()) {
-            page = paginationDTO.getTotalPage();
-        }
-        Integer offset = size * (page - 1);
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.setOrderByClause("gmt_create desc");
-        List<QuestionDTO> questionDTOList = getQuestionDTOs(questionExample, offset, size);
-        paginationDTO.setObjectList(questionDTOList);
+        paginationDTO.setObjectList(questionDTOs);
         return paginationDTO;
     }
 
-    public PaginationDTO list(Long userId, Integer page, Integer size) {
-
-        PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO();
-        QuestionExample example = new QuestionExample();
-        example.createCriteria()
-                .andCreatorEqualTo(userId);
-        Integer totalCount = (int) questionMapper.countByExample(example);
-        //查看页数是否合法
-        paginationDTO.setPagination(totalCount, page, size);
-
+    private static Integer getOffset(Integer totalPage,Integer page,Integer size){
         if (page < 1) {
             page = 1;
         }
-        if (page > paginationDTO.getTotalPage()) {
-            page = paginationDTO.getTotalPage();
+        if (page > totalPage) {
+            page = totalPage;
         }
         Integer offset = size * (page - 1);
-        if (offset < 0) {
-            offset = 0;
-        }
-        //把当前用户的发出的问题拿到并加入DTO中
-        QuestionExample questionExample = new QuestionExample();
-        questionExample.createCriteria().
-                andCreatorEqualTo(userId);
-        List<QuestionDTO> questionDTOList = getQuestionDTOs(questionExample, offset, size);
-        paginationDTO.setObjectList(questionDTOList);
-        return paginationDTO;
+        return offset;
     }
 
-    private List<QuestionDTO> getQuestionDTOs(QuestionExample questionExample, Integer offset, Integer size) {
-        List<Question> questionList = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
+    private List<QuestionDTO> getSearchQuestionDTOs(QuestionQueryDTO questionQueryDTO) {
+        List<Question> questionList = questionExtMapper.selectBySearch(questionQueryDTO);
+        return getQuestionDTOS(questionList);
+    }
+
+    @NotNull
+    private List<QuestionDTO> getQuestionDTOS(List<Question> questionList) {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
         for (Question question : questionList) {
             // System.out.println(question);
@@ -97,6 +105,38 @@ public class QuestionService {
             questionDTOList.add(questionDTO);
         }
         return questionDTOList;
+    }
+
+    /**
+     * 当前用户的所有问题页面
+     * @param userId
+     * @param page
+     * @param size
+     * @return
+     */
+    public PaginationDTO list(Long userId, Integer page, Integer size) {
+
+        PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO();
+        QuestionExample example = new QuestionExample();
+        example.createCriteria()
+                .andCreatorEqualTo(userId);
+        Integer totalCount = (int) questionMapper.countByExample(example);
+        //查看页数是否合法
+        paginationDTO.setPagination(totalCount, page, size);
+        //算出offset
+        Integer offset = getOffset(paginationDTO.getTotalPage(), page, size);
+        //把当前用户的发出的问题拿到并加入DTO中
+        QuestionExample questionExample = new QuestionExample();
+        questionExample.createCriteria().
+                andCreatorEqualTo(userId);
+        List<QuestionDTO> questionDTOList = getQuestionDTOs(questionExample, offset, size);
+        paginationDTO.setObjectList(questionDTOList);
+        return paginationDTO;
+    }
+
+    private List<QuestionDTO> getQuestionDTOs(QuestionExample questionExample, Integer offset, Integer size) {
+        List<Question> questionList = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
+        return getQuestionDTOS(questionList);
     }
 
     public QuestionDTO getById(Long id) {

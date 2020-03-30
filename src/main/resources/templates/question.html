@@ -62,13 +62,12 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="media">
                     <div class="media-left">
-                        <a href="#">
-                            <img class="media-object img-rounded" th:if="${session.user!=null}"
-                                 th:src="${session.user.avatarUrl}">
+                        <a href="#" th:if="${session.user!=null}">
+                            <img class="media-object img-rounded" th:src="${session.user.avatarUrl}" th:if="${session.user.avatarUrl!=null}">
+                            <img class="media-object img-rounded" src="/images/default.jfif" th:if="${session.user.avatarUrl==null}">
                         </a>
-                        <a href="#">
-                            <img class="media-object img-rounded" th:if="${session.user==null}"
-                                 src="/images/default.jfif">
+                        <a href="#" th:if="${session.user==null}">
+                            <img class="media-object img-rounded" src="/images/default.jfif">
                         </a>
                     </div>
                     <div class="media-body">
@@ -110,13 +109,13 @@
                             <div >
                                 <div class="media">
                                     <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object img-circle comment-img" th:if="${session.user!=null}"
-                                                 th:src="${session.user.avatarUrl}">
+                                        <a href="#" th:if="${session.user!=null}">
+                                            <img class="media-object img-rounded" th:src="${session.user.avatarUrl}" th:if="${session.user.avatarUrl!=null}">
+                                            <img class="media-object img-rounded" src="/images/default.jfif" th:if="${session.user.avatarUrl==null}">
                                         </a>
                                         <a href="#">
                                             <img class="media-object img-circle comment-img" th:if="${session.user==null}"
-                                                 src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1511126680,2261184413&fm=26&gp=0.jpg">
+                                                 src="/images/default.jfif">
                                         </a>
 <!--                                        <span th:if="${session.user!=null}" th:text="${session.user.loginName}"></span>-->
 <!--                                        <span th:if="${session.user==null}">游客</span>-->
@@ -164,5 +163,6 @@
         </div>
     </div>
 </div>
+<div th:replace="commons/footer::footer"></div>
 </body>
 </html>

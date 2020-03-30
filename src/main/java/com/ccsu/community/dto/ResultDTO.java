@@ -33,4 +33,7 @@ public class ResultDTO<T> {
         resultDTO.setData(t);
         return resultDTO;
     }
+    public static <T> ResultDTO loginOkOf(){
+        return errorOf(200,"登录成功");
+    }
 }

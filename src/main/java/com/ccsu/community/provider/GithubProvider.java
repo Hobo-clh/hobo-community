@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.ccsu.community.dto.AccessTokenDTO;
 import com.ccsu.community.dto.GithubUser;
 import com.ccsu.community.utils.SecurityCer;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 
 @Component
+@Slf4j
 public class GithubProvider {
 
     @Autowired
