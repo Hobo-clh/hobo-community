@@ -6,10 +6,10 @@ body {
     /*background: #34495e;*/
 }
 #login-body{
-    background-image: url("/static/images/t4.png");
+    background-image: url("/images/t4.png");
 }
 #register-body{
-    background-image: url("/static/images/t3.png");
+    background-image: url("/images/t3.png");
 }
 
 .box {
@@ -19,7 +19,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(11, 11, 11, 0.6);
+    background: rgba(11, 11, 11, 0.7);
     text-align: center;
 }
 

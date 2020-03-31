@@ -162,3 +162,18 @@ body {
     cursor: pointer;
     font-size: 13px;
 }
+.nav-icon{
+    width: 20px;
+}
+.navbar-form .btn {
+    height: 34px;
+}
+#index-body a{
+    text-decoration: none;
+}
+.my-tags:hover {
+    color: #f3f3f3;
+}
+#header{
+    margin: 0 0 0 49px;
+}

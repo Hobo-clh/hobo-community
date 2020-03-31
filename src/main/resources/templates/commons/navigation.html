@@ -12,7 +12,10 @@
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Hobo-社区</span>
                 </button>
-                <a class="navbar-brand" href="/">Hobo社区</a>
+
+                <a id="header" class="navbar-brand" href="/">
+                    <span class="glyphicon glyphicon-blackboard">Hobo社区</span>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,9 +24,9 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="search" placeholder="搜索问题">
                     </div>
-                    <button type="submit" class="btn btn-default">
-<!--                        <img src="/images/svg/search.svg">-->
-                        搜索</button>
+                    <button type="submit" class="btn btn-default ">
+                        <img src="/images/search.svg" class="nav-icon">
+                    </button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user!=null}">

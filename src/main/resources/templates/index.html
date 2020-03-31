@@ -11,7 +11,7 @@
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 
 </head>
-<body>
+<body id="index-body">
 
 <script type="application/javascript">
     window.onload = function () {
@@ -30,7 +30,9 @@
     <div class="row whole">
         <!--左边主要内容-->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
+            <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                    <span th:text="${tag!=null}?${tag}:'发现'"></span>
+            </h2>
             <hr>
             <div class="media" th:each="quesion:${pagination.objectList}">
                 <div class="media-left">
@@ -61,21 +63,21 @@
                         </a>
                     </li>
                     <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page}-1,search=${search})}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.page}-1,search=${search},tag=${tag})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''">
-                        <a th:href="@{/(page=${page},search=${search})}" th:text="${page}"></a>
+                        <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>
                     </li>
 
                     <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page}+1,search=${search})}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.page}+1,search=${search},tag=${tag})}" aria-label="Next">
                             <span aria-hidden="true">&gt;</span>
                         </a>
                     </li>
                     <li th:if="${pagination.showEndPage}">
-                        <a th:href="@{/(page=${pagination.totalPage},search=${search})}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}" aria-label="Next">
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
@@ -86,7 +88,16 @@
         </div>
         <!--右边信息块-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>最新话题</h3>
+            <h3>站主信息</h3>
+            <a href="https://hobo-clh.github.io/">博客</a>
+            <h3>热门标签</h3>
+
+            <span class="my-tags" th:each="hotTag:${hotTags}">
+                <a th:href="@{/(page=1,search=${search},tag=${hotTag})}">
+                    <span class="label label-info glyphicon glyphicon-tags my-tags"> [[${hotTag}]]</span>
+                </a>
+            </span>
+
         </div>
     </div>
 </div>
