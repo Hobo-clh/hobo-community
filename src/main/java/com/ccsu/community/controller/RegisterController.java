@@ -54,8 +54,19 @@ public class RegisterController {
             if (flag){
                 return ResultDTO.errorOf(200,"注册成功");
             }
-            return ResultDTO.errorOf(203,"注册失败，用户名可能已存在");
+            return ResultDTO.errorOf(203,"注册失败，用户名已存在");
         }
         return ResultDTO.errorOf(204,"用户名或者密码不能为空！");
+    }
+
+    @ResponseBody
+    @PostMapping("/verify")
+    public Object VerifyUName(@RequestBody MyUserDTO myUserDTO){
+        String loginName = myUserDTO.getLoginName();
+        boolean flag = registerService.VerifyUName(loginName);
+        if (flag){
+            return ResultDTO.errorOf(200,"用户名可用");
+        }
+        return ResultDTO.errorOf(203,"用户名已存在");
     }
 }

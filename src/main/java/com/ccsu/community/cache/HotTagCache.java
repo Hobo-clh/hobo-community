@@ -16,7 +16,7 @@ public class HotTagCache {
     private List<String> hots = new ArrayList<>();
 
     public void updateTags(Map<String, Integer> tags) {
-        int max = 10;
+        int max = 5;
         PriorityQueue<HotTagDTO> priorityQueue = new PriorityQueue<>(max);
 
         tags.forEach((name, priority) -> {

@@ -8,4 +8,6 @@ public class QuestionQueryDTO {
     private String search;
     private Integer page;
     private Integer size;
+    private Long time;
+    private String sort;
 }

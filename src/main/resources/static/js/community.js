@@ -142,6 +142,19 @@ function judge(tags,value){
     }return true;
 }
 
+//在publish页面展示标签栏
 function showSelectTag() {
     $("#select-tag").show();
 }
+
+//定时器
+// setTimeout(function () {
+// },1000*5);
+
+/*每日一句*/
+$.getJSON("https://api.ooopn.com/ciba/api.php?type=json",
+    function(data){
+        $("#one-day-text-cn").text(data.ciba);
+        $("#one-day-time").text(data.date);
+        $("#one-day-img").attr("src", data.imgurl);
+    });

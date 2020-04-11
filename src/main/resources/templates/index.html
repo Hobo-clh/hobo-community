@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="pO9wAavo3i" />
     <title>Hobo社区</title>
     <!--引入bootstrap-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/community.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/community.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/community.js"></script>
 
 </head>
 <body id="index-body">
@@ -31,27 +33,78 @@
         <!--左边主要内容-->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                    <span th:text="${tag!=null}?${tag}:'发现'"></span>
+                    <span th:text="${tag!=null&&tag!=''}?${tag}:'发现'"></span>
             </h2>
-            <hr>
-            <div class="media" th:each="quesion:${pagination.objectList}">
+
+            <ul class="nav nav-tabs">
+                <li role="presentation" th:class="${sort == 'new' || sort == '' ? 'active':''}">
+                    <a th:href="@{/(sort='new',search=${search},tag=${tag})}">
+                        <img src="/images/svg/news.svg">
+                        最新
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'hot30' ? 'active':''}">
+                    <a th:href="@{/(sort='hot30',search=${search},tag=${tag})}">
+                        <img src="/images/svg/thirty.svg">
+                        天最热
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'hot7' ? 'active':''}">
+                    <a th:href="@{/(sort='hot7',search=${search},tag=${tag})}">
+                        <img src="/images/svg/seven.svg">
+                        天最热
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'hot' ? 'active':''}">
+                    <a th:href="@{/(sort='hot',search=${search},tag=${tag})}">
+                        <img src="/images/svg/hot-2.svg">
+                        最热
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'no' ? 'active':''}">
+                    <a th:href="@{/(sort='no',search=${search},tag=${tag})}" class="red">
+                        <img src="/images/svg/fireExtinguisher.svg">
+                        消灭零回复
+                    </a>
+                </li>
+            </ul>
+
+            <div class="media" th:each="questionDTO:${pagination.objectList}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded" th:src="${quesion.user.avatarUrl}" th:if="${quesion.user.avatarUrl!=null}">
-                        <img class="media-object img-rounded" src="/images/default.jfif" th:if="${quesion.user.avatarUrl==null}">
+                        <img class="media-object img-rounded " th:src="${questionDTO.user.avatarUrl}" th:if="${questionDTO.user.avatarUrl!=null}">
+                        <img class="media-object img-rounded" src="/images/default.jfif" th:if="${questionDTO.user.avatarUrl==null}">
                     </a>
                 </div>
                 <div class="media-body my-media-body">
-                    <a th:href="@{/question/__${quesion.id}__}">
-                        <h4 class="media-heading my-media-heading" th:text="${quesion.title}">
-                        </h4>
-                    </a>
-<!--                    <span th:text="${quesion.description}"></span><br>-->
-                    <span class="text-desc">
-                        <span th:text="${quesion.commentCount}+'个评论 • '"></span>
-                        <span th:text="${quesion.viewCount}+'次浏览 • '"></span>
-                        <span th:text="${#dates.format(quesion.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
-                    </span>
+                    <h4 class="h4">
+                        <a class="media-heading my-media-heading" th:href="@{/question/__${questionDTO.id}__}" th:text="${questionDTO.title}">
+                        </a>
+                    </h4>
+
+                    <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
+                    <div class="media-status">
+                        <span class="label label-info tag-list" th:each="tagOne:${questionDTO.tag.split(',')}">
+                            <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
+                                <span>[[${tagOne}]]</span>
+                            </a>
+                        </span>
+
+                        <span class="text-desc pull-right">
+                            <span class="media-icon">
+                                <img src="/images/svg/comment.svg" title="评论数">
+                                <span th:text="${questionDTO.commentCount}"></span>
+                            </span>
+                            <span class="media-icon">
+                                <img src="/images/svg/view.svg" title="浏览量">
+                                <!--                        <span th:text="${questionDTO.viewCount}+'次浏览 • '"></span>-->
+                                <span th:text="${questionDTO.viewCount}"></span>
+                            </span>
+
+                            <span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
+                        </span>
+
+                    </div>
                 </div>
             </div>
 <!--            页码-->
@@ -63,21 +116,21 @@
                         </a>
                     </li>
                     <li th:if="${pagination.showPrevious}">
-                        <a th:href="@{/(page=${pagination.page}-1,search=${search},tag=${tag})}" aria-label="Previous">
+                        <a th:href="@{/(page=${pagination.page}-1,search=${search},tag=${tag},sort=${sort})}" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="page : ${pagination.pages}" th:class="${pagination.page==page}?'active':''">
-                        <a th:href="@{/(page=${page},search=${search},tag=${tag})}" th:text="${page}"></a>
+                        <a th:href="@{/(page=${page},search=${search},tag=${tag},sort=${sort})}" th:text="${page}"></a>
                     </li>
 
                     <li th:if="${pagination.showNext}">
-                        <a th:href="@{/(page=${pagination.page}+1,search=${search},tag=${tag})}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.page}+1,search=${search},tag=${tag},sort=${sort})}" aria-label="Next">
                             <span aria-hidden="true">&gt;</span>
                         </a>
                     </li>
                     <li th:if="${pagination.showEndPage}">
-                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag})}" aria-label="Next">
+                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag},sort=${sort})}" aria-label="Next">
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
@@ -88,15 +141,39 @@
         </div>
         <!--右边信息块-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>站主信息</h3>
-            <a href="https://hobo-clh.github.io/">博客</a>
-            <h3>热门标签</h3>
-
-            <span class="my-tags" th:each="hotTag:${hotTags}">
-                <a th:href="@{/(page=1,search=${search},tag=${hotTag})}">
-                    <span class="label label-info glyphicon glyphicon-tags my-tags"> [[${hotTag}]]</span>
+            <h3>
+                <img src="/images/svg/image.svg">
+                每日一图
+            </h3>
+            <div class="row one-day-module">
+                <div class="col-sm-12 col-md-12">
+                    <div class="thumbnail">
+                        <img id="one-day-img">
+                        <div class="caption">
+                            <span><img src="/images/svg/calendar.svg">
+                                <span class="text-desc" id="one-day-time"></span>
+                            </span>
+                            <p id="one-day-text-cn"></p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>
+                <img src="/images/svg/hot.svg">
+                热门标签
+            </h3>
+            <span class="label label-info tag-list" th:each="hotTag:${hotTags}">
+                <a  th:href="@{/(page=1,search=${search},tag=${hotTag})}">
+                    <span class="glyphicon glyphicon-tags "></span>
+                    <span>[[${hotTag}]]</span>
                 </a>
             </span>
+            <hr>
+            <h3>站主信息</h3>
+            <a href="https://hobo-clh.github.io/">博客</a>
+
 
         </div>
     </div>

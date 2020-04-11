@@ -29,26 +29,31 @@
                 作者：<span th:text="${questionDTO.user.loginName}"></span>
                 | 阅读数：<span th:text="${questionDTO.viewCount}"></span>
                 | 发布于<span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
-            </span>
+                    <span th:if="${questionDTO.gmtModified!=questionDTO.gmtCreate}">已编辑</span>
+                </span>
                 <hr>
                 <!--内容-->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
                       id="question-view">
                     <textarea style="display: none" th:text="${questionDTO.description}"></textarea>
+                    <script type="text/javascript">
+                        $(function () {
+                            editormd.markdownToHTML("question-view",{})
+                        })
+                    </script>
                 </div>
 
-                <script type="text/javascript">
-                    $(function () {
-                        editormd.markdownToHTML("question-view",{})
-                    })
-                </script>
-
-                <br><hr>
-                <div class="my-label">
-                    <span th:each="tag:${questionDTO.tag.split(',')}">
-                        <span class="label label-info glyphicon glyphicon-tags"> [[${tag}]]</span>
-                    </span>
+                <hr>
+                <!--标签-->
+                <div>
+                <span class="label label-info tag-list"  th:each="tag:${questionDTO.tag.split(',')}">
+                    <a style="text-decoration-line: none" th:href="@{/(page=1,tag=${tag})}">
+                        <span class="glyphicon glyphicon-tags "></span>
+                        <span>[[${tag}]]</span>
+                    </a>
+                </span>
                 </div>
+
                 <hr>
                 <div th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
                     <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" >
@@ -143,8 +148,14 @@
                     <div class="media-left">
                         <a href="#">
                             <img class="media-object img-rounded"
-                                 th:src="${questionDTO.user.avatarUrl}">
+                                 th:src="${questionDTO.user.avatarUrl!=null?questionDTO.user.avatarUrl:'/images/default.jfif'}"/>
+
+
                         </a>
+
+
+
+
                     </div>
                     <div class="media-body">
                         <span th:text="${questionDTO.user.loginName}"></span>

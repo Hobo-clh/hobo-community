@@ -40,4 +40,15 @@ public class RegisterService {
         return false;
 
     }
+
+    public boolean VerifyUName(String loginName) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andLoginNameEqualTo(loginName);
+        List<User> users = userMapper.selectByExample(userExample);
+        if (users.size()!=0)
+            return false;
+        else
+            return true;
+    }
 }

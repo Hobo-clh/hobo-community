@@ -6,10 +6,10 @@ body {
     /*background: #34495e;*/
 }
 #login-body{
-    background-image: url("/images/t4.png");
+    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t4.png");
 }
 #register-body{
-    background-image: url("/images/t3.png");
+    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t3.png");
 }
 
 .box {
@@ -85,7 +85,13 @@ a:hover {
 .login-icon {
     width: 22px;
 }
-.error-message{
-    color: red;
-    font-size: 14px;
-}
+/*.tips-message{*/
+/*    !*color: red;*!*/
+/*    font-size: 14px;*/
+/*}*/
+/*.tips-message #red-message {*/
+/*    color: red;*/
+/*}*/
+/*.tips-message #green-message {*/
+/*    color: #2ecc71;*/
+/*}*/

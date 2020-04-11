@@ -1,10 +1,15 @@
 body {
     background-color: #efefef;
+    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/background_one.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
 }
 
 .main {
     background-color: white;
-    margin: 30px 100px;
+
+    margin: 30px 200px;
 }
 
 .btn-publish {
@@ -21,6 +26,7 @@ body {
 .media-object {
     width: 40px;
     height: 40px;
+    margin-top: 5px;
 }
 
 .text-desc {
@@ -127,9 +133,7 @@ body {
 .my-comment{
     padding: 0 40px 0 0;
 }
-.my-label {
-    margin-left: 15px;
-}
+
 .related-ul {
     list-style-type: none;
     padding-left: 10px;
@@ -155,13 +159,27 @@ body {
     padding-top: 10px;
 }
 
-.publish-tag-tab .label-info {
+.tag-list {
     white-space: normal;
     margin: 5px 5px;
     display: inline-block;
     cursor: pointer;
     font-size: 13px;
+
+    text-decoration-line: none;
 }
+.tag-list:hover{
+    background-color: #2095e8
+}
+.tag-list a{
+    color: white;
+    text-decoration-line: none;
+}
+.my-media-body .tag-list{
+    font-size: 11px;
+    margin: 0 4px;
+}
+
 .nav-icon{
     width: 20px;
 }
@@ -171,9 +189,18 @@ body {
 #index-body a{
     text-decoration: none;
 }
-.my-tags:hover {
-    color: #f3f3f3;
-}
-#header{
+
+#nav-header{
     margin: 0 0 0 49px;
 }
+.media-icon {
+    margin-right: 10px;
+}
+.h4{
+    margin: 2px 0;
+}
+.media-status{
+    margin: 4px 4px 4px 0;
+}
+
+

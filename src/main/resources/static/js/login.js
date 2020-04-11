@@ -5,12 +5,12 @@ function login() {
 
     if (loginName == null || loginName == "") {
         alert("请输入用户名");
-        $("#message").html("请输入用户名")
+        messageLabel.html("请输入用户名").css("color","red");
         return;
     }
     if (password == null || password ==""){
         alert("密码不能未空")
-        $("#message").html("密码不能未空")
+        messageLabel.html("密码不能未空").css("color","red");
         return;
     }
         $.ajax({
@@ -27,7 +27,7 @@ function login() {
                 if (response.code === 200) {
                     window.open("/", "_self");
                 } else {
-                    $("#message").html("用户名或者密码错误")
+                    messageLabel.html("用户名或者密码错误").css("color","red");
                 }
                 console.log(response)
             },

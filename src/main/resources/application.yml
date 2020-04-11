@@ -25,11 +25,11 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 
 
-# 设置cookie存在时间
-servlet:
-  session:
-    cookie:
-      max-age: 60*60*24*365
+## 设置cookie存在时间
+#servlet:
+#  session:
+#    cookie:
+#      max-age: 60*60*24*365
 
 # 设置阿里云主KeyId、KeySecret
 aliyun:

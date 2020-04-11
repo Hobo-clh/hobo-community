@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <title>Register</title>
 
-    <link rel="stylesheet" href="/js/loginAndRegister.css">
-    <script src="/js/register.js"></script>
+    <link rel="stylesheet" href="/css/loginAndRegister.css">
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/register.js"></script>
 </head>
 
 <body id="register-body">
     <form class="box" action="/register" method="post">
         <h1>Register</h1>
-        <input type="text" id="loginName" name="loginName" placeholder="用户名">
+        <input type="text" id="loginName" name="loginName" placeholder="用户名" onblur="registerBlur()">
         <input type="password" id="password" name="password" placeholder="密码">
         <input type="password" id="continuePwd" placeholder="再次输入密码">
         <input type="button" onclick="register()" value="注册">
-        <div class="error-message" >
-            <span id="message"></span>
-        </div>
+        <span id="message"></span>
 
         <div class="tips" >
             <a href="/login">已有账号？点击登录</a>

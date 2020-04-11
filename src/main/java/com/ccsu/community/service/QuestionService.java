@@ -3,6 +3,7 @@ package com.ccsu.community.service;
 import com.ccsu.community.dto.PaginationDTO;
 import com.ccsu.community.dto.QuestionDTO;
 import com.ccsu.community.dto.QuestionQueryDTO;
+import com.ccsu.community.enums.SortEnum;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
 import com.ccsu.community.mapper.QuestionExtMapper;
@@ -19,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,20 +37,34 @@ public class QuestionService {
     @Autowired
     QuestionExtMapper questionExtMapper;
 
-    public PaginationDTO list(String search,String tag,Integer page, Integer size) {
+    public PaginationDTO list(String search, String tag, String sort, Integer page, Integer size) {
 
         //page size -->limit page-1,size-->(page-1)*size个数
         //count(1)-->总数-->if 总数%size!=0 则页数为总数/size
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
-        if (StringUtils.isNotBlank(search)){
-            String[] searches = StringUtils.split(search," ");
+        if (StringUtils.isNotBlank(search)) {
+            String[] searches = StringUtils.split(search, " ");
             search = Arrays.stream(searches).collect(Collectors.joining("|"));
             questionQueryDTO.setSearch(search);
         }
+
+        for (SortEnum sortEnum : SortEnum.values()) {
+            if (sortEnum.name().toLowerCase().equals(sort)) {
+                questionQueryDTO.setSort(sort);
+                if (sortEnum == SortEnum.HOT7) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 7);
+                }
+                if (sortEnum == SortEnum.HOT30) {
+                    questionQueryDTO.setTime(System.currentTimeMillis() - 1000L * 60 * 60 * 24 * 30);
+                }
+                break;
+            }
+        }
+
         questionQueryDTO.setSize(size);
         questionQueryDTO.setTag(tag);
         PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO();
-        Integer totalCount =  questionExtMapper.countBySearch(questionQueryDTO);
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
 
         paginationDTO.setPagination(totalCount, page, size);
         Integer offset = getOffset(paginationDTO.getTotalPage(), page, size);
@@ -57,7 +74,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    private static Integer getOffset(Integer totalPage,Integer page,Integer size){
+    private static Integer getOffset(Integer totalPage, Integer page, Integer size) {
         if (page < 1) {
             page = 1;
         }
@@ -90,6 +107,7 @@ public class QuestionService {
 
     /**
      * 当前用户的所有问题页面
+     *
      * @param userId
      * @param page
      * @param size
@@ -182,9 +200,15 @@ public class QuestionService {
         List<Question> questions = questionExtMapper.selectRelated(question);
         List<QuestionDTO> questionDTOS = questions.stream().map(q -> {
             QuestionDTO questionDTO = new QuestionDTO();
-            BeanUtils.copyProperties(q,questionDTO);
+            BeanUtils.copyProperties(q, questionDTO);
             return questionDTO;
         }).collect(Collectors.toList());
         return questionDTOS;
+    }
+
+    public boolean verify(Long id, User user) {
+        Question question = questionMapper.selectByPrimaryKey(id);
+        boolean flag = question.getCreator().equals(user.getId());
+        return flag;
     }
 }

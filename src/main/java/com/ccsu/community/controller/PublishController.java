@@ -1,6 +1,8 @@
 package com.ccsu.community.controller;
 
 import com.ccsu.community.cache.TagCache;
+import com.ccsu.community.exception.CustomizeErrorCode;
+import com.ccsu.community.exception.CustomizeException;
 import com.ccsu.community.model.Question;
 import com.ccsu.community.model.User;
 import com.ccsu.community.service.QuestionService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class PublishController {
@@ -24,7 +27,18 @@ public class PublishController {
 
     @GetMapping("/publish/{id}")
     public String edit(@PathVariable(name = "id") Long id,
+                       HttpServletRequest request,
                        Model model){
+        //验证是否为当前问题的创建者
+        User user = (User)request.getSession().getAttribute("user");
+        if (user==null) {
+            throw new CustomizeException(CustomizeErrorCode.NOT_LOGIN);
+        }else {
+            boolean flag = questionService.verify(id,user);
+            if (!flag) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_CREATOR_ERROR);
+            }
+        }
         Question question = questionService.getQuestionById(id);
         model.addAttribute("title", question.getTitle());
         model.addAttribute("description", question.getDescription());
