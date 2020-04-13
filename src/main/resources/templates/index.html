@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="baidu-site-verification" content="pO9wAavo3i" />
+
     <title>Hobo社区</title>
+    <link rel="icon" href="/images/duck.ico" type="image/x-icon">
     <!--引入bootstrap-->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
@@ -15,17 +17,17 @@
 </head>
 <body id="index-body">
 
-<script type="application/javascript">
-    window.onload = function () {
+<!--<script type="application/javascript">-->
+<!--    window.onload = function () {-->
 
-        let closable = window.localStorage.getItem("closable");
-        let questionId = window.localStorage.getItem("questionId");
-        if (closable == "true"){
-            window.open("/question/"+questionId,"_self");
-            window.localStorage.removeItem("closable")
-        }
-    }
-</script>
+<!--        let closable = window.localStorage.getItem("closable");-->
+<!--        let questionId = window.localStorage.getItem("questionId");-->
+<!--        if (closable == "true"){-->
+<!--            window.open("/question/"+questionId,"_self");-->
+<!--            window.localStorage.removeItem("closable")-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 
 <div th:replace="commons/navigation::navbar"></div>
 <div class="container-fluid main">
@@ -91,6 +93,12 @@
                         </span>
 
                         <span class="text-desc pull-right">
+
+
+                            <span class="media-icon">
+                                <img src="/images/svg/like.svg" title="点赞数">
+                                <span th:text="${questionDTO.likeCount}"></span>
+                            </span>
                             <span class="media-icon">
                                 <img src="/images/svg/comment.svg" title="评论数">
                                 <span th:text="${questionDTO.commentCount}"></span>
@@ -141,10 +149,10 @@
         </div>
         <!--右边信息块-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>
-                <img src="/images/svg/image.svg">
+            <h4>
+                <img src="/images/svg/books.svg">
                 每日一图
-            </h3>
+            </h4>
             <div class="row one-day-module">
                 <div class="col-sm-12 col-md-12">
                     <div class="thumbnail">
@@ -160,10 +168,11 @@
                 </div>
             </div>
             <hr>
-            <h3>
-                <img src="/images/svg/hot.svg">
+            <h4>
+<!--                <img src="/images/svg/hot.svg">-->
+                <img src="/images/svg/hot-4.svg">
                 热门标签
-            </h3>
+            </h4>
             <span class="label label-info tag-list" th:each="hotTag:${hotTags}">
                 <a  th:href="@{/(page=1,search=${search},tag=${hotTag})}">
                     <span class="glyphicon glyphicon-tags "></span>
@@ -171,7 +180,10 @@
                 </a>
             </span>
             <hr>
-            <h3>站主信息</h3>
+            <h4>
+                <img src="/images/svg/hobo.svg">
+                站主信息
+            </h4>
             <a href="https://hobo-clh.github.io/">博客</a>
 
 

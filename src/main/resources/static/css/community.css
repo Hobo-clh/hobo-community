@@ -1,14 +1,16 @@
 body {
     background-color: #efefef;
-    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/background_one.jpg");
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-    -moz-background-size:100% 100%;
+    background-image: url("/images/background/index-bg.png");
+    /*background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/background_one.jpg");*/
+    /*background-repeat:no-repeat;*/
+    /*background-size:100% 100%;*/
+    /*-moz-background-size:100% 100%;*/
 }
 
 .main {
     background-color: white;
-
+    box-shadow: 6px 6px 10px gray;
+    border-radius: 4px;
     margin: 30px 200px;
 }
 
@@ -202,5 +204,26 @@ body {
 .media-status{
     margin: 4px 4px 4px 0;
 }
-
-
+.icon-like{
+    box-sizing: border-box;
+    padding: 6px 8px;
+    border-radius: 2px;
+    background: #f5f6f7;
+    margin-left: 5px;
+}
+.icon-like:hover{
+    cursor: pointer;
+    background: #f9ecec;
+}
+.question-like-flag {
+    background: #f9ecec;
+}
+.question-icon {
+    margin-left: 2px;
+}
+.comment-time-desc{
+    margin-top: 2.5px;
+}
+.cursor-pointer{
+    cursor:pointer;
+}

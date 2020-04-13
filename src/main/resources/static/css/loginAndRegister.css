@@ -6,10 +6,12 @@ body {
     /*background: #34495e;*/
 }
 #login-body{
-    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t4.png");
+    /*background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t4.png");*/
+    background-image: url("/images/background/b4.png");
 }
 #register-body{
-    background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t3.png");
+    /*background-image: url("https://hobo-community.oss-cn-beijing.aliyuncs.com/t3.png");*/
+    background-image: url("/images/background/b3.png");
 }
 
 .box {

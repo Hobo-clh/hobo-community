@@ -7,10 +7,11 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     NOT_LOGIN(2003,"当前操作需要登录，请登录后重试"),
     SYS_ERROR(2004,"服务器正在努力修复中 小哥哥等下再来欧~"),
     TYPE_PARAM_WRONG(2005,"评论类型错误或不存在"),
-    COMMENT_NOT_FOUND(2006,"回复的评论不存在了噢~"),
+    COMMENT_NOT_FOUND(2006,"评论不存在了噢~"),
     CONTENT_IS_EMPTY(2007,"输入的内容不能为空~"),
     FILE_UPLOAD_FAIL(2008,"图片上传失败"),
-    QUESTION_CREATOR_ERROR(2009,"这个提问不属于你噢，你不能修改" );
+    QUESTION_CREATOR_ERROR(2009,"这个提问不属于你噢，你不能修改" ),
+    LIKE_FAILURE(2010,"你已经赞过啦!!" );
 
     private Integer code;
     private String message;

@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="/css/community.css">
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
-    <script src="/js/community.js"></script>
+    <script src="/js/question.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
 
     <link rel="stylesheet" href="/editor.md-master/css/editormd.preview.css">
     <script src="/editor.md-master/lib/marked.min.js"></script>
     <script src="/editor.md-master/lib/prettify.min.js"></script>
     <script src="/editor.md-master/editormd.min.js"></script>
+
 
 </head>
 <body>
@@ -24,7 +26,10 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <!--正文-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3 class="my-title"><span th:text="${questionDTO.title}"></span></h3>
+                <h3 class="my-title">
+                    <img src="/images/svg/book-title.svg">&nbsp;&nbsp;
+                    <span th:text="${questionDTO.title}"></span>
+                </h3>
                 <span class="text-desc">
                 作者：<span th:text="${questionDTO.user.loginName}"></span>
                 | 阅读数：<span th:text="${questionDTO.viewCount}"></span>
@@ -43,6 +48,13 @@
                     </script>
                 </div>
 
+                <hr>
+
+                <span class="text-desc icon-like"  onclick="questionLike()">
+                    <img src="/images/svg/like.svg">
+                    点赞
+                    <span th:text="${questionDTO.likeCount}" }></span>
+                </span>
                 <hr>
                 <!--标签-->
                 <div>
@@ -85,7 +97,10 @@
                 <button type="submit" class="btn btn-success btn-publish" onclick="post()">评论</button>
             </div>
 
-            <h3 th:text="${questionDTO.commentCount}+'个回复'"></h3>
+            <h4>
+                <img src="/images/svg/message.svg">
+                <span th:text="${questionDTO.commentCount}+'个回复'"></span>
+            </h4>
             <hr class="question-sp">
             <!--评论列表-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${questionDTO.commentCount!=0}">
@@ -102,7 +117,8 @@
                         <div class="comment-desc"><span th:text="${comment.content}"></span></div>
                         <!--依次是点赞、评论、时间-->
                         <div class="text-desc my-menu">
-                            <span class="glyphicon glyphicon-thumbs-up icon"></span>
+                            <span class="glyphicon glyphicon-thumbs-up icon" th:data-id="${comment.id}" onclick="likeCount(this)"></span>
+                            <span th:text="${comment.likeCount}"></span>
                             <span class="glyphicon glyphicon-comment icon icon-message" th:data-id="${comment.id}" th:id="${comment.id}" onclick="collapseComments(this)"></span>
                             <span th:text="${comment.commentCount}"></span>
                             <span class="pull-left my-time" th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
@@ -142,35 +158,41 @@
             <br><br><hr>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>发起人</h3>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object img-rounded"
-                                 th:src="${questionDTO.user.avatarUrl!=null?questionDTO.user.avatarUrl:'/images/default.jfif'}"/>
-
-
-                        </a>
-
-
-
-
-                    </div>
-                    <div class="media-body">
-                        <span th:text="${questionDTO.user.loginName}"></span>
-                    </div>
-
+            <h4>
+                <img src="/images/svg/people.svg">
+                发起人
+            </h4>
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded"
+                             th:src="${questionDTO.user.avatarUrl!=null?questionDTO.user.avatarUrl:'/images/default.jfif'}"/>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <span th:text="${questionDTO.user.loginName}"></span>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>相关问题</h3>
-                <ul class="related-ul">
-                    <li th:each="relatedQuestion : ${relatedQuestions}">
-                        <a class="a-tag" th:href="@{/question/__${relatedQuestion.id}__}">[[${relatedQuestion.title}]]</a>
-                    </li>
-                </ul>
+            <hr>
+            <h4>
+                <img src="/images/svg/bookmark.svg">
+                推荐内容
+            </h4>
+            <div>
+                <!--<img src="/images/coder.jpg" class="img-thumbnail">-->
+                <img style="width: 250px" src="/images/mysql.gif">
             </div>
+            <hr>
+            <h4>
+                <img src="/images/svg/help.svg">
+                相关问题
+            </h4>
+            <ul class="related-ul">
+                <li th:each="relatedQuestion : ${relatedQuestions}">
+                    <a class="a-tag" th:href="@{/question/__${relatedQuestion.id}__}">[[${relatedQuestion.title}]]</a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </div>

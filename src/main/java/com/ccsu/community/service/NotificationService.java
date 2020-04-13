@@ -65,19 +65,25 @@ public class NotificationService {
             Question question = null;
             //获取通知所在文章的title
             if (notification.getType()== NotificationTypeEnum.REPLY_QUESTION.getType()){
-                //回复的是问题,直接得到他
+                //通知格式为 回复问题  直接得到他
                 question= questionMapper.selectByPrimaryKey(outerid);
-            }else{
-                //回复的是评论
+            }
+            if (notification.getType()== NotificationTypeEnum.REPLY_COMMENT.getType()||notification.getType()== NotificationTypeEnum.LIKE_QUESTION.getType()){
+                //通知格式为 回复评论 或者 点赞评论
                 Comment comment = commentMapper.selectByPrimaryKey(outerid);
                 //得到被回复的评论的问题
                 question = questionMapper.selectByPrimaryKey(comment.getParentId());
             }
+            if (notification.getType()== NotificationTypeEnum.LIKE_COMMENT.getType()){
+                //通知格式为 点赞二级评论
+                Comment comment = commentMapper.selectByPrimaryKey(outerid);
+                Comment parentComment = commentMapper.selectByPrimaryKey(comment.getParentId());
+                question = questionMapper.selectByPrimaryKey(parentComment.getParentId());
 
-            notificationDTO.setStatus(notification.getStatus());
-            notificationDTO.setOuterTitle(question.getTitle());
+            }
             notificationDTO.setOuterId(question.getId());
-
+            notificationDTO.setOuterTitle(question.getTitle());
+            notificationDTO.setStatus(notification.getStatus());
             notificationDTO.setType(notification.getType());
             notificationDTO.setGmtCreate(notification.getGmtCreate());
             notificationDTO.setNotifier(notifier);

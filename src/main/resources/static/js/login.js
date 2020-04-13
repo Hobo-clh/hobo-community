@@ -34,3 +34,8 @@ function login() {
 
         });
 }
+$(function () {
+    $("#password").focus(function () {
+        $("#message").text("");
+    })
+})

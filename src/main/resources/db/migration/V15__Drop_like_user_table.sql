@@ -1,0 +1,1 @@
+drop table like_user;

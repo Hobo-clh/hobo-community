@@ -36,4 +36,7 @@ public class ResultDTO<T> {
     public static <T> ResultDTO loginOkOf(){
         return errorOf(200,"登录成功");
     }
+    public static <T> ResultDTO likeOkOf(){
+        return errorOf(200,"点赞成功");
+    }
 }

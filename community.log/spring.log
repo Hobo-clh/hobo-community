@@ -1,88 +1,134 @@
-2020-04-11 11:56:32.652  INFO 13868 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 13868 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
-2020-04-11 11:56:32.656  INFO 13868 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
-2020-04-11 11:56:32.919  WARN 13868 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2020-04-11 11:56:32.929  INFO 13868 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-04-11 11:56:32.931  INFO 13868 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-04-11 11:56:35.101  INFO 13868 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
-2020-04-11 11:56:35.111  INFO 13868 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-04-11 11:56:35.111  INFO 13868 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-04-11 11:56:35.245  INFO 13868 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-04-11 11:56:35.246  INFO 13868 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2315 ms
-2020-04-11 11:56:36.439  INFO 13868 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-04-11 11:56:36.557  INFO 13868 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-04-11 11:56:36.799  INFO 13868 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2020-04-11 11:56:37.309  INFO 13868 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-04-11 11:56:37.370  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is now 2020-04-11T11:56:37.370
-2020-04-11 11:56:37.397  INFO 13868 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
-2020-04-11 11:56:37.400  INFO 13868 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 6.077 seconds (JVM running for 9.31)
-2020-04-11 11:56:37.436  WARN 13868 --- [scheduling-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-04-11 11:56:37.436  INFO 13868 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-04-11 11:56:39.156  INFO 13868 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-04-11 11:56:39.238  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 1
-2020-04-11 11:56:39.238  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 2
-2020-04-11 11:56:39.238  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 3
-2020-04-11 11:56:39.238  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 4
-2020-04-11 11:56:39.238  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 5
-2020-04-11 11:56:39.239  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 6
-2020-04-11 11:56:39.239  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 7
-2020-04-11 11:56:39.239  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 8
-2020-04-11 11:56:39.239  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 9
-2020-04-11 11:56:39.239  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 10
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 11
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 12
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 13
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 14
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 15
-2020-04-11 11:56:39.245  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 16
-2020-04-11 11:56:39.246  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 17
-2020-04-11 11:56:39.246  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 18
-2020-04-11 11:56:39.248  INFO 13868 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is stop 2020-04-11T11:56:39.248
-2020-04-11 11:57:38.791  INFO 13868 --- [http-nio-8887-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [://hobo-clhgithubio/=2] that contained an invalid cookie. That cookie will be ignored.
- Note: further occurrences of this error will be logged at DEBUG level.
-2020-04-11 11:57:38.807  INFO 13868 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-04-11 11:57:38.807  INFO 13868 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-04-11 11:57:38.814  INFO 13868 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-04-11 12:05:22.348  INFO 7988 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 7988 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
-2020-04-11 12:05:22.350  INFO 7988 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
-2020-04-11 12:05:22.424  INFO 7988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-04-11 12:05:22.424  INFO 7988 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-04-11 12:05:22.471  WARN 7988 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2020-04-11 12:05:23.927  INFO 7988 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
-2020-04-11 12:05:23.935  INFO 7988 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-04-11 12:05:23.935  INFO 7988 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
-2020-04-11 12:05:24.019  INFO 7988 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-04-11 12:05:24.020  INFO 7988 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1596 ms
-2020-04-11 12:05:24.614  INFO 7988 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-04-11 12:05:24.674  INFO 7988 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-04-11 12:05:24.772  INFO 7988 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2020-04-11 12:05:24.873  INFO 7988 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-04-11 12:05:24.898  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is now 2020-04-11T12:05:24.898
-2020-04-11 12:05:24.917  INFO 7988 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
-2020-04-11 12:05:24.920  INFO 7988 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 3.053 seconds (JVM running for 4.696)
-2020-04-11 12:05:24.928  WARN 7988 --- [scheduling-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
-2020-04-11 12:05:24.929  INFO 7988 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-04-11 12:05:26.394  INFO 7988 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-04-11 12:05:26.429  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 1
-2020-04-11 12:05:26.429  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 2
-2020-04-11 12:05:26.429  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 3
-2020-04-11 12:05:26.429  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 4
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 5
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 6
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 7
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 8
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 9
-2020-04-11 12:05:26.430  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 10
-2020-04-11 12:05:26.451  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 11
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 12
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 13
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 14
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 15
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 16
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 17
-2020-04-11 12:05:26.452  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 18
-2020-04-11 12:05:26.455  INFO 7988 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is stop 2020-04-11T12:05:26.455
-2020-04-11 12:05:30.328  INFO 7988 --- [http-nio-8887-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [://hobo-clhgithubio/=2] that contained an invalid cookie. That cookie will be ignored.
- Note: further occurrences of this error will be logged at DEBUG level.
-2020-04-11 12:05:30.335  INFO 7988 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-04-11 12:05:30.335  INFO 7988 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-04-11 12:05:30.340  INFO 7988 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-04-14 00:05:51.776  WARN 1144 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m4s620ms499µs100ns).
+2020-04-14 00:05:52.905  INFO 1144 --- [Thread-11] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-04-14 00:05:52.907  INFO 1144 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:05:52.907  INFO 1144 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-04-14 00:05:52.911  INFO 1144 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-04-14 00:05:53.972  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 1144 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-04-14 00:05:53.972  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-04-14 00:05:54.364  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-14 00:05:54.365  INFO 1144 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-14 00:05:54.367  INFO 1144 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-04-14 00:05:54.390  INFO 1144 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-14 00:05:54.390  INFO 1144 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 414 ms
+2020-04-14 00:05:54.607  INFO 1144 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:05:54.625  INFO 1144 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-14 00:05:54.670  INFO 1144 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-04-14 00:05:54.744  INFO 1144 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-14 00:05:54.757  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is now 2020-04-14T00:05:54.757
+2020-04-14 00:05:54.759  WARN 1144 --- [scheduling-1] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-04-14 00:05:54.759  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-04-14 00:05:54.764  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-14 00:05:54.765  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 0.823 seconds (JVM running for 614.48)
+2020-04-14 00:05:54.767  INFO 1144 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-04-14 00:05:54.774  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 1
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 2
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 3
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 4
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 5
+2020-04-14 00:05:54.776  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 6
+2020-04-14 00:05:54.777  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 7
+2020-04-14 00:05:54.777  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 8
+2020-04-14 00:05:54.777  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 9
+2020-04-14 00:05:54.777  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 10
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 11
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 12
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 13
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 14
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 15
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 16
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 17
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 18
+2020-04-14 00:05:54.781  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 19
+2020-04-14 00:05:54.784  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is stop 2020-04-14T00:05:54.784
+2020-04-14 00:05:55.674  INFO 1144 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-14 00:05:55.675  INFO 1144 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-14 00:05:55.678  INFO 1144 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-04-14 00:11:39.981  INFO 1144 --- [Thread-18] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-04-14 00:11:39.982  INFO 1144 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:11:39.982  INFO 1144 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-04-14 00:11:39.986  INFO 1144 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-04-14 00:11:40.832  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 1144 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-04-14 00:11:40.833  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-04-14 00:11:41.245  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-14 00:11:41.245  INFO 1144 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-14 00:11:41.245  INFO 1144 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-04-14 00:11:41.263  INFO 1144 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-14 00:11:41.263  INFO 1144 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 427 ms
+2020-04-14 00:11:41.455  INFO 1144 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:11:41.477  INFO 1144 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-14 00:11:41.527  INFO 1144 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-04-14 00:11:41.687  INFO 1144 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-14 00:11:41.756  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-14 00:11:41.757  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 0.953 seconds (JVM running for 961.472)
+2020-04-14 00:11:41.758  INFO 1144 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-04-14 00:11:41.774  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is now 2020-04-14T00:11:41.774
+2020-04-14 00:11:41.780  WARN 1144 --- [scheduling-1] com.zaxxer.hikari.HikariConfig           : HikariPool-3 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-04-14 00:11:41.781  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-04-14 00:11:41.804  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-04-14 00:11:41.806  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 1
+2020-04-14 00:11:41.806  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 2
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 3
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 4
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 5
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 6
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 7
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 8
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 9
+2020-04-14 00:11:41.807  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 10
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 11
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 12
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 13
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 14
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 15
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 16
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 17
+2020-04-14 00:11:41.811  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 18
+2020-04-14 00:11:41.812  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 19
+2020-04-14 00:11:41.815  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is stop 2020-04-14T00:11:41.815
+2020-04-14 00:13:07.888  INFO 1144 --- [Thread-23] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-04-14 00:13:07.889  INFO 1144 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:13:07.890  INFO 1144 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2020-04-14 00:13:07.926  INFO 1144 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2020-04-14 00:13:08.777  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Starting CommunityApplication on LAPTOP-52N353FT with PID 1144 (F:\spring-boot_idea\community\community\target\classes started by 华华 in F:\spring-boot_idea\community\community)
+2020-04-14 00:13:08.778  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : No active profile set, falling back to default profiles: default
+2020-04-14 00:13:09.166  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2020-04-14 00:13:09.167  INFO 1144 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-14 00:13:09.167  INFO 1144 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-04-14 00:13:09.185  INFO 1144 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-14 00:13:09.185  INFO 1144 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 404 ms
+2020-04-14 00:13:09.371  INFO 1144 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:13:09.392  INFO 1144 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-04-14 00:13:09.434  INFO 1144 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-04-14 00:13:09.514  INFO 1144 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-04-14 00:13:09.526  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is now 2020-04-14T00:13:09.526
+2020-04-14 00:13:09.527  WARN 1144 --- [scheduling-1] com.zaxxer.hikari.HikariConfig           : HikariPool-4 - idleTimeout is close to or more than maxLifetime, disabling it.
+2020-04-14 00:13:09.527  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2020-04-14 00:13:09.533  INFO 1144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2020-04-14 00:13:09.533  INFO 1144 --- [restartedMain] com.ccsu.community.CommunityApplication  : Started CommunityApplication in 0.785 seconds (JVM running for 1049.248)
+2020-04-14 00:13:09.535  INFO 1144 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-04-14 00:13:09.552  INFO 1144 --- [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 1
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 2
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 3
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 4
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 5
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 6
+2020-04-14 00:13:09.554  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 7
+2020-04-14 00:13:09.555  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 8
+2020-04-14 00:13:09.555  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 9
+2020-04-14 00:13:09.555  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 10
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 11
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 12
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 13
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 14
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 15
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 16
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 17
+2020-04-14 00:13:09.557  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 18
+2020-04-14 00:13:09.558  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : questionList  question : 19
+2020-04-14 00:13:09.560  INFO 1144 --- [scheduling-1] com.ccsu.community.schedule.HotTagTask   : HotTagSchedule is stop 2020-04-14T00:13:09.560
+2020-04-14 00:17:41.543  INFO 1144 --- [Thread-28] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-04-14 00:17:41.544  INFO 1144 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-14 00:17:41.544  INFO 1144 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2020-04-14 00:17:41.547  INFO 1144 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
