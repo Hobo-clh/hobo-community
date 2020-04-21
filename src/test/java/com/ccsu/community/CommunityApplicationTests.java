@@ -1,16 +1,10 @@
 package com.ccsu.community;
 
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
+import com.ccsu.community.utils.CustomizeEmail;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 //
 //import org.mybatis.generator.api.MyBatisGenerator;
 //import org.mybatis.generator.config.Configuration;
@@ -60,6 +54,19 @@ class CommunityApplicationTests {
 //                    e.printStackTrace();
 //                }
 //            }
+    @Value("${customize.defaultAvatar}")
+    String defaultAvatarUrl;
 
+    @Test
+    public void test(){
+        System.out.println(defaultAvatarUrl);
+    }
 
+    @Autowired
+    CustomizeEmail sendEmail;
+
+    @Test
+    public void test2(){
+        sendEmail.sendEmail("3067332706@qq.com","你好啊","发送邮件测试");
+    }
 }

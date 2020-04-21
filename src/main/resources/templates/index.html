@@ -5,13 +5,10 @@
     <meta name="baidu-site-verification" content="pO9wAavo3i" />
 
     <title>Hobo社区</title>
-    <link rel="icon" href="/images/duck.ico" type="image/x-icon">
+
     <!--引入bootstrap-->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/community.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <head th:replace="fragment/common_import::commom_improt"></head>
+
     <script src="/js/community.js"></script>
 
 </head>
@@ -29,7 +26,7 @@
 <!--    }-->
 <!--</script>-->
 
-<div th:replace="commons/navigation::navbar"></div>
+<div th:replace="fragment/navigation::navbar"></div>
 <div class="container-fluid main">
     <div class="row whole">
         <!--左边主要内容-->
@@ -74,8 +71,7 @@
             <div class="media" th:each="questionDTO:${pagination.objectList}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded " th:src="${questionDTO.user.avatarUrl}" th:if="${questionDTO.user.avatarUrl!=null}">
-                        <img class="media-object img-rounded" src="/images/default.jfif" th:if="${questionDTO.user.avatarUrl==null}">
+                        <img class="media-object img-rounded " th:src="${questionDTO.user.avatarUrl}">
                     </a>
                 </div>
                 <div class="media-body my-media-body">
@@ -86,12 +82,25 @@
 
                     <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
                     <div class="media-status">
-                        <span class="label label-info tag-list" th:each="tagOne:${questionDTO.tag.split(',')}">
+                        <span th:each="tagOne:${questionDTO.tag.split(',')}" th:class="${tagOne=='置顶'?'label label-danger tag-list':'label label-info tag-list'}">
                             <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
-                                <span>[[${tagOne}]]</span>
+                                <span class="tag-js">[[${tagOne}]]</span>
                             </a>
                         </span>
+                        <!--
+                        <script type="text/javascript">
+                            function f() {
+                                let $myss = $(".media-status")
+                                $myss.each(function () {
+                                    let firstTag = $(this).children(".tag-list").children().children("span:eq(0)")
 
+                                    if(firstTag.text()=="置顶"){
+                                        $(this).children(".tag-list:eq(0)").css("background","red");
+                                    }
+                                })
+                            }
+                        </script>
+                        -->
                         <span class="text-desc pull-right">
 
 
@@ -151,26 +160,36 @@
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h4>
                 <img src="/images/svg/books.svg">
-                每日一图
+                每日一文
             </h4>
-            <div class="row one-day-module">
-                <div class="col-sm-12 col-md-12">
-                    <div class="thumbnail">
-                        <img id="one-day-img">
-                        <div class="caption">
-                            <span><img src="/images/svg/calendar.svg">
-                                <span class="text-desc" id="one-day-time"></span>
+            <div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title" style="text-align: center;margin: 3px 0 4px 0;">
+                            <span class="label label-success everyday-header">
+                                <span class="glyphicon glyphicon-bookmark"></span>
+                                <span id="everyday-title"></span>
                             </span>
-                            <p id="one-day-text-cn"></p>
-                            </p>
+                            <span class="label label-warning everyday-header">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span id="everyday-author"></span>
+                            </span>
                         </div>
+                    </div>
+                    <div class="panel-body">
+                        <p id="everyday-summary"></p>
+                        <a class="pull-right" type="button" data-toggle="modal" data-target="#每日一文" style="cursor:pointer;">
+                            阅读全文
+                        </a>
+
                     </div>
                 </div>
             </div>
+
             <hr>
             <h4>
 <!--                <img src="/images/svg/hot.svg">-->
-                <img src="/images/svg/hot-4.svg">
+                <img src="/images/svg/hot-5.svg">
                 热门标签
             </h4>
             <span class="label label-info tag-list" th:each="hotTag:${hotTags}">
@@ -184,12 +203,39 @@
                 <img src="/images/svg/hobo.svg">
                 站主信息
             </h4>
-            <a href="https://hobo-clh.github.io/">博客</a>
+            <a href="http://www.hobosocool.top/">博客</a>
 
 
         </div>
     </div>
 </div>
-<div th:replace="commons/footer::footer"></div>
+
+<div class="modal fade" id="每日一文" tabindex="-1" role="dialog" aria-labelledby="modal-everyday-title" >
+    <div class="modal-dialog modal-lg" role="document" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <br>
+                <h3 class="modal-title" style="text-align: center" id="modal-everyday-title"></h3>
+                <div class="pull-right">
+                    <span>作者:</span>
+                    <span id="modal-everyday-author"></span>
+                    <span>   /   </span>
+                    <span id="modal-everyday-wc"></span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <span id="modal-everyday-content"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragment/footer::footer"></div>
 </body>
 </html>

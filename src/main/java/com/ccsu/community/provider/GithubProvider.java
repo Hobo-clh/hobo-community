@@ -24,13 +24,13 @@ public class GithubProvider {
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient();
 
-        //忽略证书问题  到时候设置AOP
-        try {
-            SecurityCer.trustAllHttpsCertificates();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        HttpsURLConnection.setDefaultHostnameVerifier(securityCer.getHv());
+//        //忽略证书问题  到时候设置AOP
+//        try {
+//            SecurityCer.trustAllHttpsCertificates();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        HttpsURLConnection.setDefaultHostnameVerifier(securityCer.getHv());
 
         RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
         Request request = new Request.Builder()

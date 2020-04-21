@@ -20,6 +20,7 @@ public class SecurityCer {
     }
 
     HostnameVerifier hv = new HostnameVerifier() {
+        @Override
         public boolean verify(String urlHostName, SSLSession session) {
             System.out.println("Warning: URL Host: " + urlHostName + " vs. "
                     + session.getPeerHost());
@@ -34,12 +35,12 @@ public class SecurityCer {
         javax.net.ssl.SSLContext sc = javax.net.ssl.SSLContext
                 .getInstance("SSL");
         sc.init(null, trustAllCerts, null);
-        javax.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(sc
-                .getSocketFactory());
+        javax.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }
 
     static class miTM implements javax.net.ssl.TrustManager,
             javax.net.ssl.X509TrustManager {
+        @Override
         public java.security.cert.X509Certificate[] getAcceptedIssuers() {
             return null;
         }
@@ -54,12 +55,14 @@ public class SecurityCer {
             return true;
         }
 
+        @Override
         public void checkServerTrusted(
                 java.security.cert.X509Certificate[] certs, String authType)
                 throws java.security.cert.CertificateException {
             return;
         }
 
+        @Override
         public void checkClientTrusted(
                 java.security.cert.X509Certificate[] certs, String authType)
                 throws java.security.cert.CertificateException {

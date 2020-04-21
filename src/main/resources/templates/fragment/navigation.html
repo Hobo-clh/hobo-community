@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <nav class="navbar navbar-default" th:fragment="navbar">
+    <nav class="navbar navbar-default" style="margin: 0" th:fragment="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -28,7 +28,16 @@
                         <img src="/images/search.svg" class="nav-icon">
                     </button>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 40px;">
+
+                    <li>
+                        <a type="button"  data-toggle="modal" data-target="#mymodal" style="cursor:pointer;">
+                            关于站主
+                        </a>
+                        <!--模态框-->
+                        <div th:replace="fragment/modal::modal"></div>
+                    </li>
+
                     <li th:if="${session.user!=null}">
                         <a class="glyphicon glyphicon-plus" href="/publish">提问</a>
                     </li>
@@ -37,12 +46,12 @@
                     </li>
                     <li class="dropdown" th:if="${session.user!=null}">
                         <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false" >[[${session.user.loginName}]]
-                            <span class="caret"></span>
+                           aria-expanded="false" >[[${session.user.loginName}]]<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/profile/questions">我的问题</a></li>
-                            <li><a href="#">个人资料</a></li>
+                            <li><a href="/profile/replies">我的回复</a></li>
+<!--                            <li><a href="#">个人资料</a></li>-->
                             <li><a href="/logout">退出登录</a></li>
                         </ul>
                     </li>

@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${sectionName}"></title>
-    <!--引入bootstrap-->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/community.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+
+    <head th:replace="fragment/common_import::commom_improt"></head>
 
 </head>
 <body>
-<div th:replace="commons/navigation::navbar"></div>
+<div th:replace="fragment/navigation::navbar"></div>
 <div class="container-fluid main profile">
     <div class="row whole">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -35,64 +31,15 @@
 <!--                    <span th:text="${#dates.format(quesion.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>-->
 <!--                </div>-->
 <!--            </div>-->
-
-            <div class="media" th:each="questionDTO:${pagination.objectList}" th:if="${section=='questions'}">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="media-object img-rounded " th:src="${questionDTO.user.avatarUrl}" th:if="${questionDTO.user.avatarUrl!=null}">
-                        <img class="media-object img-rounded" src="/images/default.jfif" th:if="${questionDTO.user.avatarUrl==null}">
-                    </a>
-                </div>
-                <div class="media-body my-media-body">
-                    <h4 class="h4">
-                        <a class="media-heading my-media-heading" th:href="@{/question/__${questionDTO.id}__}" th:text="${questionDTO.title}">
-                        </a>
-                    </h4>
-
-                    <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
-                    <div class="media-status">
-                        <span class="label label-info tag-list" th:each="tagOne:${questionDTO.tag.split(',')}">
-                            <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
-                                <span>[[${tagOne}]]</span>
-                            </a>
-                        </span>
-
-                        <span class="text-desc pull-right">
-                            <span class="media-icon">
-                                <img src="/images/svg/comment.svg" title="评论数">
-                                <span th:text="${questionDTO.commentCount}"></span>
-                            </span>
-                            <span class="media-icon">
-                                <img src="/images/svg/view.svg" title="浏览量">
-                                <!--                        <span th:text="${questionDTO.viewCount}+'次浏览 • '"></span>-->
-                                <span th:text="${questionDTO.viewCount}"></span>
-                            </span>
-
-                            <span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
-                        </span>
-
-                    </div>
-                </div>
+            <!--展示我的问题-->
+            <div th:if="${section=='questions'}">
+                <div th:replace="fragment/question_list::questions"></div>
             </div>
-
             <!--展示我的回复-->
-            <div class="media"  th:if="${section=='replies'}">
-                <ul class="related-ul">
-                    <li class="replies-li" th:each="notification:${pagination.objectList}">
-                        <span th:text="${notification.notifier.loginName}"></span>
-                        <span th:if="${notification.type==1}"> 回复了问题</span>
-                        <span th:if="${notification.type==2}"> 回复了评论</span>
-                        <span th:if="${notification.type==3}"> 点赞了问题</span>
-                        <span th:if="${notification.type==4}"> 点赞了评论</span>
-                        <a th:href="@{/question/__${notification.outerId}__}">
-                            <span th:text="${notification.outerTitle}"></span>
-                        </a>
-                        <span class="label label-danger" th:if="${notification.status==0}">
-                                最新消息
-                        </span>
-                    </li>
-                </ul>
+            <div th:if="${section=='replies'}">
+                <div th:replace="fragment/reply_list::replies"></div>
             </div>
+
             <!--页码-->
             <nav aria-label="Page navigation">
                 <ul class="pagination">
@@ -138,6 +85,6 @@
         </div>
     </div>
 </div>
-<div th:replace="commons/footer::footer"></div>
+<div th:replace="fragment/footer::footer"></div>
 </body>
 </html>

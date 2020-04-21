@@ -22,8 +22,6 @@ public class UserService {
         userExample.createCriteria()
                 .andAccountIdEqualTo(user.getAccountId());
         List<User> users = userMapper.selectByExample(userExample);
-
-
         if(users.size()==0) {
             //插入
             user.setGmtCreate(System.currentTimeMillis());

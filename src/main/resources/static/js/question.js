@@ -26,6 +26,13 @@ function likeCount(e) {
             if (response.code == 200) {
                 window.location.reload();
             } else {
+                if (response.code == 2003) {
+                    let isAccepted = window.confirm(response.message);
+                    if (isAccepted) {
+                        //跳转登录
+                        window.open("/login", "_self");
+                    }
+                }
             }
         }
     })
@@ -80,6 +87,14 @@ function questionLike() {
             //当前用户点赞了该问题
             if (response.code==200){
                 window.location.reload();
+            }else {
+                if (response.code == 2003) {
+                    let isAccepted = window.confirm(response.message);
+                    if (isAccepted) {
+                        //跳转登录
+                        window.open("/login", "_self");
+                    }
+                }
             }
         }
     })
@@ -135,7 +150,13 @@ function twoCommentLike(e){
             if (response.code == 200) {
                 window.location.reload();
             } else {
-                alert(response.message);
+                if (response.code == 2003) {
+                    let isAccepted = window.confirm(response.message);
+                    if (isAccepted) {
+                        //跳转登录
+                        window.open("/login", "_self");
+                    }
+                }
             }
         }
     })

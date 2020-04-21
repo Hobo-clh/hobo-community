@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+ <div th:fragment="replies" class="media">
+    <ul class="related-ul">
+        <li class="replies-li" th:each="notification:${pagination.objectList}">
+            <span th:text="${notification.notifier.loginName}"></span>
+            <span th:if="${notification.type==1}"> 回复了问题</span>
+            <span th:if="${notification.type==2}"> 回复了评论</span>
+            <span th:if="${notification.type==3}"> 点赞了问题</span>
+            <span th:if="${notification.type==4}"> 点赞了评论</span>
+            <a th:href="@{/question/__${notification.outerId}__}">
+                <span th:text="${notification.outerTitle}"></span>
+            </a>
+            <span class="label label-danger" th:if="${notification.status==0}">
+                                最新消息
+                        </span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

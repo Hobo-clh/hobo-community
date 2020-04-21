@@ -74,8 +74,6 @@ function collapseComments(e) {
             } else {
                 $.getJSON("/comment/" + id, function (data) {
                     $.each(data.data.reverse(), function (index, comment) {
-
-
                         $.ajax({
                             url: "/judgeLike",
                             type: "POST",
@@ -185,13 +183,9 @@ function collapseComments(e) {
                                     }).append(mediaElement);
 
                                     subCommentContainer.prepend(mediaElement);
-
-
                                 }
                             }
                         })
-
-
                     });
 
                     //标记二级评论展开状态
@@ -243,12 +237,26 @@ function showSelectTag() {
 // },1000*5);
 
 /*每日一句*/
-$.getJSON("https://api.ooopn.com/ciba/api.php?type=json",
-    function (data) {
-        $("#one-day-text-cn").text(data.ciba);
-        $("#one-day-time").text(data.date);
-        $("#one-day-img").attr("src", data.imgurl);
-    })
+// $.getJSON("https://api.ooopn.com/ciba/api.php?type=json",
+//     function (data) {
+//         $("#one-day-text-cn").text(data.ciba);
+//         $("#one-day-time").text(data.date);
+//         $("#one-day-img").attr("src", data.imgurl);
+//     })
+
+$.getJSON("https://interface.meiriyiwen.com/article/today?dev=1",
+    function ({data}) {
+        $("#everyday-title").text(data.title);
+        // $("#article-author,#modal-article-author").text(data.author);
+        $("#everyday-author,#modal-everyday-author").text(data.author);
+        $("#everyday-summary").html("&emsp;&emsp;"+data.digest+"...");
+
+        $("#modal-everyday-title").text(data.title);
+        $("#modal-everyday-content").html(data.content);
+        $("#modal-everyday-wc").text("共"+data.wc+"字");
+    });
+
+
 
 Date.prototype.format = function(fmt)
 {

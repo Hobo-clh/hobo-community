@@ -10,7 +10,7 @@ public class ResultDTO<T> {
     private String message;
     private T data;
 
-    public static ResultDTO errorOf(Integer code,String message){
+    public static ResultDTO init(Integer code, String message){
         ResultDTO resultDTO = new ResultDTO();
         resultDTO.setMessage(message);
         resultDTO.setCode(code);
@@ -18,25 +18,25 @@ public class ResultDTO<T> {
     }
 
     public static ResultDTO errorOf(CustomizeErrorCode errorCode) {
-        return errorOf(errorCode.getCode(),errorCode.getMessage());
+        return init(errorCode.getCode(),errorCode.getMessage());
     }
 
     public static ResultDTO errorOf(CustomizeException e) {
-        return errorOf(e.getCode(),e.getMessage());
+        return init(e.getCode(),e.getMessage());
     }
 
     public static ResultDTO okOf() {
-        return errorOf(200,"请求成功");
+        return init(200,"请求成功");
     }
     public static <T> ResultDTO okOf(Object t) {
         ResultDTO resultDTO = okOf();
         resultDTO.setData(t);
         return resultDTO;
     }
-    public static <T> ResultDTO loginOkOf(){
-        return errorOf(200,"登录成功");
+    public static <T> ResultDTO info(Integer code, String message){
+        return init(code,message);
     }
     public static <T> ResultDTO likeOkOf(){
-        return errorOf(200,"点赞成功");
+        return init(200,"点赞成功");
     }
 }

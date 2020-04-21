@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册登录</title>
+    <link rel="stylesheet" href="/css/loginRegisterForm.css">
+    <script src="/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="/js/modifyPwd.js"></script>
+    <script src="/js/loginRegisterForm.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="login-header">
+    <a href="/">Hobo社区</a>
+</div>
+<div class="login-box">
+    <div class="lb-header">
+        <a href="javascript:void(0)" class="active" id="login-box-link" onclick="loginForm()">登录</a>
+        <a href="avascript:void(0)" id="signup-box-link" onclick="registerForm()">注册</a>
+    </div>
+    <div class="social-login">
+        <a href="https://github.com/login/oauth/authorize?client_id=Iv1.e1445cb4e1c12491&redirect_uri=http://hobosocool.top:81/callback&scope=user&state=1">
+            <i class="fa fa-facebook fa-lg"></i>
+            GitHub登录
+        </a>
+        <a href="javascript:void(0)" onclick="develop()">
+            <i class="fa fa-google-plus fa-lg" ></i>
+            QQ登录(开发中)
+        </a>
+    </div>
+    <form class="email-login">
+        <div class="u-form-group">
+            <input type="email" id="loginEmail" placeholder="邮箱"/>
+        </div>
+        <div class="u-form-group">
+            <input type="password" id="loginPwd" placeholder="密码"/>
+        </div>
+        <div class="u-form-group">
+            <input type="button" onclick="login()" value="登录"/>
+        </div>
+        <div class="u-form-group">
+            <a href="/gbPwd" id="forgot-password" class="forgot-password">忘记密码?</a>
+            <a href="/" class="forgot-password">游客模式</a>
+        </div>
+    </form>
+    <form class="email-signup" >
+        <div class="u-form-group">
+            <input type="email" id="email" placeholder="邮箱"/>
+        </div>
+        <div class="u-form-group">
+            <input type="password" id="pwd" placeholder="密码"/>
+        </div>
+        <div class="u-form-group">
+            <input type="text" id="code" placeholder="验证码"/>
+        </div>
+        <div class="u-form-group">
+            <input type="button" id="getCode" onclick="sendCode()" value="获取验证码">
+        </div>
+        <div class="u-form-group">
+            <input type="button" onclick="register()" value="注册"/>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

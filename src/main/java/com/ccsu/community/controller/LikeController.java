@@ -2,7 +2,6 @@ package com.ccsu.community.controller;
 
 import com.ccsu.community.dto.ResultDTO;
 import com.ccsu.community.exception.CustomizeErrorCode;
-import com.ccsu.community.model.LikeUser;
 import com.ccsu.community.model.Notification;
 import com.ccsu.community.model.User;
 import com.ccsu.community.service.LikeService;
@@ -43,7 +42,7 @@ public class LikeController {
                             HttpServletRequest request){
         User user = (User)request.getSession().getAttribute("user");
         if (user==null){
-            return ResultDTO.errorOf(0,"游客状态");
+            return ResultDTO.init(0,"游客状态");
         }
         notification.setNotifier(user.getId());
         boolean flag = likeService.judgeLike(notification);
@@ -51,6 +50,6 @@ public class LikeController {
             //用户点赞了评论
             return ResultDTO.likeOkOf();
         }
-        return ResultDTO.errorOf(0,"没有点赞");
+        return ResultDTO.init(0,"没有点赞");
     }
 }

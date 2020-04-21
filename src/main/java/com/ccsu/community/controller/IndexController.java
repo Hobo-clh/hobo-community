@@ -42,10 +42,6 @@ public class IndexController {
         model.addAttribute("hotTags",hotTags);
         model.addAttribute("tag",tag);
         model.addAttribute("sort",sort);
-
-
-
-
         return "index";
     }
 }

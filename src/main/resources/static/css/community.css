@@ -54,6 +54,9 @@ body {
 
 .my-error {
     text-align: center;
+    height: 590px;
+    margin: 0;
+    padding: 80px;
 }
 
 .media-body {
@@ -167,7 +170,6 @@ body {
     display: inline-block;
     cursor: pointer;
     font-size: 13px;
-
     text-decoration-line: none;
 }
 .tag-list:hover{
@@ -226,4 +228,9 @@ body {
 }
 .cursor-pointer{
     cursor:pointer;
+}
+
+.everyday-header{
+    font-size: 13px;
+    margin:0 4px;
 }

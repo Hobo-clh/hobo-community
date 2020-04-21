@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="questions" class="media" th:each="questionDTO:${pagination.objectList}" th:if="${section=='questions'}">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object img-rounded " th:src="${questionDTO.user.avatarUrl}">
+        </a>
+    </div>
+    <div class="media-body my-media-body">
+        <h4 class="h4">
+            <a class="media-heading my-media-heading" th:href="@{/question/__${questionDTO.id}__}" th:text="${questionDTO.title}">
+            </a>
+        </h4>
+
+        <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
+        <div class="media-status">
+                        <span class="label label-info tag-list" th:each="tagOne:${questionDTO.tag.split(',')}">
+                            <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
+                                <span>[[${tagOne}]]</span>
+                            </a>
+                        </span>
+
+            <span class="text-desc pull-right">
+                <span class="media-icon">
+                    <img src="/images/svg/like.svg" title="点赞数">
+                    <span th:text="${questionDTO.likeCount}"></span>
+                </span>
+                <span class="media-icon">
+                    <img src="/images/svg/comment.svg" title="评论数">
+                    <span th:text="${questionDTO.commentCount}"></span>
+                </span>
+                <span class="media-icon">
+                    <img src="/images/svg/view.svg" title="浏览量">
+                    <!--                        <span th:text="${questionDTO.viewCount}+'次浏览 • '"></span>-->
+                    <span th:text="${questionDTO.viewCount}"></span>
+                </span>
+
+                <span th:text="${#dates.format(questionDTO.gmtCreate,'yyyy-MM-dd HH:mm')}"></span>
+            </span>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
