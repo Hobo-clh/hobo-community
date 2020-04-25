@@ -4,7 +4,7 @@ spring-boot-community
 ## mvn命令
 - 使maven忽略证书验证下载jar包
 ```shell 
-mvn -Dmaven.wagon.http.ssl.insecure=true
+mvn -Dmaven.wagon.http.ssl.insecure=true install
 ```
 - mybatis generator自动生成代码
 ```bash 
