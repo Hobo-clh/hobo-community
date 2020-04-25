@@ -117,8 +117,4 @@ function login() {
         },
     });
 }
-function develop() {
-    alert("开发中...");
-    return;
-}
 

@@ -47,9 +47,9 @@ public class HotTagTask {
                     Integer priority = prioritiesMap.get(tag);
                     if (priority != null) {
                         //热度算法：20*question_count+4*comment_count+view_count
-                        prioritiesMap.put(tag, priority + 20 + 4 * question.getCommentCount() + question.getViewCount());
+                        prioritiesMap.put(tag, (int) (priority + 20 + 4 * question.getCommentCount() + question.getViewCount()));
                     } else {
-                        prioritiesMap.put(tag, 20 + 4 * question.getCommentCount() + question.getViewCount());
+                        prioritiesMap.put(tag, (int) (20 + 4 * question.getCommentCount() + question.getViewCount()));
                     }
                 }
                 log.info("questionList  question : {}", question.getId());

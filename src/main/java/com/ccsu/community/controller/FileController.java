@@ -12,6 +12,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class FileController {
 

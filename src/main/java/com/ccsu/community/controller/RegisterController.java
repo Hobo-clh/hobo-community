@@ -11,43 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class RegisterController {
 
     @Autowired
     RegisterService registerService;
 
-//    @RequestMapping("/register")
-//    public String goRegister(){
-//        return "register";
-//    }
-//
-//    @ResponseBody
-//    @PostMapping("/register")
-//    public Object doRegister(@RequestBody MyUserDTO myUserDTO,
-//                             HttpServletResponse response){
-//        String loginName = myUserDTO.getLoginName();
-//        String password = myUserDTO.getPassword();
-//        if (StringUtils.isNotBlank(loginName)&&StringUtils.isNotBlank(password)) {
-//            boolean flag = registerService.doRegister(loginName, password);
-//            if (flag){
-//                return ResultDTO.init(200,"注册成功");
-//            }
-//            return ResultDTO.init(203,"注册失败，用户名已存在");
-//        }
-//        return ResultDTO.init(204,"用户名或者密码不能为空！");
-//    }
-
-//    @ResponseBody
-//    @PostMapping("/verify")
-//    public Object VerifyUName(@RequestBody MyUserDTO myUserDTO){
-//        String loginName = myUserDTO.getLoginName();
-//        boolean flag = registerService.VerifyUName(loginName);
-//        if (flag){
-//            return ResultDTO.init(200,"用户名可用");
-//        }
-//        return ResultDTO.init(203,"用户名已存在");
-//    }
     @ResponseBody
     @PostMapping("/checkRegister")
     public Object verifyUser(@RequestParam String email){

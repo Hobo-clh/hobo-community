@@ -9,12 +9,12 @@ import com.ccsu.community.model.User;
 import com.ccsu.community.model.UserExample;
 import com.ccsu.community.model.Verify;
 import com.ccsu.community.model.VerifyExample;
-import com.ccsu.community.utils.CustomizeEmail;
+import com.ccsu.community.utils.CodecUtils;
+import com.ccsu.community.utils.EmailUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -28,15 +28,20 @@ public class RegisterService {
     @Autowired
     UserMapper userMapper;
     @Autowired
-    CustomizeEmail send;
+    EmailUtils send;
     @Autowired
     VerifyMapper verifyMapper;
-    //默认头像
+    /**
+     *  默认头像
+     */
     @Value("${customize.defaultAvatar}")
     String defaultAvatarUrl;
 
 
-    //检查邮箱是否注册
+    /**
+     * 检查邮箱是否注册
+     */
+
     public boolean checkRegister(String accountId){
         UserExample userExample = new UserExample();
         userExample.createCriteria()
@@ -60,7 +65,6 @@ public class RegisterService {
         }
         User user = new User();
         user.setLoginName("邮箱用户_"+userDTO.getAccountId());
-        user.setPwd(userDTO.getPassword());
         user.setAccountId(userDTO.getAccountId());
         user.setToken(UUID.randomUUID().toString());
         user.setGmtCreate(System.currentTimeMillis());
@@ -68,6 +72,12 @@ public class RegisterService {
         user.setNotificationCount(0);
         //设置默认头像
         user.setAvatarUrl(defaultAvatarUrl);
+
+        //生成盐
+        String salt = CodecUtils.generateSalt();
+        user.setSalt(salt);
+        //对密码加密
+        user.setPwd(CodecUtils.md5Hex(userDTO.getPassword(), salt));
         int flag = userMapper.insert(user);
         //注册成功
         if (flag==1){
@@ -110,7 +120,9 @@ public class RegisterService {
 
     }
 
-    //使用多线程五分钟后清除验证码数据
+    /**
+     * 使用多线程五分钟后清除验证码数据
+     */
     @Async
     public void removeCode(String accountId){
         removeCode(accountId, verifyMapper);

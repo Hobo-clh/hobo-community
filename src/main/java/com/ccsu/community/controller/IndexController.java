@@ -18,6 +18,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class IndexController {
 

@@ -4,6 +4,10 @@ function post() {
     comment2target(questionId, 1, commentContent)
 }
 
+/**
+ * 进行二级评论
+ * @param e
+ */
 function two_comment(e) {
     let commentId = e.getAttribute("data-id");
     let content = $("#reply-" + commentId).val();
@@ -33,10 +37,7 @@ function comment2target(targetId, type, content) {
                     let isAccepted = window.confirm(response.message);
                     if (isAccepted) {
                         //跳转登录
-                        // window.open("https://github.com/login/oauth/authorize?client_id=Iv1.e1445cb4e1c12491&redirect_uri=http://39.97.226.211/callback&scope=user&state=1", "_self");
                         window.open("/login", "_self");
-                        // window.localStorage.setItem("closable", "true");
-                        // window.localStorage.setItem("questionId", targetId);
                     }
                 }
             }
@@ -45,7 +46,34 @@ function comment2target(targetId, type, content) {
         dataType: "json"
     });
 }
-
+function judgeTwoComment(commentId) {
+    /**
+     * 判断用户是否点赞了该二级评论
+     */
+    let flag;
+    $.ajax({
+        url: "/judgeLike",
+        type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify({
+            "outerid": commentId,
+            "type": 5
+        }),
+        success: function (response) {
+            //当前用户点赞了该问题
+            if (response.code == 200) {
+                console.log("点赞了该二级评论");
+                flag =  true;
+            }else {
+                console.log("没有点赞该二级评论")
+                flag = false;
+            }
+        }
+    })
+    return flag;
+}
 /**
  * 展示二级评论
  */
@@ -74,120 +102,66 @@ function collapseComments(e) {
             } else {
                 $.getJSON("/comment/" + id, function (data) {
                     $.each(data.data.reverse(), function (index, comment) {
-                        $.ajax({
-                            url: "/judgeLike",
-                            type: "POST",
-                            contentType: "application/json",
-                            dataType: "json",
-                            data: JSON.stringify({
-                                "outerid": comment.id,
-                                "type" : 4
-                            }),
-                            success: function (response) {
-                                //当前用户点赞了该问题
-                                if (response.code==200){
-                                    console.log(response);
-                                    $(this).children(".my-menu").children(".media-icon").children("img").addClass("question-like-flag")
+                        let onclickMethod;
+                        let imgSrc;
+                        /**
+                         * 判断用户是否点赞了该二级评论
+                         */
+                        let flag = judgeTwoComment(comment.id);
+                        if (flag){
+                            $(this).children(".my-menu").children(".media-icon").children("img").addClass("question-like-flag")
+                            onclickMethod = "";
+                            imgSrc= "/images/svg/likeThree.svg";
+                        }else {
+                            onclickMethod = "twoCommentLike(this)";
+                            imgSrc = "/images/svg/likeTwo.svg"
+                        }
 
+                        let mediaLeftElement = $("<div/>", {
+                            "class": "media-left"
+                        }).append($("<img/>", {
+                            "class": "media-object img-rounded",
+                            "src": comment.user.avatarUrl
+                        }));
 
-                                    let mediaLeftElement = $("<div/>", {
-                                        "class": "media-left"
-                                    }).append($("<img/>", {
-                                        "class": "media-object img-rounded",
-                                        "src": comment.user.avatarUrl
-                                    }));
+                        let mediaBodyElement = $("<div/>", {
+                            "class": "media-body my-media-body two-comment-class",
+                            "data-id":comment.id
+                        }).append($("<h5/>", {
+                            "class": "media-heading",
+                            "html": comment.user.loginName
+                        })).append($("<div/>", {
+                            "class": "comment-desc",
+                            "html": comment.content
+                        })).append($("<div/>", {
+                                "class": "pull-right my-menu text-desc"
+                            }).append($("<span/>", {
+                                "class": "media-icon",
+                            }).append($("<img>",{
+                                "class":"cursor-pointer",
+                                "src": imgSrc,
+                                "title": "点赞数",
+                                "onclick": onclickMethod
+                            })).append($("<span/>",{
+                                "class":"question-icon text-desc",
+                                "html":comment.likeCount
+                            }))
+                            ).append($("<span/>", {
+                                "class": "pull-right text-desc comment-time-desc",
+                                "html": new Date(comment.gmtCreate).format('yyyy-MM-dd HH:mm')
 
-                                    let mediaBodyElement = $("<div/>", {
-                                        "class": "media-body my-media-body two-comment-class",
-                                        "data-id":comment.id
-                                    }).append($("<h5/>", {
-                                        "class": "media-heading",
-                                        "html": comment.user.loginName
-                                    })).append($("<div/>", {
-                                        "class": "comment-desc",
-                                        "html": comment.content
-                                    })).append($("<div/>", {
-                                            "class": "pull-right my-menu text-desc"
-                                        }).append($("<span/>", {
-                                            "class": "media-icon",
-                                        }).append($("<img>",{
-                                            "class":"cursor-pointer",
-                                            "src": "/images/svg/likeThree.svg",
-                                            "title": "点赞数",
-                                            // "onclick": "twoCommentLike(this)"
-                                        })).append($("<span/>",{
-                                            "class":"question-icon text-desc",
-                                            "html":comment.likeCount
-                                        }))
-                                        ).append($("<span/>", {
-                                            "class": "pull-right text-desc comment-time-desc",
-                                            "html": new Date(comment.gmtCreate).format('yyyy-MM-dd HH:mm')
+                            }))
+                        );
+                        let mediaElement = $("<div/>", {
+                            "class": "media"
+                        }).append(mediaLeftElement).append(mediaBodyElement);
 
-                                        }))
-                                    );
+                        let commentElement = $("<div/>", {
+                            "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments"
+                        }).append(mediaElement);
 
-                                    let mediaElement = $("<div/>", {
-                                        "class": "media"
-                                    }).append(mediaLeftElement).append(mediaBodyElement);
-
-                                    let commentElement = $("<div/>", {
-                                        "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments"
-                                    }).append(mediaElement);
-
-                                    subCommentContainer.prepend(mediaElement);
-
-                                }else{
-
-                                    let mediaLeftElement = $("<div/>", {
-                                        "class": "media-left"
-                                    }).append($("<img/>", {
-                                        "class": "media-object img-rounded",
-                                        "src": comment.user.avatarUrl
-                                    }));
-
-                                    let mediaBodyElement = $("<div/>", {
-                                        "class": "media-body my-media-body two-comment-class",
-                                        "data-id":comment.id
-                                    }).append($("<h5/>", {
-                                        "class": "media-heading",
-                                        "html": comment.user.loginName
-                                    })).append($("<div/>", {
-                                        "class": "comment-desc",
-                                        "html": comment.content
-                                    })).append($("<div/>", {
-                                            "class": "pull-right my-menu text-desc"
-                                        }).append($("<span/>", {
-                                            "class": "media-icon",
-                                        }).append($("<img>",{
-                                            "class":"cursor-pointer",
-                                            "src": "/images/svg/likeTwo.svg",
-                                            "title": "点赞数",
-                                            "onclick": "twoCommentLike(this)"
-                                        })).append($("<span/>",{
-                                            "class":"question-icon text-desc",
-                                            "html":comment.likeCount
-                                        }))
-                                        ).append($("<span/>", {
-                                            "class": "pull-right text-desc comment-time-desc",
-                                            "html": new Date(comment.gmtCreate).format('yyyy-MM-dd HH:mm')
-
-                                        }))
-                                    );
-
-                                    let mediaElement = $("<div/>", {
-                                        "class": "media"
-                                    }).append(mediaLeftElement).append(mediaBodyElement);
-
-                                    let commentElement = $("<div/>", {
-                                        "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments"
-                                    }).append(mediaElement);
-
-                                    subCommentContainer.prepend(mediaElement);
-                                }
-                            }
-                        })
+                        subCommentContainer.prepend(mediaElement);
                     });
-
                     //标记二级评论展开状态
                     comments.addClass("in");
                     icon.addClass("add-comment-icon");
@@ -197,16 +171,18 @@ function collapseComments(e) {
             }
         }
     })
-
-
 }
 
+/**
+ * 发布页面：选择标签
+ * @param e
+ */
 function selectTag(e) {
     let value = e.getAttribute("data-tag");
     let previous = $("#tag").val();
     if (previous != null && previous != "") {
         let tags = previous.split(",")
-        var flag = judge(tags, value)
+        let flag = judge(tags, value);
         if (flag) {
             $("#tag").val(previous + ',' + value);
         }

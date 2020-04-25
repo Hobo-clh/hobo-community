@@ -2,7 +2,7 @@
 spring-boot-community
 
 ## mvn命令
-- 使maven忽略证书验证
+- 使maven忽略证书验证下载jar包
 ```shell 
 mvn -Dmaven.wagon.http.ssl.insecure=true
 ```

@@ -1,7 +1,11 @@
 package com.ccsu.community.exception;
 
-public enum CustomizeErrorCode implements ICustomizeErrorCode {
+/**
+ * @author 华华
+ */
 
+public enum CustomizeErrorCode implements ICustomizeErrorCode {
+    //2000+的代表其他异常
     QUESTION_NOT_FOUND(2001,"你找的问题不存在，换个试试吧~？"),
     TARGET_PARAM_NOT_FOUND(2002,"未选中任何问题或者评论进行回复"),
     NOT_LOGIN(2003,"当前操作需要登录，请登录后重试"),
@@ -12,7 +16,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     FILE_UPLOAD_FAIL(2008,"图片上传失败"),
     QUESTION_CREATOR_ERROR(2009,"这个提问不属于你噢，你不能修改" ),
     LIKE_FAILURE(2010,"你已经赞过啦!!" ),
-
+    LOGIN_CONNECT_ERROR(2011,"第三方登录连接出了问题，再试一次？"),
+    //200+代表登录注册异常
     EMAIL_IS_EXIST(201,"邮箱已经注册过了！"),
     EMAIL_ILLEGAL(202,"邮箱不合法！"),
     EMAIL_OR_PWD_BLANK(203,"邮箱和密码都不能为空！"),
@@ -21,7 +26,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     VERIFY_IS_BLANK(206,"验证码为空"),
     REGISTER_FAIL(207,"注册失败"),
     EMAIL_OR_PWD_ERROR(208,"邮箱号或密码错误，登录失败"),
-    EMAIL_IS_BLANK(209,"邮箱不能为空");
+    EMAIL_IS_BLANK(209,"邮箱不能为空"),
+    EMAIL_NOT_EXIST(210,"邮箱不存在");
 
     private Integer code;
     private String message;

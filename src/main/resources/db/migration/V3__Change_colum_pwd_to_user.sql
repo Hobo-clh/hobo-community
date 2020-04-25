@@ -1,0 +1,1 @@
+alter table user modify pwd varchar(32) null;

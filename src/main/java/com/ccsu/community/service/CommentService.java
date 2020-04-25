@@ -37,7 +37,7 @@ public class CommentService {
     @Autowired
     private UserExtMapper userExtMapper;
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void insert(Comment comment){
         if(comment.getParentId()==null || comment.getParentId() == 0){
             throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
@@ -45,7 +45,7 @@ public class CommentService {
         if(comment.getType() == null || !CommentTypeEnum.isExist(comment.getType())){
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
-        if (comment.getType() == CommentTypeEnum.COMMENT.getType()){
+        if (comment.getType().equals(CommentTypeEnum.COMMENT.getType())){
             //--回复评论--
             //父评论
             Comment dbComment = commentMapper.selectByPrimaryKey(comment.getParentId());
@@ -68,7 +68,7 @@ public class CommentService {
                     selectByPrimaryKey(dbComment.getParentId()).
                     getCreator();
             //if当前提问的创建者！=一级评论者 通知+1
-            if(questionCreator!=dbComment.getCommentator()){
+            if(!questionCreator.equals(dbComment.getCommentator())){
                 User questionReceiver = userMapper.selectByPrimaryKey(questionCreator);
                 questionReceiver.setNotificationCount(1);
                 userExtMapper.incNotificationCount(questionReceiver);
@@ -80,7 +80,7 @@ public class CommentService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
             //增加评论数
-            question.setCommentCount(1);
+            question.setCommentCount(1L);
             questionExtMapper.incComment(question);
             //创建通知
             createNotify(comment, question.getCreator(), NotificationTypeEnum.REPLY_QUESTION);
@@ -88,9 +88,7 @@ public class CommentService {
             User receiver = userMapper.selectByPrimaryKey(question.getCreator());
             receiver.setNotificationCount(1);
             userExtMapper.incNotificationCount(receiver);
-
         }
-
         commentMapper.insert(comment);
         
     }

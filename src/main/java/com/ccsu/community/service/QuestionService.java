@@ -3,6 +3,7 @@ package com.ccsu.community.service;
 import com.ccsu.community.dto.PaginationDTO;
 import com.ccsu.community.dto.QuestionDTO;
 import com.ccsu.community.dto.QuestionQueryDTO;
+import com.ccsu.community.enums.QuestionTopEnum;
 import com.ccsu.community.enums.SortEnum;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
@@ -27,6 +28,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author 华华
+ */
 @Service
 public class QuestionService {
 
@@ -38,7 +42,6 @@ public class QuestionService {
     QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(String search, String tag, String sort, Integer page, Integer size) {
-
         //page size -->limit page-1,size-->(page-1)*size个数
         //count(1)-->总数-->if 总数%size!=0 则页数为总数/size
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
@@ -60,7 +63,6 @@ public class QuestionService {
                 break;
             }
         }
-
         questionQueryDTO.setSize(size);
         questionQueryDTO.setTag(tag);
         PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO();
@@ -94,7 +96,6 @@ public class QuestionService {
     private List<QuestionDTO> getQuestionDTOS(List<Question> questionList) {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
         for (Question question : questionList) {
-            // System.out.println(question);
             User user = userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             //将question的属性copy到questionDTO中
@@ -156,9 +157,9 @@ public class QuestionService {
             //创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
-            question.setViewCount(0);
-            question.setCommentCount(0);
-            question.setLikeCount(0);
+            question.setViewCount(0L);
+            question.setCommentCount(0L);
+            question.setLikeCount(0L);
             questionMapper.insert(question);
         } else {
             //更新
@@ -180,7 +181,7 @@ public class QuestionService {
     public void incView(Long id) {
         Question question = new Question();
         question.setId(id);
-        question.setViewCount(1);
+        question.setViewCount(1L);
         questionExtMapper.incView(question);
     }
 
@@ -210,5 +211,28 @@ public class QuestionService {
         Question question = questionMapper.selectByPrimaryKey(id);
         boolean flag = question.getCreator().equals(user.getId());
         return flag;
+    }
+
+    /**
+     * 设置为type设置是否置顶
+     * @param id
+     */
+    public void setTop(Long id, String topStatus) {
+        Integer setStatus = null;
+        Integer flag = Integer.valueOf(topStatus);
+        if (flag==QuestionTopEnum.IS_TOP.getType()){
+            setStatus=QuestionTopEnum.NO_TOP.getType();
+        }else if (flag==QuestionTopEnum.NO_TOP.getType()){
+            setStatus=QuestionTopEnum.IS_TOP.getType();
+        }else {
+            throw new CustomizeException("置顶类型错误");
+        }
+        Question question = questionMapper.selectByPrimaryKey(id);
+        if (question != null) {
+            question.setTop(setStatus);
+            questionMapper.updateByPrimaryKeySelective(question);
+        }else {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
     }
 }

@@ -3,6 +3,9 @@ package com.ccsu.community.dto;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author 华华
+ */
 @Data
 public class HotTagDTO implements Comparable{
 

@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class PublishController {
 
@@ -98,6 +101,7 @@ public class PublishController {
         question.setDescription(description);
         question.setTag(tag);
         question.setCreator(user.getId());
+        question.setTop(0);
         questionService.createOrUpdate(question);
         model.addAttribute("success", "发布成功！");
         return "redirect:/";

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class ProfileController {
 
@@ -25,6 +28,9 @@ public class ProfileController {
     QuestionService questionService;
     @Autowired
     NotificationService notificationService;
+
+    private static final String QUESTIONS = "questions";
+    private static final String REPLIES = "replies";
 
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable(name = "action") String action,
@@ -39,13 +45,13 @@ public class ProfileController {
             return "redirect:/";
         }
         
-        if("questions".equals(action)){
+        if(QUESTIONS.equals(action)){
             //展示所有我的问题、提问
             model.addAttribute("section","questions");
             model.addAttribute("sectionName","我的提问");
             PaginationDTO pagination = questionService.list(user.getId(), page, size);
             model.addAttribute("pagination",pagination);
-        }else if("replies".equals(action)){
+        }else if(REPLIES.equals(action)){
             //展示所有我的回复
             model.addAttribute("section","replies");
             model.addAttribute("sectionName","最新回复");

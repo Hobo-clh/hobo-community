@@ -22,6 +22,11 @@
                         </span>
 
             <span class="text-desc pull-right">
+                <span class="media-icon" th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
+                    <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" >
+                        <span class="glyphicon glyphicon-pencil " aria-hidden="true">编辑</span>
+                    </a>
+                </span>
                 <span class="media-icon">
                     <img src="/images/svg/like.svg" title="点赞数">
                     <span th:text="${questionDTO.likeCount}"></span>

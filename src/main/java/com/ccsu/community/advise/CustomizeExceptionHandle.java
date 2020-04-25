@@ -17,9 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-//拦截服务器内部异常 处理mvc请求异常
+/**
+ * 拦截服务器内部异常 处理mvc请求异常
+ * @author 华华
+ */
 @ControllerAdvice
 public class CustomizeExceptionHandle {
+
+    private static final String CONTENT_TYPE = "application/json";
 
     @ResponseBody
     @ExceptionHandler({Exception.class})
@@ -28,28 +33,13 @@ public class CustomizeExceptionHandle {
                         Throwable e, Model model) {
 
         String contentType = request.getContentType();
-        if ("application/json".equals(contentType)) {
-            ResultDTO resultDTO = null;
+        if (CONTENT_TYPE.equals(contentType)) {
             //返回json
             if (e instanceof CustomizeException) {
-//                resultDTO = ResultDTO.errorOf((CustomizeException) e);
                 return ResultDTO.errorOf((CustomizeException) e);
             } else {
-//                resultDTO = ResultDTO.errorOf(CustomizeErrorCode.SYS_ERROR);
                 return ResultDTO.errorOf(CustomizeErrorCode.SYS_ERROR);
             }
-//            PrintWriter writer = null;
-//            try {
-//                response.setContentType("application/json");
-//                request.setCharacterEncoding("UTF-8");
-//                writer = response.getWriter();
-//                writer.write(JSON.toJSONString(resultDTO));
-//            } catch (IOException ex) {
-//            } finally {
-//                if(writer!=null){
-//                    writer.close();
-//                }
-//            }
         } else {
             //返回错误页面
             if (e instanceof CustomizeException) {

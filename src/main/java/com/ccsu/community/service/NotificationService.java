@@ -64,17 +64,18 @@ public class NotificationService {
             Long outerid = notification.getOuterid();
             Question question = null;
             //获取通知所在文章的title
-            if (notification.getType()== NotificationTypeEnum.REPLY_QUESTION.getType()){
-                //通知格式为 回复问题  直接得到他
+            Integer type = notification.getType();
+            if (type == NotificationTypeEnum.REPLY_QUESTION.getType()|| type == NotificationTypeEnum.LIKE_QUESTION.getType()){
+                //通知格式为 问题的点赞或回复 直接得到他
                 question= questionMapper.selectByPrimaryKey(outerid);
             }
-            if (notification.getType()== NotificationTypeEnum.REPLY_COMMENT.getType()||notification.getType()== NotificationTypeEnum.LIKE_QUESTION.getType()){
-                //通知格式为 回复评论 或者 点赞评论
+            if (type == NotificationTypeEnum.REPLY_COMMENT.getType()|| type == NotificationTypeEnum.LIKE_COMMENT.getType()){
+                //通知格式为 回复的点赞或评论 评论
                 Comment comment = commentMapper.selectByPrimaryKey(outerid);
                 //得到被回复的评论的问题
                 question = questionMapper.selectByPrimaryKey(comment.getParentId());
             }
-            if (notification.getType()== NotificationTypeEnum.LIKE_COMMENT.getType()){
+            if (type == NotificationTypeEnum.LIKE_TWO_COMMENT.getType()){
                 //通知格式为 点赞二级评论
                 Comment comment = commentMapper.selectByPrimaryKey(outerid);
                 Comment parentComment = commentMapper.selectByPrimaryKey(comment.getParentId());
@@ -84,7 +85,7 @@ public class NotificationService {
             notificationDTO.setOuterId(question.getId());
             notificationDTO.setOuterTitle(question.getTitle());
             notificationDTO.setStatus(notification.getStatus());
-            notificationDTO.setType(notification.getType());
+            notificationDTO.setType(type);
             notificationDTO.setGmtCreate(notification.getGmtCreate());
             notificationDTO.setNotifier(notifier);
             notificationDTOList.add(notificationDTO);

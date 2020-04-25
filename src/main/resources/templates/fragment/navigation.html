@@ -31,7 +31,7 @@
                 <ul class="nav navbar-nav navbar-right" style="margin-right: 40px;">
 
                     <li>
-                        <a type="button"  data-toggle="modal" data-target="#mymodal" style="cursor:pointer;">
+                        <a type="button"  data-toggle="modal" data-target="#mymodal" style="cursor:pointer;padding-top: 18px;">
                             关于站主
                         </a>
                         <!--模态框-->
@@ -56,7 +56,7 @@
                         </ul>
                     </li>
                     <li th:if=" ${session.user}==null">
-                        <a href="/login">登录</a>
+                        <a href="/login" style="padding-top: 18px;">登录</a>
 <!--                        <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.e1445cb4e1c12491',redirect_uri=${#httpServletRequest.getRequestURL()+'callback'},scope='user',state='1')}">登录</a>-->
 <!--                        <a href="/login">登录</a>-->
                     </li>

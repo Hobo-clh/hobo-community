@@ -5,7 +5,7 @@ $(function () {
 
 
 /**
- * 点赞评论数
+ * 点赞评论
  */
 function likeCount(e) {
     let commentId = e.getAttribute("data-id");
@@ -118,7 +118,6 @@ function judgeQuestionLike() {
         success: function (response) {
             //当前用户点赞了该问题
             if (response.code==200){
-                console.log(response);
                 likeIcon.addClass("question-like-flag");
             }
         }
@@ -132,6 +131,7 @@ function judgeQuestionLike() {
 function twoCommentLike(e){
 
     if ($(e).is(".question-like-flag")) {
+        console.log("直接返回")
         return;
     }
 
@@ -144,7 +144,7 @@ function twoCommentLike(e){
         data: JSON.stringify({
             "outerid": twoCommentId,
             //点赞评论
-            "type": 4
+            "type": 5
         }),
         success: function (response) {
             if (response.code == 200) {
@@ -162,33 +162,4 @@ function twoCommentLike(e){
     })
 }
 
-/**
- * 判断用户是否点赞了该二级评论
- *
- * 没有实现
- */
-function judgeTwoCommentLike() {
-    let twoComments = $(".two-comment-class")
-    twoComments.each(function () {
-        let twoCommentId = $(this).attr("data-id")
 
-        $.ajax({
-            url: "/judgeLike",
-            type: "POST",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify({
-                "outerid": twoComments,
-                "type" : 4
-            }),
-            success: function (response) {
-                //当前用户点赞了该问题
-                if (response.code==200){
-                    console.log(response);
-                    debugger;
-                    $(this).children(".my-menu").children(".media-icon").children("img").addClass("question-like-flag")
-                }
-            }
-        })
-    })
-}

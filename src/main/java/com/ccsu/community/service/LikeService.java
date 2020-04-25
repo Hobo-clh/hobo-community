@@ -28,18 +28,19 @@ public class LikeService {
 
         NotificationExample notificationExample = new NotificationExample();
         Long outerid = notification.getOuterid();
+        Integer type = notification.getType();
         notificationExample.createCriteria()
                 .andOuteridEqualTo(outerid)
                 .andNotifierEqualTo(notification.getNotifier())
-                .andTypeEqualTo(notification.getType());
+                .andTypeEqualTo(type);
         List<Notification> notifications = notificationMapper.selectByExample(notificationExample);
         if (notifications.size()!=0){
             //已经点过赞了
             return false;
         }
-        Integer update =null;
+        Integer update;
         User receiver = null;
-        if (notification.getType()==NotificationTypeEnum.LIKE_COMMENT.getType()){
+        if (type ==NotificationTypeEnum.LIKE_COMMENT.getType()|| type ==NotificationTypeEnum.LIKE_TWO_COMMENT.getType()){
             Comment comment = commentMapper.selectByPrimaryKey(outerid);
             comment.setLikeCount(comment.getLikeCount()+1);
             CommentExample commentExample = new CommentExample();
@@ -51,7 +52,7 @@ public class LikeService {
                 receiver = userMapper.selectByPrimaryKey(comment.getCommentator());
             }
         }
-        if (notification.getType()==NotificationTypeEnum.LIKE_QUESTION.getType()){
+        if (type ==NotificationTypeEnum.LIKE_QUESTION.getType()){
             Question question = questionMapper.selectByPrimaryKey(outerid);
             question.setLikeCount(question.getLikeCount()+1);
             QuestionExample questionExample = new QuestionExample();

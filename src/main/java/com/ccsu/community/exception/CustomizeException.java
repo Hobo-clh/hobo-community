@@ -1,5 +1,8 @@
 package com.ccsu.community.exception;
 
+/**
+ * @author 华华
+ */
 public class CustomizeException extends RuntimeException {
 
     private String message;
@@ -10,6 +13,12 @@ public class CustomizeException extends RuntimeException {
         this.code=errorCode.getCode();
     }
 
+    public CustomizeException(String message){
+        this.message=message;
+
+    }
+
+    @Override
     public String getMessage(){
         return message;
     }

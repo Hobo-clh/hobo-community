@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 拦截服务器异常 例如错误路径
+ * @author 华华
  */
 @Controller()
 @RequestMapping("/error")

@@ -1,17 +1,23 @@
-server.port: 81
-github:
-  client:
-    ids: Iv1.e1445cb4e1c12491
-    secret: 217c4291abe091185e63353966d9f595496f70a9
-  redirect.uri: http://hobosocool.top:81/callback
+server:
+  port: 81
 
+# 配置github登录
+github:
+  client_id:
+  client_secret:
+  redirect_uri: http://hobosocool.top:81/github/callback
+# 配置qq登录
+qq:
+  client_id:
+  client_secret:
+  redirect_uri: http://hobosocool.top:81/qq/callback
 
 spring:
   # 配置数据源
   datasource:
     url: jdbc:mysql://39.97.226.211:3306/community?serverTimezone=UTC&useAffectedRows=true
-    username: root
-    password: 123456
+    username:
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 3
@@ -22,7 +28,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: longhuahobo@foxmail.com
-    password: vtbxvwtqrzrhbdgg
+    password:
     port: 465
     properties:
       mail:
@@ -50,8 +56,8 @@ mybatis:
 
 # 设置阿里云对象存储OSS的KeyId、KeySecret
 aliyun:
-  accessKeyId: LTAI4FvLHxafgZSyqXUwEHeF
-  accessKeySecret: 7eLMMin3XKzG9AKceYwglz11PKZHAI
+  accessKeyId:
+  accessKeySecret:
   bucketName: hobo-community
   endpoint: http://oss-cn-beijing.aliyuncs.com
   existTime: 315360000000L
@@ -65,4 +71,8 @@ logging:
   level:
     root: info
 
+# 自定义变量
+customize:
+  defaultAvatar: /images/default.jpg
+  sender: longhuahobo@foxmail.com
 

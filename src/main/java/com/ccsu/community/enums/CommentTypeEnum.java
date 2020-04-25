@@ -1,7 +1,12 @@
 package com.ccsu.community.enums;
 
 
+/**
+ * @author 华华
+ */
+
 public enum CommentTypeEnum {
+    //代表评论类型为问题
     QUESTION(1),
     COMMENT(2);
 

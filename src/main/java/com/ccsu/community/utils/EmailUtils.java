@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class CustomizeEmail {
+public class EmailUtils {
 
     @Autowired
     JavaMailSender mailSender;

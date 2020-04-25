@@ -8,7 +8,8 @@ import com.ccsu.community.model.User;
 import com.ccsu.community.model.UserExample;
 import com.ccsu.community.model.Verify;
 import com.ccsu.community.model.VerifyExample;
-import com.ccsu.community.utils.CustomizeEmail;
+import com.ccsu.community.utils.CodecUtils;
+import com.ccsu.community.utils.EmailUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -19,13 +20,14 @@ import java.util.List;
 
 /**
  * 找回密码业务层
+ * @author 华华
  */
 @Slf4j
 @Service
 public class GbPwdService {
 
     @Autowired
-    CustomizeEmail send;
+    EmailUtils send;
     @Autowired
     VerifyMapper verifyMapper;
     @Autowired
@@ -34,7 +36,7 @@ public class GbPwdService {
     public ResultDTO sendCode(String email){
         int code = (int)((Math.random() * 9 + 1) * 100000);
         String title = "Hobo社区重置密码";
-        String content = "【Hobo社区】你的验证码是"+code+"，此验证码用于重置密码，5分钟类有效，请勿泄露于他人";
+        String content = "【Hobo社区】你的验证码是"+code+"，此验证码用于重置密码，5分钟内有效，请勿泄露于他人";
         try {
             send.sendEmail(email,title,content);
             //将验证码和注册邮箱放入数据库中
@@ -99,7 +101,10 @@ public class GbPwdService {
         UserExample example = new UserExample();
         example.createCriteria()
                 .andAccountIdEqualTo(email);
-        user.setPwd(password);
+        //密码加密
+        String salt = CodecUtils.generateSalt();
+        user.setSalt(salt);
+        user.setPwd(CodecUtils.md5Hex(password,salt));
         int update = userMapper.updateByExampleSelective(user, example);
         if (update==1){
             return ResultDTO.info(200,"密码修改成功");

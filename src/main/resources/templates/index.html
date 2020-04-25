@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li role="presentation" th:class="${sort == 'no' ? 'active':''}">
-                    <a th:href="@{/(sort='no',search=${search},tag=${tag})}" class="red">
+                    <a th:href="@{/(sort='no',search=${search},tag=${tag})}" class="red" style="color: #d93c3f;">
                         <img src="/images/svg/fireExtinguisher.svg">
                         消灭零回复
                     </a>
@@ -80,27 +80,15 @@
                         </a>
                     </h4>
 
-                    <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
                     <div class="media-status">
-                        <span th:each="tagOne:${questionDTO.tag.split(',')}" th:class="${tagOne=='置顶'?'label label-danger tag-list':'label label-info tag-list'}">
+                        <span th:if="${questionDTO.top==1}" class="label label-danger tag-list" style="background-color: #d9534f;margin: 0;">
+                                <span>置顶</span>
+                        </span>
+                        <span th:each="tagOne:${questionDTO.tag.split(',')}" th:class="${'label label-info tag-list'}">
                             <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
                                 <span class="tag-js">[[${tagOne}]]</span>
                             </a>
                         </span>
-                        <!--
-                        <script type="text/javascript">
-                            function f() {
-                                let $myss = $(".media-status")
-                                $myss.each(function () {
-                                    let firstTag = $(this).children(".tag-list").children().children("span:eq(0)")
-
-                                    if(firstTag.text()=="置顶"){
-                                        $(this).children(".tag-list:eq(0)").css("background","red");
-                                    }
-                                })
-                            }
-                        </script>
-                        -->
                         <span class="text-desc pull-right">
 
 

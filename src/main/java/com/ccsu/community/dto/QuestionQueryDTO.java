@@ -2,6 +2,9 @@ package com.ccsu.community.dto;
 
 import lombok.Data;
 
+/**
+ * @author 华华
+ */
 @Data
 public class QuestionQueryDTO {
     private String tag;

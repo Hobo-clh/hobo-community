@@ -4,6 +4,9 @@ import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
 import lombok.Data;
 
+/**
+ * @author 华华
+ */
 @Data
 public class ResultDTO<T> {
     private Integer code;

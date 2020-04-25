@@ -41,12 +41,6 @@ body {
     margin-top: 15px;
 }
 
-.text-desc {
-    font-size: 12px;
-    font-weight: normal;
-    color: #999;
-}
-
 .community-menu {
     color: #999;
     font-size: 13px;
@@ -171,6 +165,7 @@ body {
     cursor: pointer;
     font-size: 13px;
     text-decoration-line: none;
+    background-color: #357bd1;
 }
 .tag-list:hover{
     background-color: #2095e8
@@ -181,11 +176,15 @@ body {
 }
 .my-media-body .tag-list{
     font-size: 11px;
-    margin: 0 4px;
+    margin: 0 4px 0 0;
 }
 
 .nav-icon{
     width: 20px;
+}
+.nav-right{
+    cursor:pointer;
+    padding-top: 17px;
 }
 .navbar-form .btn {
     height: 34px;
@@ -233,4 +232,9 @@ body {
 .everyday-header{
     font-size: 13px;
     margin:0 4px;
+}
+.btn-top{
+    font-size: 13px;
+    padding: 6px;
+    color: #999;
 }

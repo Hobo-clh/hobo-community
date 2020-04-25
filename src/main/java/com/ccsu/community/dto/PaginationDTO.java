@@ -5,22 +5,37 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 华华
+ */
 @Data
 public class PaginationDTO<T> {
     private List<T> ObjectList;
-    //展示前一页按钮
-    private boolean showPrevious;
-    //展示首页按钮
-    private boolean showFirstPage;
-    //展示下一页按钮
-    private boolean showNext;
-    //展示最后一页按钮
-    private boolean showEndPage;
-    //当前页
+    /**
+     * 展示前一页按钮
+     */
+    private Boolean showPrevious;
+    /**
+     * 展示首页按钮
+     */
+    private Boolean showFirstPage;
+    /**
+     * 展示下一页按钮
+     */
+    private Boolean showNext;
+    /**
+     * 展示最后一页按钮
+     */
+    private Boolean showEndPage;
+    /**
+     * 当前页
+     */
     private Integer page;
-    //总页数
+    /**
+     * 总页数
+     */
     private Integer totalPage;
-    private List<Integer> pages = new ArrayList<>();
+    private List<Integer> pages;
 
 
     public void setPagination(Integer totalCount, Integer page, Integer size) {
@@ -40,7 +55,7 @@ public class PaginationDTO<T> {
         if(page<1){
             page=1;
         }
-
+        pages = new ArrayList<>();
         pages.add(page);
         for (int i = 1; i <= 3; i++) {
             if (page - i > 0) {

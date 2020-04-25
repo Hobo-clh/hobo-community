@@ -9,6 +9,7 @@
             <span th:if="${notification.type==2}"> 回复了评论</span>
             <span th:if="${notification.type==3}"> 点赞了问题</span>
             <span th:if="${notification.type==4}"> 点赞了评论</span>
+            <span th:if="${notification.type==5}"> 点赞了二级评论</span>
             <a th:href="@{/question/__${notification.outerId}__}">
                 <span th:text="${notification.outerTitle}"></span>
             </a>

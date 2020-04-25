@@ -3,6 +3,9 @@ package com.ccsu.community.dto;
 import com.ccsu.community.model.User;
 import lombok.Data;
 
+/**
+ * @author 华华
+ */
 @Data
 public class NotificationDTO {
 
