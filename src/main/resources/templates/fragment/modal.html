@@ -19,13 +19,43 @@
                 您也可以提出您对本站的建议和看法，非常感谢！
                 <br>
                 <br>
-                &emsp;&emsp;更多功能正在开发中~
+                &emsp;&emsp;其他功能会正在开发中~~
 
             </div>
             <div class="modal-footer">
+                <span class="pull-left">
+                    <b>本站源码：</b>
+                    <img src="/images/svg/github2.svg">
+                    <a href="https://github.com/Hobo-clh/community">GitHub</a>
+                </span>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload">上传头像</button>-->
+
+<div th:fragment="upload-image" class="modal fade" id="upload-image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">上传头像！  注意：图片大小不能超过2MB！！</h4>
+
+            </div>
+            <form action="/file/avatar" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <!--                <img src="http://thirdqq.qlogo.cn/g?b=oidb&k=llYeV6xpuFlpI570pWhicCw&s=40&t=1586229103" class="personal-avatar">-->
+                    <input class="btn btn-default" type="file" name="avatar-image" value="选择头像">
+
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-default pull-left" type="submit" value="上传">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
 </body>

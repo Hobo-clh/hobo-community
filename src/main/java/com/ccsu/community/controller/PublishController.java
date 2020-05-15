@@ -10,14 +10,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author 华华
@@ -32,15 +30,19 @@ public class PublishController {
     public String edit(@PathVariable(name = "id") Long id,
                        HttpServletRequest request,
                        Model model){
+        //验证是否为当前问题是否存在
+        Question verifyQuestion = questionService.getQuestionById(id);
+        if (verifyQuestion==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         //验证是否为当前问题的创建者
         User user = (User)request.getSession().getAttribute("user");
         if (user==null) {
             throw new CustomizeException(CustomizeErrorCode.NOT_LOGIN);
-        }else {
-            boolean flag = questionService.verify(id,user);
-            if (!flag) {
-                throw new CustomizeException(CustomizeErrorCode.QUESTION_CREATOR_ERROR);
-            }
+        }
+        boolean flag = questionService.verify(verifyQuestion,user);
+        if (!flag) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_CREATOR_ERROR);
         }
         Question question = questionService.getQuestionById(id);
         model.addAttribute("title", question.getTitle());

@@ -2,10 +2,22 @@ package com.ccsu.community.dto;
 
 import lombok.Data;
 
+/**
+ * @author 华华
+ * @date 20/05/14
+ **/
 @Data
 public class MyUserDTO {
-    private String accountId;
-    private String password;
-    private String token;
-    private Integer verityCode;
+    /**
+     * 用户名
+     */
+    String loginName;
+    /**
+     * 签名
+     */
+    String bio;
+    /**
+     * 个人头像
+     */
+    String avatarUrl;
 }

@@ -8,13 +8,13 @@ server:
 
 # 配置github登录
 github:
-  client_id:
-  client_secret:
+  client_id: Iv1.edad84846ed5ad39
+  client_secret: 41db009326c06f904641f236e89cb58a4ef2a2e8
   redirect_uri: http://localhost:8887/github/callback
 # 配置qq登录
 qq:
-  client_id:
-  client_secret:
+  client_id: 101868811
+  client_secret: 7bd64e586a9381b8df6972f2208b9442
   redirect_uri: http://www.localhost:8887/qq/callback
 spring:
   #禁用Thymeleaf模板缓存
@@ -23,8 +23,8 @@ spring:
   # 配置数据源
   datasource:
     url: jdbc:mysql://localhost:3306/community?serverTimezone=UTC&useAffectedRows=true
-    username:
-    password:
+    username: root
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 3
@@ -35,7 +35,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: longhuahobo@foxmail.com
-    password:
+    password: vtbxvwtqrzrhbdgg
     port: 465
     properties:
       mail:
@@ -47,6 +47,18 @@ spring:
           socketFactory:
             class: javax.net.ssl.SSLSocketFactory
             port: 465
+  # 配置redis
+  redis:
+    host: 39.97.226.211
+  # 配置过滤器，使Spring Boot能接收PUT DELETE请求
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  # 文件大小不能超过2MB
+  spring:
+    http:
+      multipart.maxFileSize: 2Mb
 # 配置Mybatis驼峰命名
 mybatis:
   configuration:
@@ -63,8 +75,8 @@ mybatis:
 
 # 设置阿里云主KeyId、KeySecret
 aliyun:
-  accessKeyId:
-  accessKeySecret:
+  accessKeyId: LTAI4FvLHxafgZSyqXUwEHeF
+  accessKeySecret: 7eLMMin3XKzG9AKceYwglz11PKZHAI
   bucketName: hobo-community
   endpoint: http://oss-cn-beijing.aliyuncs.com
   existTime: 315360000000L

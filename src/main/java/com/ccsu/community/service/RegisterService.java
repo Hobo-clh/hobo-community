@@ -1,25 +1,24 @@
 package com.ccsu.community.service;
 
-import com.ccsu.community.dto.MyUserDTO;
+import com.ccsu.community.dto.EmailUserDTO;
 import com.ccsu.community.dto.ResultDTO;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.mapper.UserMapper;
-import com.ccsu.community.mapper.VerifyMapper;
 import com.ccsu.community.model.User;
 import com.ccsu.community.model.UserExample;
-import com.ccsu.community.model.Verify;
-import com.ccsu.community.model.VerifyExample;
 import com.ccsu.community.utils.CodecUtils;
 import com.ccsu.community.utils.EmailUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.MailException;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -30,12 +29,15 @@ public class RegisterService {
     @Autowired
     EmailUtils send;
     @Autowired
-    VerifyMapper verifyMapper;
+    RedisTemplate redisTemplate;
+
     /**
      *  默认头像
      */
     @Value("${customize.defaultAvatar}")
     String defaultAvatarUrl;
+
+    private static final String CODE_PRE = "code";
 
 
     /**
@@ -53,18 +55,9 @@ public class RegisterService {
         return false;
     }
 
-    public Object register(MyUserDTO userDTO) {
-        VerifyExample verifyExample = new VerifyExample();
-        verifyExample.createCriteria()
-                .andAccountIdEqualTo(userDTO.getAccountId())
-                .andVerifyCodeEqualTo(userDTO.getVerityCode());
-        List<Verify> verifies = verifyMapper.selectByExample(verifyExample);
-        if (verifies.size()==0){
-            //验证码错误
-            return ResultDTO.errorOf(CustomizeErrorCode.VERIFY_IS_ERROR);
-        }
+    public Object register(EmailUserDTO userDTO) {
         User user = new User();
-        user.setLoginName("邮箱用户_"+userDTO.getAccountId());
+        user.setLoginName("邮箱用户_"+userDTO.getAccountId().substring(0,4));
         user.setAccountId(userDTO.getAccountId());
         user.setToken(UUID.randomUUID().toString());
         user.setGmtCreate(System.currentTimeMillis());
@@ -72,7 +65,6 @@ public class RegisterService {
         user.setNotificationCount(0);
         //设置默认头像
         user.setAvatarUrl(defaultAvatarUrl);
-
         //生成盐
         String salt = CodecUtils.generateSalt();
         user.setSalt(salt);
@@ -82,10 +74,7 @@ public class RegisterService {
         //注册成功
         if (flag==1){
             //登录成功将验证码删除
-            VerifyExample example = new VerifyExample();
-            example.createCriteria()
-                    .andAccountIdEqualTo(userDTO.getAccountId());
-            verifyMapper.deleteByExample(example);
+            removeCode(userDTO.getAccountId());
             return ResultDTO.info(200,"注册成功");
         }
         //注册失败
@@ -107,39 +96,43 @@ public class RegisterService {
             String title = "注册验证码";
             String content = "【Hobo社区】欢迎加入Hobo社区！ 您的验证码是："+ code + "，请在5分钟内完成注册。";
             send.sendEmail(email,title,content);
-            Verify verify = new Verify();
             //将验证码和注册邮箱放入数据库中
-            verify.setVerifyCode(code);
-            verify.setAccountId(email);
-            verifyMapper.insert(verify);
+            try {
+                redisTemplate.opsForValue().set(CODE_PRE + email, code, 5, TimeUnit.MINUTES);
+            }catch (Exception e) {
+                log.error("redis存入失败");
+                e.printStackTrace();
+            }
             return ResultDTO.info(200,"邮件发送成功");
         }catch (MailException e){
             log.error("邮件发送出错" + e);
             return ResultDTO.errorOf(CustomizeErrorCode.INVALID_ADDRESSES);
         }
-
     }
 
     /**
-     * 使用多线程五分钟后清除验证码数据
+     * 删除验证码
      */
     @Async
-    public void removeCode(String accountId){
-        removeCode(accountId, verifyMapper);
+    public void removeCode(String email){
+        redisTemplate.delete(CODE_PRE + email);
     }
 
-    static void removeCode(String accountId, VerifyMapper verifyMapper) {
+    /**
+     * 判断验证码是否正确
+     *
+     * @param email
+     * @param code
+     * @return
+     */
+    public boolean checkCode(String email, Integer code) {
+        Integer redisCode = null;
         try {
-            System.out.println("线程开始"+System.currentTimeMillis());
-            Thread.sleep(1000*60*5);
-            VerifyExample verifyExample = new VerifyExample();
-            verifyExample.createCriteria()
-                    .andAccountIdEqualTo(accountId);
-            verifyMapper.deleteByExample(verifyExample);
-            System.out.println("线程结束"+System.currentTimeMillis());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            redisCode = (Integer) redisTemplate.opsForValue().get(CODE_PRE + email);
+        } catch (Exception e) {
+            log.error("从redis中获取验证码失败，异常信息：" + e);
         }
+        return redisCode != null && redisCode.equals(code);
     }
 
 }

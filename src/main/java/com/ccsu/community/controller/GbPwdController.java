@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author 华华
+ */
 @Controller
 public class GbPwdController {
 
@@ -45,12 +48,7 @@ public class GbPwdController {
         if (StringUtils.isBlank(email)){
             return ResultDTO.errorOf(CustomizeErrorCode.EMAIL_IS_BLANK);
         }
-        ResultDTO resultDTO = gbPwdService.sendCode(email);
-        if (resultDTO.getCode()==200) {
-            //多线程五分钟后删除
-            gbPwdService.removeCode(email);
-        }
-        return resultDTO;
+        return gbPwdService.sendCode(email);
     }
 
     /**
@@ -63,10 +61,10 @@ public class GbPwdController {
         if (StringUtils.isBlank(email)){
             return ResultDTO.errorOf(CustomizeErrorCode.EMAIL_IS_BLANK);
         }
-        if (code==0||code==null) {
+        if (code==null||code==0) {
             return ResultDTO.errorOf(CustomizeErrorCode.VERIFY_IS_BLANK);
         }
-        return gbPwdService.verifyTheCode(email,code);
+        return gbPwdService.checkCodePwd(email,code);
     }
 
     /**

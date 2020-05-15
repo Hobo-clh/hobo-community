@@ -50,21 +50,13 @@
                             <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
-
                 </ul>
             </nav>
 
             <hr>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <div class="list-group section">
-                <a href="/profile/questions" class="list-group-item" th:class="${section=='questions'?'list-group-item active':'list-group-item'}">我的问题</a>
-                <a href="/profile/replies" class="list-group-item" th:class="${section=='replies'?'list-group-item active':'list-group-item'}">
-                    最新回复
-                    <span class="badge" th:text="${session.user.notificationCount}"></span>
-                </a>
-
-            </div>
+            <div th:replace="fragment/section::section"></div>
         </div>
     </div>
 </div>

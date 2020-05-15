@@ -1,7 +1,7 @@
 package com.ccsu.community.controller;
 
+import com.ccsu.community.dto.MyUserDTO;
 import com.ccsu.community.dto.PaginationDTO;
-import com.ccsu.community.mapper.NotificationMapper;
 import com.ccsu.community.mapper.UserMapper;
 import com.ccsu.community.model.User;
 import com.ccsu.community.service.NotificationService;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -39,12 +39,10 @@ public class ProfileController {
                           @RequestParam(name = "page",defaultValue = "1") Integer page,
                           @RequestParam(name = "size",defaultValue = "8") Integer size){
 
-
         User user = (User)request.getSession().getAttribute("user");
         if(user==null){
             return "redirect:/";
         }
-        
         if(QUESTIONS.equals(action)){
             //展示所有我的问题、提问
             model.addAttribute("section","questions");
@@ -59,8 +57,24 @@ public class ProfileController {
             notificationService.read(user);
             model.addAttribute("pagination",pagination);
         }
-
-
         return "profile";
+    }
+
+    @RequestMapping("/profile/people")
+    public String goPersonalInfor(HttpServletRequest request,
+                                  Model model){
+        User user = (User)request.getSession().getAttribute("user");
+        if(user==null){
+            return "redirect:/";
+        }
+        MyUserDTO myUserDTO = new MyUserDTO();
+        myUserDTO.setAvatarUrl(user.getAvatarUrl());
+        myUserDTO.setBio(user.getBio());
+        myUserDTO.setLoginName(user.getLoginName());
+
+        model.addAttribute("user",myUserDTO);
+        model.addAttribute("section","people");
+        model.addAttribute("sectionName","个人资料");
+        return "personalInform";
     }
 }

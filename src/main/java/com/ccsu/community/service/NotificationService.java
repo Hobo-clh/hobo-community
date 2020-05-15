@@ -2,7 +2,6 @@ package com.ccsu.community.service;
 
 import com.ccsu.community.dto.NotificationDTO;
 import com.ccsu.community.dto.PaginationDTO;
-import com.ccsu.community.enums.NotificationStatusEnum;
 import com.ccsu.community.enums.NotificationTypeEnum;
 import com.ccsu.community.mapper.CommentMapper;
 import com.ccsu.community.mapper.NotificationMapper;
@@ -13,7 +12,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class NotificationService {

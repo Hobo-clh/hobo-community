@@ -1,10 +1,8 @@
 package com.ccsu.community.service;
 
-import com.ccsu.community.enums.NotificationStatusEnum;
 import com.ccsu.community.enums.NotificationTypeEnum;
 import com.ccsu.community.mapper.*;
 import com.ccsu.community.model.*;
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

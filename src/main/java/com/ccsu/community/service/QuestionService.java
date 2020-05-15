@@ -20,9 +20,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +44,8 @@ public class QuestionService {
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         if (StringUtils.isNotBlank(search)) {
             String[] searches = StringUtils.split(search, " ");
-            search = Arrays.stream(searches).collect(Collectors.joining("|"));
+            search = Arrays.stream(searches).
+                    collect(Collectors.joining("|"));
             questionQueryDTO.setSearch(search);
         }
 
@@ -85,6 +83,7 @@ public class QuestionService {
         }
         Integer offset = size * (page - 1);
         return offset;
+
     }
 
     private List<QuestionDTO> getSearchQuestionDTOs(QuestionQueryDTO questionQueryDTO) {
@@ -185,6 +184,12 @@ public class QuestionService {
         questionExtMapper.incView(question);
     }
 
+    /**
+     * 查找相关问题（根据标签匹配相关问题）
+     *
+     * @param queryDTO
+     * @return
+     */
     public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
         if (StringUtils.isBlank(queryDTO.getTag())) {
             return new ArrayList<>();
@@ -192,8 +197,8 @@ public class QuestionService {
         //将标签通过 , 来隔开并存入数组中
         String[] tags = StringUtils.split(queryDTO.getTag(), ",");
         //标签由 xxx,xxx,xxx形式变为xxx|xxx|xxx形式，用于正则查找
-        String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
-
+        String regexpTag = Arrays.stream(tags).
+                collect(Collectors.joining("|"));
         Question question = new Question();
         question.setId(queryDTO.getId());
         question.setTag(regexpTag);
@@ -207,32 +212,40 @@ public class QuestionService {
         return questionDTOS;
     }
 
-    public boolean verify(Long id, User user) {
-        Question question = questionMapper.selectByPrimaryKey(id);
-        boolean flag = question.getCreator().equals(user.getId());
-        return flag;
+    /**
+     * 检验当前问题是否是当前用户的
+     *
+     * @param question
+     * @param user
+     * @return
+     */
+    public boolean verify(Question question, User user) {
+        return question.getCreator().equals(user.getId());
+
     }
 
     /**
      * 设置为type设置是否置顶
+     *
      * @param id
      */
     public void setTop(Long id, String topStatus) {
         Integer setStatus = null;
         Integer flag = Integer.valueOf(topStatus);
-        if (flag==QuestionTopEnum.IS_TOP.getType()){
-            setStatus=QuestionTopEnum.NO_TOP.getType();
-        }else if (flag==QuestionTopEnum.NO_TOP.getType()){
-            setStatus=QuestionTopEnum.IS_TOP.getType();
-        }else {
+        if (flag == QuestionTopEnum.IS_TOP.getType()) {
+            setStatus = QuestionTopEnum.NO_TOP.getType();
+        } else if (flag == QuestionTopEnum.NO_TOP.getType()) {
+            setStatus = QuestionTopEnum.IS_TOP.getType();
+        } else {
             throw new CustomizeException("置顶类型错误");
         }
         Question question = questionMapper.selectByPrimaryKey(id);
         if (question != null) {
             question.setTop(setStatus);
             questionMapper.updateByPrimaryKeySelective(question);
-        }else {
+        } else {
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
         }
     }
+
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${sectionName}"></title>
+    <head th:replace="fragment/common_import::commom_improt"></head>
+
+</head>
+<body>
+<div th:replace="fragment/navigation::navbar"></div>
+
+<div class="container-fluid main profile">
+    <div class="row whole">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h2>我的名片</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="thumbnail">
+                        <img th:src="${user.avatarUrl}" alt="照片" class="img-thumbnail">
+                        <div class="caption">
+                            <h3 th:text="${user.loginName}"></h3>
+                            <p th:text="${user.bio}"></p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload-image">上传头像</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h2>修改资料</h2>
+            <br>
+            <form action="/user" method="post">
+                <input type="hidden" name="_method" value="PUT"/>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">姓名</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" name="loginName" th:value="${user.loginName}">
+                </div>
+                <br>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">签名</span>
+                    <input type="text" class="form-control" placeholder="Signature" aria-describedby="sizing-addon1" name="bio" th:value="${user.bio}">
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="保存">
+            </form>
+
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div th:replace="fragment/section::section"></div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragment/footer::footer"></div>
+</body>
+
+<div th:replace="fragment/modal::upload-image"></div>
+</html>

@@ -38,11 +38,11 @@ function verifyCode() {
     let email = $("#email").val()
     let code = $("#code").val();
     if(email==null||email==""){
-        console.log("邮箱号不能为空")
+        alert("邮箱号不能为空")
         return;
     }
-    if(code==null||email==""){
-        console.log("邮箱号不能为空")
+    if(code==null||code==""){
+        alert("邮箱号不能为空")
         return;
     }
     $.ajax({
@@ -96,7 +96,6 @@ function changePwd() {
         dataType: "json",
         success: function (response) {
             if (response.code==200){
-                debugger;
                 alert("密码修改成功，快去登录吧！");
                 window.open("/login","_self");
             }else {

@@ -8,7 +8,7 @@
         <!-- 分页插件-->
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/community?serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://39.97.226.211:3306/community?serverTimezone=UTC"
                         userId="root"
                         password="123456">
 <!--            connectionURL="jdbc:mysql://39.97.226.211:3306/community?serverTimezone=UTC"-->
@@ -38,6 +38,5 @@
         <table tableName="question" domainObjectName="Question" ></table>
         <table tableName="comment" domainObjectName="Comment" ></table>
         <table tableName="notification" domainObjectName="Notification" ></table>
-        <table tableName="verify" domainObjectName="Verify" ></table>
     </context>
 </generatorConfiguration>

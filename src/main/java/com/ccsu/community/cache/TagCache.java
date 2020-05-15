@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author 华华
@@ -19,7 +18,7 @@ public class TagCache {
 
         TagDTO community = new TagDTO();
         community.setCategoryName("基本");
-        community.setTags(Arrays.asList("找bug","测试","冒泡","长沙学院","计科"));
+        community.setTags(Arrays.asList("找bug","测试","冒泡","图片","聊天"));
         tagDTOs.add(community);
 
         TagDTO program = new TagDTO();
@@ -39,12 +38,12 @@ public class TagCache {
 
         TagDTO db = new TagDTO();
         db.setCategoryName("数据库");
-        db.setTags(Arrays.asList("mysql", "redis", "mongodb", "sql", "oracle", "nosql memcached", "sqlserver", "postgresql", "sqlite"));
+        db.setTags(Arrays.asList("mysql", "redis", "mongodb", "sql", "oracle", "sqlserver", "postgresql", "sqlite"));
         tagDTOs.add(db);
 
         TagDTO tool = new TagDTO();
         tool.setCategoryName("开发工具");
-        tool.setTags(Arrays.asList("git", "github", "visual-studio-code", "vim", "sublime-text", "xcode intellij-idea", "eclipse", "maven", "ide", "svn", "visual-studio", "atom emacs", "textmate", "hg"));
+        tool.setTags(Arrays.asList("git", "github", "visual-studio-code", "vim", "sublime-text", "intellij-idea", "eclipse", "maven", "ide", "svn", "visual-studio", "hg"));
         tagDTOs.add(tool);
 
         return tagDTOs;

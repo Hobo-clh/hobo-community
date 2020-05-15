@@ -19,6 +19,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 评论业务层
+ * @author 华华
+ */
 @Service
 public class CommentService {
 
@@ -92,7 +96,10 @@ public class CommentService {
         commentMapper.insert(comment);
         
     }
-    //创建通知的方法
+
+    /**
+     * 创建通知的方法
+     */
     private void createNotify(Comment comment, Long receiverId, NotificationTypeEnum notificationType) {
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());

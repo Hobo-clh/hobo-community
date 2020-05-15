@@ -6,8 +6,6 @@ import com.ccsu.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -25,12 +23,12 @@ public class UserService {
         userExample.createCriteria()
                 .andAccountIdEqualTo(user.getAccountId());
         List<User> users = userMapper.selectByExample(userExample);
-        if(users.size()==0) {
+        if (users.size() == 0) {
             //插入
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
-        }else{
+        } else {
             //更新
             User dbUser = users.get(0);
             User updateUser = new User();
@@ -43,9 +41,39 @@ public class UserService {
 
             userExample2.createCriteria()
                     .andIdEqualTo(dbUser.getId());
-            userMapper.updateByExampleSelective(updateUser,userExample2);
+            userMapper.updateByExampleSelective(updateUser, userExample2);
         }
     }
 
+    /**
+     * 更新头像
+     *
+     * @param user
+     * @param avatarUrl
+     */
+    public void updateAvatar(User user, String avatarUrl) {
+        User updateUser = new User();
+        updateUser.setAvatarUrl(avatarUrl);
+        UserExample example = new UserExample();
+        example.createCriteria()
+                .andIdEqualTo(user.getId());
+        userMapper.updateByExampleSelective(updateUser, example);
+    }
 
+    /**
+     * 更新名称和签名
+     *
+     * @param id
+     * @param loginName
+     * @param bio
+     */
+    public void updateInform(Long id, String loginName, String bio) {
+        User updateUser = new User();
+        updateUser.setLoginName(loginName);
+        updateUser.setBio(bio);
+        UserExample example = new UserExample();
+        example.createCriteria()
+                .andIdEqualTo(id);
+        userMapper.updateByExampleSelective(updateUser, example);
+    }
 }

@@ -238,3 +238,6 @@ body {
     padding: 6px;
     color: #999;
 }
+.personal-avatar {
+    width: 200px;
+}

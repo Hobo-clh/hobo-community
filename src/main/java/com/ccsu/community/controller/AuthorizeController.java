@@ -41,28 +41,31 @@ public class AuthorizeController {
     QQProvider qqProvider;
 
     private static final int COOKIE_EXPIRY = 60 * 60 * 24 * 7;
+
     /**
      * github登录发起请求
+     *
      * @return
      */
     @GetMapping("/github/oauth")
-    public String github(HttpSession session){
+    public String github(HttpSession session) {
 
         //github互联中的回调地址
         //用于第三方应用防止CSRF攻击
-        String uuid = UUID.randomUUID().toString().replaceAll("-","");
-        session.setAttribute("githubState",uuid);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        session.setAttribute("githubState", uuid);
         //Step1：获取Authorization Code
         //String url = "https://github.com/login/oauth/authorize?client_id=Iv1.e1445cb4e1c12491&redirect_uri=http://hobosocool.top:81/callback&scope=user&state=1";
-        String url = "https://github.com/login/oauth/authorize?&scope=user"+
+        String url = "https://github.com/login/oauth/authorize?&scope=user" +
                 "&client_id=" + githubParams.getClientId() +
                 "&redirect_uri=" + githubParams.getRedirectUri() +
-                "&state=" + uuid ;
-        return "redirect:" +url;
+                "&state=" + uuid;
+        return "redirect:" + url;
     }
 
     /**
      * github回调
+     *
      * @param code
      * @param state
      * @param response
@@ -87,7 +90,7 @@ public class AuthorizeController {
             User user = setUserInfo(token, githubUser.getLogin(), (String.valueOf(githubUser.getId())), githubUser.getAvatarUrl());
             userService.createOrUpdate(user);
             //增加cookie
-            CookieUtils.setCookie(response,"token",token,COOKIE_EXPIRY);
+            CookieUtils.setCookie(response, "token", token, COOKIE_EXPIRY);
             return "redirect:/";
         } else {
             log.error("callback get github error,{}", githubUser);
@@ -98,17 +101,18 @@ public class AuthorizeController {
 
     /**
      * QQ登录发起请求
+     *
      * @param session
      * @return
      */
     @GetMapping("/qq/oauth")
-    public String qq(HttpSession session){
+    public String qq(HttpSession session) {
         //QQ互联中的回调地址
         //用于第三方应用防止CSRF攻击
-        String uuid = UUID.randomUUID().toString().replaceAll("-","");
-        session.setAttribute("qqState",uuid);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        session.setAttribute("qqState", uuid);
         //Step1：获取Authorization Code
-        String url = "https://graph.qq.com/oauth2.0/authorize?response_type=code"+
+        String url = "https://graph.qq.com/oauth2.0/authorize?response_type=code" +
                 "&client_id=" + qqParams.getClientId() +
                 "&redirect_uri=" + qqParams.getRedirectUri() +
                 "&state=" + uuid;
@@ -118,6 +122,7 @@ public class AuthorizeController {
 
     /**
      * QQ登录回调
+     *
      * @param code
      * @param state
      * @param response
@@ -128,7 +133,7 @@ public class AuthorizeController {
     public String qqCallback(@RequestParam("code") String code,
                              @RequestParam("state") String state,
                              HttpServletResponse response,
-                             HttpSession session){
+                             HttpSession session) {
         String uuid = (String) session.getAttribute("qqState");
         if (uuid != null) {
             if (!uuid.equals(state)) {
@@ -138,12 +143,12 @@ public class AuthorizeController {
         String accessToken = qqProvider.getAccessToken(code);
         String openId = qqProvider.getOpenId(accessToken);
         QQUser qqUser = qqProvider.getQQUser(accessToken, openId);
-        if (qqUser!=null&&qqUser.getRet()==0){
+        if (qqUser != null && qqUser.getRet() == 0) {
             String token = UUID.randomUUID().toString();
             User user = setUserInfo(token, qqUser.getNickname(), "qq-" + openId, qqUser.getFigureurl_qq_1());
             userService.createOrUpdate(user);
-            CookieUtils.setCookie(response,"token",token,COOKIE_EXPIRY);
-        }else {
+            CookieUtils.setCookie(response, "token", token, COOKIE_EXPIRY);
+        } else {
             log.error("callback get qq error,{}", qqUser);
             // 登录失败，重新登录
             throw new CustomizeException(CustomizeErrorCode.LOGIN_CONNECT_ERROR);
@@ -153,13 +158,14 @@ public class AuthorizeController {
 
     /**
      * 设置用户信息
+     *
      * @param token
      * @param name
      * @param accountId
      * @param avatarUrl
      * @return
      */
-    private User setUserInfo(String token,String name,String accountId,String avatarUrl){
+    private User setUserInfo(String token, String name, String accountId, String avatarUrl) {
         User user = new User();
         user.setToken(token);
         user.setNotificationCount(0);
