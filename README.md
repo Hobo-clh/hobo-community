@@ -38,7 +38,7 @@
 
 ### mvn命令
 - 使maven忽略证书验证下载jar包
-<<<<<<< HEAD
+
 ```shell 
 mvn -Dmaven.wagon.http.ssl.insecure=true install
 ```
