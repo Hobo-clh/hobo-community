@@ -46,20 +46,16 @@ mvn -Dmaven.wagon.http.ssl.insecure=true install
 ```bash 
 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
-=======
 `mvn -Dmaven.wagon.http.ssl.insecure=true install`
 
 - mybatis generator自动生成mapper、model
 `mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate`
 
->>>>>>> '增加个人页面，更改为Redis存储验证码信息'
 - flyway maven命令
 ```bash
 mvn flyway:migrate
 mvn flyway:repair
 ```
-<<<<<<< HEAD
-=======
 
 ### 更新日志
 #### 2020.5.14
@@ -90,4 +86,4 @@ mvn flyway:repair
 
 #### 2020.3.29
 - 增加富文本编译器，并实现阿里云oss，javaSDK存储上传的图片
->>>>>>> '增加个人页面，更改为Redis存储验证码信息'
+
