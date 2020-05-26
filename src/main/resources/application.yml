@@ -59,10 +59,13 @@ spring:
   spring:
     http:
       multipart.maxFileSize: 2Mb
-# 配置Mybatis驼峰命名
+
+# MyBatis配置
 mybatis:
+  # 配置Mybatis驼峰命名
   configuration:
     map-underscore-to-camel-case: true
+  # 别名包
   type-aliases-package: com.ccsu.community.model
   mapper-locations: classpath:mapper/*.xml
 
@@ -75,7 +78,7 @@ mybatis:
 
 # 设置阿里云主KeyId、KeySecret
 aliyun:
-  accessKeyId: LTAI4FvLHxafgZSyqXUwEHeF
+  accessKeyId: LTAI4FyBAoujqxXsAkXs1tfx
   accessKeySecret:
   bucketName: hobo-community
   endpoint: http://oss-cn-beijing.aliyuncs.com

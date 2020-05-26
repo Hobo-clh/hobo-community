@@ -22,7 +22,7 @@ public class CookieUtils {
             cookie.setMaxAge(expiry);
             response.addCookie(cookie);
         }catch(Exception e){
-            throw new CustomizeException("创造cookie错误");
+            throw new CustomizeException("创造cookie失败");
         }
 
     }

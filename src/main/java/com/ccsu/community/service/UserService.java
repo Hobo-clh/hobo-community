@@ -36,7 +36,6 @@ public class UserService {
             updateUser.setGmtModified(dbUser.getGmtCreate());
             updateUser.setAvatarUrl(user.getAvatarUrl());
             updateUser.setToken(user.getToken());
-            updateUser.setLoginName(user.getLoginName());
             UserExample userExample2 = new UserExample();
 
             userExample2.createCriteria()

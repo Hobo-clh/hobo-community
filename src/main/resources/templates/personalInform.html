@@ -31,21 +31,20 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <h2>修改资料</h2>
             <br>
-            <form action="/user" method="post">
+            <form id="test" action="/user" method="post">
                 <input type="hidden" name="_method" value="PUT"/>
                 <div class="input-group input-group-lg">
-                    <span class="input-group-addon">姓名</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1" name="loginName" th:value="${user.loginName}">
+                    <span class="input-group-addon">昵称</span>
+                    <input type="text" class="form-control" id="loginName" placeholder="Username" aria-describedby="sizing-addon1" name="loginName" th:value="${user.loginName}">
                 </div>
                 <br>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">签名</span>
-                    <input type="text" class="form-control" placeholder="Signature" aria-describedby="sizing-addon1" name="bio" th:value="${user.bio}">
+                    <input type="text" class="form-control" id="bio" placeholder="Signature" aria-describedby="sizing-addon1" name="bio" th:value="${user.bio}">
                 </div>
                 <br>
-                <input class="btn btn-primary" type="submit" value="保存">
+                <input  class="btn btn-primary" type="submit" value="保存">
             </form>
-
         </div>
 
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
@@ -59,3 +58,22 @@
 
 <div th:replace="fragment/modal::upload-image"></div>
 </html>
+
+<script>
+    $("#test").submit(function(){
+        let name = $.trim($("#loginName").val());
+        let bio = $.trim($("#bio").val());
+        if (name==null || name==="") {
+            alert("昵称不能为空！");
+            return false;
+        }
+        if (name.length>20) {
+            alert("昵称不能多于20个字！");
+            return false;
+        }
+        if (bio.length>25) {
+            alert("签名不能多于25个字!");
+            return false;
+        }
+    })
+</script>

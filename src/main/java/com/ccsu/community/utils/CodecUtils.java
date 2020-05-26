@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 /**
- * @author 隆华
+ * @author 华华
  */
 public class CodecUtils {
 

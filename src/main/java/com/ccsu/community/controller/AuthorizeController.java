@@ -116,7 +116,6 @@ public class AuthorizeController {
                 "&client_id=" + qqParams.getClientId() +
                 "&redirect_uri=" + qqParams.getRedirectUri() +
                 "&state=" + uuid;
-        //# https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101868811&redirect_uri=http://hobosocool.top:81/qq/callback&state=qqlogin
         return "redirect:" + url;
     }
 

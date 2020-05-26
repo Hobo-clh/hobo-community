@@ -129,10 +129,10 @@ function collapseComments(e) {
                             "data-id":comment.id
                         }).append($("<h5/>", {
                             "class": "media-heading",
-                            "html": comment.user.loginName
+                            "html": filterXSS(comment.user.loginName)
                         })).append($("<div/>", {
                             "class": "comment-desc",
-                            "html": comment.content
+                            "html":  filterXSS(comment.content)
                         })).append($("<div/>", {
                                 "class": "pull-right my-menu text-desc"
                             }).append($("<span/>", {

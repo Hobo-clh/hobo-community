@@ -68,7 +68,7 @@ mybatis:
 
 # 设置阿里云对象存储OSS的KeyId、KeySecret
 aliyun:
-  accessKeyId: LTAI4FvLHxafgZSyqXUwEHeF
+  accessKeyId: LTAI4FyBAoujqxXsAkXs1tfx
   accessKeySecret:
   bucketName: hobo-community
   endpoint: http://oss-cn-beijing.aliyuncs.com

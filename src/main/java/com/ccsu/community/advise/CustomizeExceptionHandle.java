@@ -1,12 +1,9 @@
 package com.ccsu.community.advise;
 
-import com.alibaba.fastjson.JSON;
 import com.ccsu.community.dto.ResultDTO;
 import com.ccsu.community.exception.CustomizeErrorCode;
 import com.ccsu.community.exception.CustomizeException;
-import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,8 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * 拦截服务器内部异常 处理mvc请求异常

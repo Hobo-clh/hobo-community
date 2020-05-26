@@ -5,7 +5,7 @@ $(function () {
 //找回密码
 function sendCodePwd() {
     let email = $("#email").val()
-    if(email==null||email==""){
+    if (email == null || email == "") {
         alert("邮箱号不能为空")
         return;
     }
@@ -37,11 +37,11 @@ function sendCodePwd() {
 function verifyCode() {
     let email = $("#email").val()
     let code = $("#code").val();
-    if(email==null||email==""){
+    if (email == null || email == "") {
         alert("邮箱号不能为空")
         return;
     }
-    if(code==null||code==""){
+    if (code == null || code == "") {
         alert("邮箱号不能为空")
         return;
     }
@@ -80,10 +80,10 @@ function changePwd() {
     let email = $("#email").val();
     let pwd = $.trim($("#pwd").val())
     let confirmPwd = $.trim($("#confirmPwd").val())
-    if(pwd!==confirmPwd){
+    if (pwd !== confirmPwd) {
         alert("密码不一致，请重新输入");
-        $("#pwd").attr("value","");
-        $("#confirmPwd").attr("value","");
+        $("#pwd").attr("value", "");
+        $("#confirmPwd").attr("value", "");
         return;
     }
     $.ajax({
@@ -95,34 +95,38 @@ function changePwd() {
         },
         dataType: "json",
         success: function (response) {
-            if (response.code==200){
+            if (response.code == 200) {
                 alert("密码修改成功，快去登录吧！");
-                window.open("/login","_self");
-            }else {
+                window.open("/login", "_self");
+            } else {
                 alert(response.message);
             }
         }
     })
 }
+
 /**
  * 发送邮件后定时60秒
  * @param obj
  */
-function invokeSetTime(obj){
+function invokeSetTime(obj) {
     let countdown = 60;
     setTime(obj);
+
     function setTime(obj) {
         if (countdown === 0) {
-            $(obj).attr("disabled",false);
-            $(obj).attr("value","重新获取验证码");
+            $(obj).attr("disabled", false);
+            $(obj).attr("value", "重新获取验证码");
             countdown = 60;
             return;
         } else {
-            $(obj).attr("disabled",true);
+            $(obj).attr("disabled", true);
             $(obj).attr("value", countdown + "s 重新发送");
             countdown--;
         }
-        setTimeout(function() {setTime(obj)},1000);
+        setTimeout(function () {
+            setTime(obj)
+        }, 1000);
     }
 }
 
