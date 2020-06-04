@@ -3,8 +3,8 @@
 [线上地址](http://www.hobosocool.top:81/),欢迎大伙们来交流、提建议、找bug，有问题可以直接留言！
 ### 使用技术栈
 
-- 后端：Spring Boot、Mybatis等
-- 前端：Thymeleaf、BootStrap、MySQL等
+- 后端：Spring Boot、Mybatis、MySQL等
+- 前端：Thymeleaf、BootStrap等
 
 ### 功能简述
 

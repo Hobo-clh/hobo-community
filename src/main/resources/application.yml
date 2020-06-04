@@ -8,7 +8,7 @@ server:
 
 # 配置github登录
 github:
-  client_id: Iv1.edad84846ed5ad39
+  client_id:
   client_secret:
   redirect_uri: http://localhost:8887/github/callback
 # 配置qq登录
@@ -22,7 +22,7 @@ spring:
     cache: false
   # 配置数据源
   datasource:
-    url:
+    url: jdbc:mysql://localhost:3306/community?serverTimezone=UTC&useAffectedRows=true
     username:
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -78,7 +78,7 @@ mybatis:
 
 # 设置阿里云主KeyId、KeySecret
 aliyun:
-  accessKeyId: LTAI4FyBAoujqxXsAkXs1tfx
+  accessKeyId:
   accessKeySecret:
   bucketName: hobo-community
   endpoint: http://oss-cn-beijing.aliyuncs.com
