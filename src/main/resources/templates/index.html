@@ -84,11 +84,14 @@
                         <span th:if="${questionDTO.top==1}" class="label label-danger tag-list" style="background-color: #d9534f;margin: 0;">
                                 <span>置顶</span>
                         </span>
-                        <span th:each="tagOne:${questionDTO.tag.split(',')}" th:class="${'label label-info tag-list'}">
-                            <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
+                        <span th:each="tagOne:${questionDTO.tag.split(',')}">
+                            <span th:if="${tagOne}!=''"  th:class="${'label label-info tag-list'}">
+                            <a th:href="@{/(page=1,search=${search},tag=${tagOne})}">
                                 <span class="tag-js">[[${tagOne}]]</span>
                             </a>
                         </span>
+                        </span>
+
                         <span class="text-desc pull-right">
 
 
@@ -186,10 +189,11 @@
             <hr>
             <h4>
                 <img src="/images/svg/hot.svg">
-                删库跑路
+                推荐
             </h4>
             <div>
-                <img src="/images/deleteDB.gif" style="width: 200px;">
+                <h5>正确的解决Bug</h5>
+                <img src="/images/resolveBug.gif" style="width: 200px;">
             </div>
 
         </div>

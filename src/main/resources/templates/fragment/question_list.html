@@ -15,12 +15,13 @@
 
         <!--/*@thymesVar id="tag" type="com.ccsu.community.dto.QuestionDTO"*/-->
         <div class="media-status">
-                        <span class="label label-info tag-list" th:each="tagOne:${questionDTO.tag.split(',')}">
-                            <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
-                                <span>[[${tagOne}]]</span>
-                            </a>
-                        </span>
-
+            <span th:each="tagOne:${questionDTO.tag.split(',')}">
+                <span th:if="${tagOne}!=''" class="label label-info tag-list" >
+                <a  th:href="@{/(page=1,search=${search},tag=${tagOne})}">
+                    <span>[[${tagOne}]]</span>
+                </a>
+            </span>
+            </span>
             <span class="text-desc pull-right">
                 <span class="media-icon" th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
                     <a class="community-menu" th:href="@{/publish/__${questionDTO.id}__}" >

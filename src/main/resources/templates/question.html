@@ -66,14 +66,14 @@
                 </span>
                 <hr>
                 <!--标签-->
-                <div>
-                <span class="label label-info tag-list"  th:each="tag:${questionDTO.tag.split(',')}">
-                    <a style="text-decoration-line: none" th:href="@{/(page=1,tag=${tag})}">
-                        <span class="glyphicon glyphicon-tags "></span>
-                        <span>[[${tag}]]</span>
-                    </a>
+                <span th:each="tag:${questionDTO.tag.split(',')}">
+                    <span class="label label-info tag-list" th:if="${tag}!=''" >
+                        <a style="text-decoration-line: none" th:href="@{/(page=1,tag=${tag})}">
+                            <span class="glyphicon glyphicon-tags "></span>
+                            <span>[[${tag}]]</span>
+                        </a>
+                    </span>
                 </span>
-                </div>
 
                 <hr>
                 <div th:if="${session.user!=null&&session.user.id==questionDTO.user.id}">
