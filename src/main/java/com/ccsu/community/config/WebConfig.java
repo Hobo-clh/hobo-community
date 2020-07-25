@@ -23,6 +23,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(sessionInterceptor).addPathPatterns("/**");
     }
 
+    /**
+     * 开启put、delete等请求
+     * @return
+     */
     @Bean
     public FilterRegistrationBean<HttpPutFormContentFilter> testFilterRegistration2() {
         FilterRegistrationBean<HttpPutFormContentFilter> registration = new FilterRegistrationBean<HttpPutFormContentFilter>();

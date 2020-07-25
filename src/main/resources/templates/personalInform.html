@@ -31,7 +31,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <h2>修改资料</h2>
             <br>
-            <form id="test" action="/user" method="post">
+            <form id="personInform" action="/user" method="post">
                 <input type="hidden" name="_method" value="PUT"/>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">昵称</span>
@@ -60,7 +60,15 @@
 </html>
 
 <script>
-    $("#test").submit(function(){
+    $("#uploadAvatarForm").submit(function () {
+        let avatar = $("#uploadAvatar").val();
+        if (avatar === null || avatar === ""){
+            alert("请选择头像！！！");
+            return false;
+        }
+    });
+
+    $("#personInform").submit(function(){
         let name = $.trim($("#loginName").val());
         let bio = $.trim($("#bio").val());
         if (name==null || name==="") {

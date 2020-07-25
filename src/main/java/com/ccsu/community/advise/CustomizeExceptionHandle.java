@@ -23,7 +23,7 @@ public class CustomizeExceptionHandle {
 
     @ResponseBody
     @ExceptionHandler({Exception.class})
-    Object handle(HttpServletRequest request,
+    public Object handle(HttpServletRequest request,
                         HttpServletResponse response,
                         Throwable e, Model model) {
 

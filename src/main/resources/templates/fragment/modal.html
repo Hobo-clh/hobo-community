@@ -43,12 +43,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">上传头像！  注意：图片大小不能超过2MB！！</h4>
-
             </div>
-            <form action="/file/avatar" method="post" enctype="multipart/form-data">
+            <form id="uploadAvatarForm" action="/file/avatar" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <!--                <img src="http://thirdqq.qlogo.cn/g?b=oidb&k=llYeV6xpuFlpI570pWhicCw&s=40&t=1586229103" class="personal-avatar">-->
-                    <input class="btn btn-default" type="file" name="avatar-image" value="选择头像">
+                    <input id="uploadAvatar" class="btn btn-default" type="file" name="avatar-image" value="选择头像">
 
                 </div>
                 <div class="modal-footer">
@@ -58,5 +57,6 @@
             </form>
         </div>
     </div>
-
+</div>
 </body>
+</html>

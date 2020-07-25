@@ -27,9 +27,10 @@ public class HotTagTask {
     @Autowired
     private QuestionMapper questionMapper;
 
-    //24小时定时
+    /**
+     * 24小时定时
+     */
     @Scheduled(fixedRate = 6 * 60 * 60 * 1000)
-    //@Scheduled(cron = )
     public void hotTagSchedule() {
         int offset = 0;
         int limit = 10;

@@ -1,7 +1,6 @@
 package com.ccsu.community.utils;
 
-import com.ccsu.community.dto.ResultDTO;
-import com.ccsu.community.exception.CustomizeErrorCode;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
