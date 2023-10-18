@@ -1,6 +1,6 @@
 ## Hobo社区
 一个基于Spring Boot和MyBatis实现的的小型社区项目
-[线上地址](http://www.hobosocool.top:81/),欢迎大伙们来交流、提建议、找bug，有问题可以直接留言！
+~~[线上地址](http://www.hobosocool.top:81/)~~,欢迎大伙们来交流、提建议、找bug，有问题可以直接留言！
 ### 使用技术栈
 
 - 后端：Spring Boot、Mybatis、MySQL等
